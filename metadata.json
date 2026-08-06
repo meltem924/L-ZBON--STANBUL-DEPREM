@@ -1,0 +1,6 @@
+{
+  "name": "1755 Lizbon ve 1766 İstanbul Depremleri Karşılaştırma Analizi",
+  "description": "TAR.11.1.3 kazanımına yönelik etkileşimli harita, görsel analiz, sürükle-bırak matrisi ve rozet temelli oyunlaştırılmış e-öğrenme platformu.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
