@@ -265,9 +265,6 @@ export const VisualAnalysisLab: React.FC<VisualAnalysisLabProps> = ({ onUnlockBa
                   <span className="text-xs font-bold tracking-wider text-slate-300 font-cinzel">
                     Vaka Metinleri
                   </span>
-                  <span className="text-[11px] font-mono text-slate-400 bg-slate-800/60 px-2.5 py-1 rounded-md border border-slate-700">
-                    Durum #{currentTaskIndex + 1} / 4
-                  </span>
                 </div>
 
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
@@ -383,10 +380,7 @@ export const VisualAnalysisLab: React.FC<VisualAnalysisLabProps> = ({ onUnlockBa
 
               {/* IMMEDIATE EDUCATIONAL FEEDBACK DISPLAY */}
               {feedbackStates[task.id] === 'success' && (
-                <div className="bg-emerald-950/80 border-2 border-emerald-500 p-4 rounded-2xl space-y-2 animate-fadeIn">
-                  <div className="flex items-center gap-2 text-emerald-400 font-bold text-xs uppercase tracking-wider font-cinzel">
-                    Anlık Öğretici Geri Dönüt (Başarılı Eşleştirme):
-                  </div>
+                <div className="bg-emerald-950/80 border-2 border-emerald-500 p-4 rounded-2xl animate-fadeIn">
                   <p className="text-xs text-emerald-200 leading-relaxed font-medium">
                     {task.feedbackMessage}
                   </p>
