@@ -26,7 +26,7 @@ const MATCHING_TASKS: MatchingTask[] = [
     istanbulContent: 'Kaza-kader anlayışı ile devlet tedbiri sentezlendi. Şeyhülislam dilenci fetvası yayımladı, Minas Ceranyan felaket şiiri yazdı, Rum ve Ermeni kiliselerinin onarımına Müslüman ustalar gönderildi.',
     correctDimension: 'social',
     correctType: 'farklilik',
-    dimensionTitle: '👥 Sosyal & Düşünsel Boyut',
+    dimensionTitle: 'Sosyal & Düşünsel Boyut',
     feedbackMessage: 'Tebrikler! Harika Buluş! Lizbon felaketi Batı Aydınlanması’nda Kilise ve dinsel optimizmin sorgulanmasına yol açarken; İstanbul felaketi kriz yönetiminde toplumsal birlik, vakıf ihya ve cemaatler arası dayanışmayı pekiştirdiği için bu olay Sosyal bir FARKLILIK’tır.',
     hintMessage: 'İpucu: Bu içerikte Voltaire ve Rousseau’nun felsefi yazıları, Şeyhülislam fetvası, şiirler ve toplumsal cemaatler arası yardımlaşma var. Metni dikkatle inceleyiniz.'
   },
@@ -37,7 +37,7 @@ const MATCHING_TASKS: MatchingTask[] = [
     istanbulContent: 'Sultan III. Mustafa çadırlarda halka yardım etti ve çadırda yaşadı. Arama-kurtarma ve imar için birer kaymakam, kadı ve subaşı görevlendirildi; yardımda kadın ve çocuklara öncelik tanındı.',
     correctDimension: 'administration',
     correctType: 'benzerlik',
-    dimensionTitle: '📜 İdari & Kriz Yönetimi',
+    dimensionTitle: 'İdari & Kriz Yönetimi',
     feedbackMessage: 'Tebrikler! Doğru Tespit! Her iki imparatorluk başkentinde de kriz idaresi hükümdar ve bakan düzeyinde bizzat çadırlarda ikamet edilerek yürütüldüğü için bu olay İdari bir BENZERLİK’tir.',
     hintMessage: 'İpucu: Bu içerikte hükümdarların çadırlarda yaşaması, acil mülki idareciler atanması (kaymakam, kadı, subaşı, 12 bölge lideri) ve asayiş önlemleri yer alıyor. Hangi boyuta ait olabilir?'
   },
@@ -48,7 +48,7 @@ const MATCHING_TASKS: MatchingTask[] = [
     istanbulContent: 'Kâgir yapma zorunluluğu fermanına karşılık halkın ahşap evlerde ısrarı, mahalle yangınlarını önleyen kâgir yangın duvarları (kulaklı duvar) ve Fatih Camii’nin Barok-Osmanlı ihyası.',
     correctDimension: 'architecture',
     correctType: 'benzerlik',
-    dimensionTitle: '🏛️ Mimari & İmar Boyutu',
+    dimensionTitle: 'Mimari & İmar Boyutu',
     feedbackMessage: 'Tebrikler! Doğru Analiz! Her iki imparatorluk başkenti de sarsıntılara karşı esnek ahşap karkas strüktürler (Gaiola & Ahşap Çatma) geliştirdiği için bu olay Mimari bir BENZERLİK’tir.',
     hintMessage: 'İpucu: Bu olayda ahşap kafes (Gaiola), ahşap çatma evler ve kâgir yangın duvarları gibi fiziki/yapısal yöntemler ele alınıyor. İnceleyerek tekrar eşleştirin.'
   },
@@ -59,7 +59,7 @@ const MATCHING_TASKS: MatchingTask[] = [
     istanbulContent: 'Divan-ı Hümayun kararıyla her evden 22 akçe ek vergi toplandı, II. Bayezid Vakfı’nın 4 yıllık geliri tahsis edildi, Kapalıçarşı tonozları tamir edilip narh (tavan fiyat) koyuldu.',
     correctDimension: 'economic',
     correctType: 'farklilik',
-    dimensionTitle: '💰 Ekonomik & Mali Boyut',
+    dimensionTitle: 'Ekonomik & Mali Boyut',
     feedbackMessage: 'Tebrikler! Doğru Eşleştirme! Lizbon mali krizi deniz ticareti kesintileri ve Kraliyet Hazinesi kurarak çözerken; İstanbul ek 22 akçe hane vergisi, vakıf gelirleri ve narh (tavan fiyat) sistemiyle yönettiği için bu olay Ekonomik bir FARKLILIK’tır.',
     hintMessage: 'İpucu: Bu içerikte vergiler, ithalat kesintileri, hazine kuruluşu, 22 akçe hane vergisi ve vakıf gelirleri bulunuyor. Hangi boyuta ait olabilir?'
   }
@@ -174,7 +174,7 @@ export const VisualAnalysisLab: React.FC<VisualAnalysisLabProps> = ({ onUnlockBa
               />
               <div className="absolute top-4 right-4 z-10 pointer-events-none">
                 <span className="bg-orange-600/90 backdrop-blur-md text-white border border-orange-400/60 px-3.5 py-1.5 rounded-full text-xs font-bold font-cinzel shadow-xl">
-                  🕌 Görsel 2: 1766 İstanbul Depremi
+                  Görsel 2: 1766 İstanbul Depremi
                 </span>
               </div>
             </div>
@@ -196,7 +196,7 @@ export const VisualAnalysisLab: React.FC<VisualAnalysisLabProps> = ({ onUnlockBa
               />
               <div className="absolute top-4 left-4 z-10 pointer-events-none">
                 <span className="bg-sky-600/90 backdrop-blur-md text-white border border-sky-400/60 px-3.5 py-1.5 rounded-full text-xs font-bold font-cinzel shadow-xl">
-                  🌊 Görsel 1: 1755 Lizbon Depremi
+                  Görsel 1: 1755 Lizbon Depremi
                 </span>
               </div>
             </div>
@@ -229,26 +229,28 @@ export const VisualAnalysisLab: React.FC<VisualAnalysisLabProps> = ({ onUnlockBa
       <div className="bg-[#28303a] border border-[#3d4959] rounded-3xl p-6 shadow-md space-y-6">
         
         {/* Header with Progress Bar */}
-        <div className="border-b border-[#3d4959] pb-4 flex flex-col sm:flex-row sm:items-center justify-between gap-3">
-          <div>
-            <div className="flex items-center gap-2 text-emerald-400 font-bold text-xs uppercase tracking-wider mb-1 font-cinzel">
-              <Building2 className="w-4 h-4" /> Eşleştirme
+        <div className="border-b border-[#3d4959] pb-5 space-y-3">
+          <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3">
+            <div>
+              <div className="text-emerald-400 font-bold text-xs uppercase tracking-wider mb-1 font-cinzel">
+                Eşleştirme & Vaka Analizi
+              </div>
+              <h3 className="text-xl font-bold text-slate-100 font-cinzel">
+                Tarihsel Durumları Analiz Edin ve Eşleştirin
+              </h3>
             </div>
-            <h3 className="text-xl font-bold text-slate-100 font-cinzel">
-              Tarihsel durumları inceleyin, ilgili boyuta ve etki türüne eşleştirin.
-            </h3>
+            
+            <div className="bg-[#1e242b] px-3.5 py-1.5 rounded-xl border border-[#3d4959] text-xs font-bold font-mono text-amber-400 self-start sm:self-auto">
+              {completedCount} / 4
+            </div>
           </div>
-          
-          <div className="flex items-center gap-3 bg-[#1e242b] px-4 py-2 rounded-2xl border border-[#3d4959]">
-            <span className="text-xs font-bold text-slate-300 font-mono">
-              Tamamlanan Eşleştirme: <span className="text-amber-400">{completedCount}</span> / 4
+
+          {/* Prominent & Explanatory Instruction Box */}
+          <div className="bg-[#1a2330] border-l-4 border-amber-400 p-4 rounded-2xl text-xs sm:text-sm text-slate-200 leading-relaxed font-medium shadow-md">
+            <span className="font-bold text-amber-400 block mb-1 font-cinzel text-xs uppercase tracking-wider">
+              📌 Eşleştirme Yönergesi:
             </span>
-            <div className="w-20 bg-[#12171e] h-2.5 rounded-full overflow-hidden border border-[#3d4959]">
-              <div
-                className="bg-amber-400 h-full transition-all duration-300"
-                style={{ width: `${(completedCount / 4) * 100}%` }}
-              />
-            </div>
+            Aşağıda verilen 1755 Lizbon ve 1766 İstanbul depremlerine ait vaka metinlerini okuyunuz. Metindeki konunun hangi <strong>boyuta</strong> (Sosyal, İdari, Mimari veya Ekonomik) ait olduğunu ve durumun iki imparatorluk arasında bir <strong>Benzerlik</strong> mi yoksa <strong>Farklılık</strong> mı gösterdiğini seçerek eşleştirmeyi kontrol ediniz.
           </div>
         </div>
 
@@ -256,63 +258,78 @@ export const VisualAnalysisLab: React.FC<VisualAnalysisLabProps> = ({ onUnlockBa
         {(() => {
           const task = MATCHING_TASKS[currentTaskIndex] || MATCHING_TASKS[0];
           return (
-            <div key={task.id} className="bg-[#1e242b] border border-[#3d4959] rounded-3xl p-5 sm:p-6 space-y-5 shadow-xl">
-              {matchedTasks[task.id] && (
-                <div className="flex justify-end">
-                  <span className="bg-emerald-500/20 text-emerald-300 border border-emerald-500/40 text-xs font-bold px-3 py-1 rounded-full font-mono">
-                    ✓ Başarıyla Keşfedildi
+            <div key={task.id} className="bg-[#181f28] border-2 border-[#3d4959] rounded-3xl p-5 sm:p-7 space-y-6 shadow-2xl">
+              {/* 1. TOP SECTION: HISTORICAL EVENT READOUT CARDS */}
+              <div className="space-y-3">
+                <div className="flex items-center justify-between px-1">
+                  <span className="text-xs font-bold tracking-wider text-slate-300 font-cinzel">
+                    Vaka Metinleri
+                  </span>
+                  <span className="text-[11px] font-mono text-slate-400 bg-slate-800/60 px-2.5 py-1 rounded-md border border-slate-700">
+                    Durum #{currentTaskIndex + 1} / 4
                   </span>
                 </div>
-              )}
 
-              {/* Side-by-Side Content Card to Read */}
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
-                <div className="bg-[#161c23] border border-sky-500/40 rounded-2xl p-4 space-y-2">
-                  <span className="text-xs font-bold text-sky-300 font-cinzel block border-b border-sky-500/30 pb-1">
-                    🌊 1755 Lizbon Etkisi
-                  </span>
-                  <p className="text-xs text-slate-200 leading-relaxed font-medium">
-                    {task.lisbonContent}
-                  </p>
-                </div>
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
+                  {/* Lisbon Event Card */}
+                  <div className="relative overflow-hidden bg-gradient-to-br from-sky-950/80 via-[#111f33] to-[#0d131c] border-2 border-sky-500/50 rounded-2xl p-5 space-y-3 shadow-lg shadow-sky-950/40">
+                    <div className="border-b border-sky-500/30 pb-2">
+                      <span className="text-xs font-bold text-sky-300 font-cinzel tracking-wide block">
+                        1755 Lizbon Etkisi
+                      </span>
+                    </div>
+                    <p className="text-xs sm:text-sm text-slate-200 leading-relaxed font-medium">
+                      {task.lisbonContent}
+                    </p>
+                  </div>
 
-                <div className="bg-[#161c23] border border-orange-500/40 rounded-2xl p-4 space-y-2">
-                  <span className="text-xs font-bold text-orange-300 font-cinzel block border-b border-orange-500/30 pb-1">
-                    🕌 1766 İstanbul Etkisi
-                  </span>
-                  <p className="text-xs text-slate-200 leading-relaxed font-medium">
-                    {task.istanbulContent}
-                  </p>
+                  {/* Istanbul Event Card */}
+                  <div className="relative overflow-hidden bg-gradient-to-br from-amber-950/80 via-[#271d17] to-[#0d131c] border-2 border-amber-500/50 rounded-2xl p-5 space-y-3 shadow-lg shadow-amber-950/40">
+                    <div className="border-b border-amber-500/30 pb-2">
+                      <span className="text-xs font-bold text-amber-300 font-cinzel tracking-wide block">
+                        1766 İstanbul Etkisi
+                      </span>
+                    </div>
+                    <p className="text-xs sm:text-sm text-slate-200 leading-relaxed font-medium">
+                      {task.istanbulContent}
+                    </p>
+                  </div>
                 </div>
               </div>
 
-              {/* INTERACTIVE MATCHING QUESTIONS FOR STUDENT */}
-              <div className="bg-[#161c23] border border-[#3d4959] p-5 rounded-2xl space-y-5">
+              {/* 2. BOTTOM SECTION: INTERACTIVE MATCHING QUESTIONS PANEL */}
+              <div className="bg-[#111720] border-2 border-slate-700/90 p-5 sm:p-6 rounded-2xl space-y-6 shadow-inner">
 
                 {/* Step 1: Dimension Selection */}
-                <div className="space-y-2">
-                  <label className="text-xs font-bold text-slate-200 block">
-                    1. Yukarıdaki tarihsel olay hangi boyuta aittir?
-                  </label>
-                  <div className="grid grid-cols-2 sm:grid-cols-4 gap-2.5">
+                <div className="space-y-3">
+                  <div className="flex items-center gap-2">
+                    <span className="w-6 h-6 rounded-full bg-amber-500 text-slate-950 flex items-center justify-center font-bold text-xs font-mono shadow-md">
+                      1
+                    </span>
+                    <label className="text-xs sm:text-sm font-bold text-slate-100 block">
+                      Yukarıdaki tarihsel olaylar ve durumlar hangi boyuta aittir?
+                    </label>
+                  </div>
+
+                  <div className="grid grid-cols-2 sm:grid-cols-4 gap-3">
                     {[
-                      { id: 'social', label: '👥 Sosyal & Düşünsel' },
-                      { id: 'administration', label: '📜 İdari & Kriz' },
-                      { id: 'architecture', label: '🏛️ Mimari & İmar' },
-                      { id: 'economic', label: '💰 Ekonomik & Mali' }
+                      { id: 'social', label: 'Sosyal & Düşünsel' },
+                      { id: 'administration', label: 'İdari & Kriz' },
+                      { id: 'architecture', label: 'Mimari & İmar' },
+                      { id: 'economic', label: 'Ekonomik & Mali' }
                     ].map(dim => {
                       const isSelected = selectedDimensions[task.id] === dim.id;
                       return (
                         <button
                           key={dim.id}
                           onClick={() => setSelectedDimensions({ ...selectedDimensions, [task.id]: dim.id as any })}
-                          className={`p-3 rounded-xl border text-xs font-bold transition-all cursor-pointer text-center ${
+                          className={`p-3.5 rounded-xl border-2 text-xs font-bold transition-all cursor-pointer text-center flex flex-col items-center justify-center gap-1.5 shadow-md ${
                             isSelected
-                              ? 'bg-amber-500 text-slate-950 border-amber-400 shadow-lg'
-                              : 'bg-[#1e242b] border-[#3d4959] text-slate-200 hover:bg-[#252d37]'
+                              ? 'bg-gradient-to-r from-amber-500 to-amber-400 text-slate-950 border-amber-300 ring-2 ring-amber-400/50 scale-[1.02]'
+                              : 'bg-[#1a222d] border-slate-700 text-slate-200 hover:bg-[#222c3b] hover:border-amber-400/60'
                           }`}
                         >
-                          {dim.label}
+                          <span>{dim.label}</span>
                         </button>
                       );
                     })}
@@ -320,26 +337,30 @@ export const VisualAnalysisLab: React.FC<VisualAnalysisLabProps> = ({ onUnlockBa
                 </div>
 
                 {/* Step 2: Similarity or Difference Tag Selection */}
-                <div className="space-y-2 pt-2 border-t border-[#3d4959]">
-                  <label className="text-xs font-bold text-slate-200 block">
-                    2. Bu durum bir Benzerlik mi yoksa Farklılık mıdır?
-                  </label>
-                  <div className="grid grid-cols-2 gap-3">
+                <div className="space-y-3 pt-4 border-t border-slate-800">
+                  <div className="flex items-center gap-2">
+                    <span className="w-6 h-6 rounded-full bg-sky-500 text-slate-950 flex items-center justify-center font-bold text-xs font-mono shadow-md">
+                      2
+                    </span>
+                    <label className="text-xs sm:text-sm font-bold text-slate-100 block">
+                      Bu durum bir farklılık mıdır yoksa benzerlik mi?
+                    </label>
+                  </div>
+
+                  <div className="grid grid-cols-2 gap-3.5">
                     {[
-                      { id: 'farklilik', label: '⚖️ FARKLILIK' },
-                      { id: 'benzerlik', label: '⚖️ BENZERLİK' }
+                      { id: 'farklilik', label: 'FARKLILIK', activeClass: 'bg-gradient-to-r from-sky-500 to-sky-400 text-slate-950 border-sky-300 ring-2 ring-sky-400/50 scale-[1.02]' },
+                      { id: 'benzerlik', label: 'BENZERLİK', activeClass: 'bg-gradient-to-r from-amber-500 to-amber-400 text-slate-950 border-amber-300 ring-2 ring-amber-400/50 scale-[1.02]' }
                     ].map(type => {
                       const isSelected = selectedTypes[task.id] === type.id;
                       return (
                         <button
                           key={type.id}
                           onClick={() => setSelectedTypes({ ...selectedTypes, [task.id]: type.id as any })}
-                          className={`p-3 rounded-xl border text-xs font-bold transition-all cursor-pointer text-center ${
+                          className={`p-3.5 rounded-xl border-2 text-xs font-bold transition-all cursor-pointer text-center shadow-md ${
                             isSelected
-                              ? type.id === 'benzerlik'
-                                ? 'bg-amber-500 text-slate-950 border-amber-400 shadow-lg'
-                                : 'bg-sky-500 text-slate-950 border-sky-400 shadow-lg'
-                              : 'bg-[#1e242b] border-[#3d4959] text-slate-200 hover:bg-[#252d37]'
+                              ? type.activeClass
+                              : 'bg-[#1a222d] border-slate-700 text-slate-200 hover:bg-[#222c3b] hover:border-slate-500'
                           }`}
                         >
                           {type.label}
@@ -350,12 +371,12 @@ export const VisualAnalysisLab: React.FC<VisualAnalysisLabProps> = ({ onUnlockBa
                 </div>
 
                 {/* Action Button */}
-                <div className="pt-2 flex justify-end">
+                <div className="pt-3 flex justify-end border-t border-slate-800">
                   <button
                     onClick={() => handleCheckMatching(task.id)}
-                    className="bg-amber-500 hover:bg-amber-400 text-slate-950 font-bold px-6 py-2.5 rounded-xl transition-all shadow-lg font-cinzel text-xs flex items-center gap-2 cursor-pointer"
+                    className="w-full sm:w-auto bg-gradient-to-r from-amber-500 to-amber-400 hover:from-amber-400 hover:to-amber-300 text-slate-950 font-bold px-7 py-3 rounded-xl transition-all shadow-xl font-cinzel text-xs flex items-center justify-center gap-2 cursor-pointer scale-[1.01] active:scale-[0.99]"
                   >
-                    <CheckCircle2 className="w-4 h-4" /> Eşleştirmeyi Kontrol Et & Dönütü Gör
+                    EŞLEŞTİRMEYİ KONTROL ET & DÖNÜTÜ GÖR
                   </button>
                 </div>
               </div>
@@ -364,7 +385,7 @@ export const VisualAnalysisLab: React.FC<VisualAnalysisLabProps> = ({ onUnlockBa
               {feedbackStates[task.id] === 'success' && (
                 <div className="bg-emerald-950/80 border-2 border-emerald-500 p-4 rounded-2xl space-y-2 animate-fadeIn">
                   <div className="flex items-center gap-2 text-emerald-400 font-bold text-xs uppercase tracking-wider font-cinzel">
-                    <CheckCircle2 className="w-5 h-5 text-emerald-400" /> Anlık Öğretici Geri Dönüt (Başarılı Eşleştirme):
+                    Anlık Öğretici Geri Dönüt (Başarılı Eşleştirme):
                   </div>
                   <p className="text-xs text-emerald-200 leading-relaxed font-medium">
                     {task.feedbackMessage}
@@ -375,7 +396,7 @@ export const VisualAnalysisLab: React.FC<VisualAnalysisLabProps> = ({ onUnlockBa
               {feedbackStates[task.id] === 'error' && (
                 <div className="bg-rose-950/80 border-2 border-rose-500/80 p-4 rounded-2xl space-y-2 animate-fadeIn">
                   <div className="flex items-center gap-2 text-rose-400 font-bold text-xs uppercase tracking-wider font-cinzel">
-                    <AlertCircle className="w-5 h-5 text-rose-400" /> Öğretici İpucu & Geri Dönüt:
+                    Öğretici İpucu & Geri Dönüt:
                   </div>
                   <p className="text-xs text-rose-200 leading-relaxed font-medium">
                     {task.hintMessage}

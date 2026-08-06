@@ -157,9 +157,9 @@ export const ComparisonMatrix: React.FC<ComparisonMatrixProps> = ({ onUnlockBadg
             <button
               onClick={() => handleUndoCard(card.id)}
               title="Kartı sütundan çıkar ve yeniden seç"
-              className="shrink-0 flex items-center gap-1 text-[10px] bg-slate-800 hover:bg-slate-700 text-slate-300 px-2 py-1 rounded-lg border border-slate-600 transition-colors cursor-pointer font-mono"
+              className="shrink-0 text-[10px] bg-slate-800 hover:bg-slate-700 text-slate-300 px-2 py-1 rounded-lg border border-slate-600 transition-colors cursor-pointer font-mono"
             >
-              <Undo2 className="w-3 h-3 text-amber-400" /> Geri Al
+              Geri Al
             </button>
           )}
         </div>
@@ -169,26 +169,17 @@ export const ComparisonMatrix: React.FC<ComparisonMatrixProps> = ({ onUnlockBadg
           <div className="text-[11px] font-medium leading-normal border-t border-slate-700/50 pt-2 space-y-1">
             <div className="flex items-center gap-1">
               {isAutoFixed ? (
-                <>
-                  <Sparkles className="w-3.5 h-3.5 text-purple-300 shrink-0" />
-                  <span className="text-purple-300 font-bold uppercase tracking-wider text-[10px]">
-                    🔮 Cevap Gösterildi (Doğru Konumu)
-                  </span>
-                </>
+                <span className="text-purple-300 font-bold uppercase tracking-wider text-[10px]">
+                  Cevap Gösterildi (Doğru Konumu)
+                </span>
               ) : isUserCorrect ? (
-                <>
-                  <Check className="w-3.5 h-3.5 text-emerald-400 shrink-0" />
-                  <span className="text-emerald-400 font-bold uppercase tracking-wider text-[10px]">
-                    ✓ Sizin Doğru Yerleşiminiz
-                  </span>
-                </>
+                <span className="text-emerald-400 font-bold uppercase tracking-wider text-[10px]">
+                  Sizin Doğru Yerleşiminiz
+                </span>
               ) : (
-                <>
-                  <AlertCircle className="w-3.5 h-3.5 text-rose-400 shrink-0" />
-                  <span className="text-rose-400 font-bold uppercase tracking-wider text-[10px]">
-                    Hatalı Yerleşim
-                  </span>
-                </>
+                <span className="text-rose-400 font-bold uppercase tracking-wider text-[10px]">
+                  Hatalı Yerleşim
+                </span>
               )}
             </div>
             <p className="text-slate-200">
@@ -212,14 +203,14 @@ export const ComparisonMatrix: React.FC<ComparisonMatrixProps> = ({ onUnlockBadg
         </div>
       ) : (
         <div className="bg-[#1c232c] border border-emerald-500/50 rounded-3xl p-4 flex items-center justify-between gap-4">
-          <div className="text-xs font-bold text-emerald-400 font-mono flex items-center gap-2">
-            <CheckCircle2 className="w-4 h-4" /> Tüm 9 etki kartı sütunlara yerleştirildi. Aşağıdaki "Kontrol Et" butonuna basarak değerlendiriniz.
+          <div className="text-xs font-bold text-emerald-400 font-mono">
+            Tüm 9 etki kartı sütunlara yerleştirildi. Aşağıdaki "Kontrol Et" butonuna basarak değerlendiriniz.
           </div>
           <button
             onClick={handleResetAll}
-            className="flex items-center gap-1.5 bg-amber-500 hover:bg-amber-400 text-slate-950 text-xs font-bold px-3.5 py-1.5 rounded-xl transition-colors cursor-pointer font-cinzel"
+            className="bg-amber-500 hover:bg-amber-400 text-slate-950 text-xs font-bold px-3.5 py-1.5 rounded-xl transition-colors cursor-pointer font-cinzel"
           >
-            <RefreshCw className="w-3.5 h-3.5" /> Tümünü Sıfırla
+            Tümünü Sıfırla
           </button>
         </div>
       )}
@@ -238,8 +229,8 @@ export const ComparisonMatrix: React.FC<ComparisonMatrixProps> = ({ onUnlockBadg
                 : 'bg-sky-950/40 border-sky-500/30 text-sky-300/70 cursor-default'
             }`}
           >
-            <h4 className="font-bold text-sm flex items-center justify-center gap-1.5">
-              <span>🌊 Sadece Lizbon'a Özgü Etkiler</span>
+            <h4 className="font-bold text-sm">
+              <span>Sadece Lizbon'a Özgü Etkiler</span>
             </h4>
           </button>
 
@@ -259,8 +250,8 @@ export const ComparisonMatrix: React.FC<ComparisonMatrixProps> = ({ onUnlockBadg
                 : 'bg-amber-950/40 border-amber-500/30 text-amber-300/70 cursor-default'
             }`}
           >
-            <h4 className="font-bold text-sm flex items-center justify-center gap-1.5">
-              <span>⚖️ Her İki Depremde Ortak Etkiler</span>
+            <h4 className="font-bold text-sm">
+              <span>Her İki Depremde Ortak Etkiler</span>
             </h4>
           </button>
 
@@ -280,8 +271,8 @@ export const ComparisonMatrix: React.FC<ComparisonMatrixProps> = ({ onUnlockBadg
                 : 'bg-orange-950/40 border-orange-500/30 text-orange-300/70 cursor-default'
             }`}
           >
-            <h4 className="font-bold text-sm flex items-center justify-center gap-1.5">
-              <span>🕌 Sadece İstanbul'a Özgü Etkiler</span>
+            <h4 className="font-bold text-sm">
+              <span>Sadece İstanbul'a Özgü Etkiler</span>
             </h4>
           </button>
 
@@ -301,13 +292,12 @@ export const ComparisonMatrix: React.FC<ComparisonMatrixProps> = ({ onUnlockBadg
             <button
               disabled={!isAllPlaced}
               onClick={handleCheck}
-              className={`px-8 py-3 rounded-2xl font-bold text-xs uppercase tracking-wider transition-all shadow-lg font-cinzel flex items-center gap-2 ${
+              className={`px-8 py-3 rounded-2xl font-bold text-xs uppercase tracking-wider transition-all shadow-lg font-cinzel ${
                 isAllPlaced
                   ? 'bg-amber-500 hover:bg-amber-400 text-slate-950 cursor-pointer ring-4 ring-amber-500/30 scale-[1.03]'
                   : 'bg-slate-800 text-slate-500 border border-slate-700 cursor-not-allowed opacity-60'
               }`}
             >
-              <ShieldCheck className="w-4 h-4" />
               Kontrol Et
             </button>
           ) : (
@@ -315,17 +305,17 @@ export const ComparisonMatrix: React.FC<ComparisonMatrixProps> = ({ onUnlockBadg
               {/* Transforms Kontrol Et button into Yeniden Dene */}
               <button
                 onClick={handleRetry}
-                className="bg-amber-500 hover:bg-amber-400 text-slate-950 font-bold px-8 py-3 rounded-2xl transition-all shadow-lg font-cinzel text-xs uppercase tracking-wider flex items-center gap-2 cursor-pointer ring-4 ring-amber-500/30 scale-[1.03]"
+                className="bg-amber-500 hover:bg-amber-400 text-slate-950 font-bold px-8 py-3 rounded-2xl transition-all shadow-lg font-cinzel text-xs uppercase tracking-wider cursor-pointer ring-4 ring-amber-500/30 scale-[1.03]"
               >
-                <RotateCcw className="w-4 h-4" /> Yeniden Dene
+                Yeniden Dene
               </button>
 
               {/* Cevapları Göster button triggers handleShowAnswers */}
               <button
                 onClick={handleShowAnswers}
-                className="bg-sky-600 hover:bg-sky-500 text-white font-bold px-8 py-3 rounded-2xl transition-all shadow-lg font-cinzel text-xs uppercase tracking-wider flex items-center gap-2 cursor-pointer"
+                className="bg-sky-600 hover:bg-sky-500 text-white font-bold px-8 py-3 rounded-2xl transition-all shadow-lg font-cinzel text-xs uppercase tracking-wider cursor-pointer"
               >
-                <Eye className="w-4 h-4" /> Cevapları Göster
+                Cevapları Göster
               </button>
             </>
           )}
@@ -334,8 +324,8 @@ export const ComparisonMatrix: React.FC<ComparisonMatrixProps> = ({ onUnlockBadg
         {/* FEEDBACK AFTER CHECK IS CLICKED */}
         {isChecked && isAllCorrect && (
           <div className="bg-emerald-950/90 border-2 border-emerald-500 p-5 rounded-2xl space-y-2 animate-fadeIn shadow-2xl">
-            <div className="flex items-center gap-2 text-emerald-400 font-bold text-sm font-cinzel">
-              <Sparkles className="w-5 h-5 text-emerald-400" /> Tebrikler! Tüm Etkileri Doğru Sınıflandırdınız!
+            <div className="text-emerald-400 font-bold text-sm font-cinzel">
+              Tebrikler! Tüm Etkileri Doğru Sınıflandırdınız!
             </div>
             <p className="text-xs text-emerald-200 leading-relaxed font-medium">
               1755 Lizbon ve 1766 İstanbul depremlerinin toplumsal, idari, düşünsel ve mimari etkilerini kusursuz bir şekilde analiz ederek doğru sütunlara yerleştirdiniz.
@@ -345,8 +335,8 @@ export const ComparisonMatrix: React.FC<ComparisonMatrixProps> = ({ onUnlockBadg
 
         {isChecked && !isAllCorrect && (
           <div className="bg-rose-950/90 border-2 border-rose-500/80 p-5 rounded-2xl space-y-2 animate-fadeIn shadow-2xl">
-            <div className="flex items-center gap-2 text-rose-400 font-bold text-sm font-cinzel">
-              <AlertCircle className="w-5 h-5 text-rose-400" /> Bazı Kartlar Hatalı Sütunlara Yerleştirildi
+            <div className="text-rose-400 font-bold text-sm font-cinzel">
+              Bazı Kartlar Hatalı Sütunlara Yerleştirildi
             </div>
             <p className="text-xs text-rose-200 leading-relaxed font-medium">
               Toplam {totalCount} karttan {correctCount} tanesi doğru yerleştirildi. Yanlış yerleştirilen kartları düzeltmek için yukarıdaki "Yeniden Dene" veya tüm otomatik doğru konumları mor renkli olarak görmek için "Cevapları Göster" butonunu kullanabilirsiniz.
