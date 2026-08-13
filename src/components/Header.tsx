@@ -125,18 +125,13 @@ export const Header: React.FC<HeaderProps> = ({ activeTab, setActiveTab, badges,
           <button
             onClick={toggleFullscreen}
             title={isFullscreen ? "Tam Ekrandan Çık" : "Tam Ekran Yap"}
-            className="p-2 text-amber-400 hover:text-amber-300 bg-[#1e242b] hover:bg-[#28323e] rounded-xl transition-colors cursor-pointer border border-[#374354] flex items-center gap-1.5 text-xs font-bold font-cinzel active:scale-95"
+            aria-label={isFullscreen ? "Tam Ekrandan Çık" : "Tam Ekran Yap"}
+            className="p-2 text-amber-400 hover:text-amber-300 bg-[#1e242b] hover:bg-[#28323e] rounded-xl transition-colors cursor-pointer border border-[#374354] flex items-center justify-center active:scale-95"
           >
             {isFullscreen ? (
-              <>
-                <Minimize2 className="w-4 h-4 text-amber-400" />
-                <span className="hidden sm:inline">Küçült</span>
-              </>
+              <Minimize2 className="w-4 h-4 text-amber-400" />
             ) : (
-              <>
-                <Maximize2 className="w-4 h-4 text-amber-400" />
-                <span className="hidden sm:inline">Tam Ekran</span>
-              </>
+              <Maximize2 className="w-4 h-4 text-amber-400" />
             )}
           </button>
 
