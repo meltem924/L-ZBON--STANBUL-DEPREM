@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Award, RotateCcw, Sparkles, Map, Layers, LayoutGrid, CheckCircle, Lock, Maximize2, Minimize2 } from 'lucide-react';
+import { Award, RotateCcw, Map, Layers, LayoutGrid, CheckCircle, Lock, Maximize2, Minimize2 } from 'lucide-react';
 import { ActiveTab, Badge } from '../types';
 
 interface HeaderProps {
@@ -29,7 +29,6 @@ export const Header: React.FC<HeaderProps> = ({ activeTab, setActiveTab, badges,
   };
 
   const unlockedCount = badges.filter(b => b.unlocked).length;
-  const progressPercent = Math.round((unlockedCount / badges.length) * 100);
   const isBadgeUnlocked = (id: string) => badges.find(b => b.id === id)?.unlocked;
 
   const steps = [
@@ -110,22 +109,6 @@ export const Header: React.FC<HeaderProps> = ({ activeTab, setActiveTab, badges,
         {/* Gamification Bar & Actions */}
         <div className="flex items-center gap-3 w-full lg:w-auto justify-between lg:justify-end shrink-0">
           
-          {/* Progress Indicator */}
-          <div className="flex items-center gap-2.5 bg-[#1e242b] px-3 py-1.5 rounded-xl border border-[#374354] shadow-inner">
-            <div className="text-right">
-              <div className="text-xs font-bold text-amber-400 flex items-center justify-end gap-1">
-                <span>%{progressPercent}</span>
-                <Sparkles className="w-3 h-3 text-amber-400" />
-              </div>
-            </div>
-            <div className="w-14 h-2 bg-[#14181d] rounded-full overflow-hidden border border-[#2d3745]">
-              <div 
-                className="h-full bg-gradient-to-r from-amber-500 via-sky-400 to-emerald-400 transition-all duration-500 shadow-sm" 
-                style={{ width: `${progressPercent}%` }}
-              />
-            </div>
-          </div>
-
           {/* Badges Button */}
           <button
             onClick={onOpenBadges}
