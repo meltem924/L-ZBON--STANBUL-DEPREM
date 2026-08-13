@@ -50,3 +50,14 @@ export interface StepInstruction {
   instructionText: string;
   actionPrompt: string;
 }
+
+declare global {
+  interface Window {
+    SCORM?: {
+      initialize: () => boolean;
+      terminate: () => boolean;
+      sendScore: (rawScore: number, examMaxScore: number, passed?: boolean) => boolean;
+    };
+  }
+}
+

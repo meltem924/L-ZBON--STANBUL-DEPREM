@@ -29,11 +29,11 @@ export const AITutorChat: React.FC<AITutorChatProps> = ({ onUnlockBadge }) => {
   const [synthesisSubmitted, setSynthesisSubmitted] = useState<boolean>(false);
 
   const presetQuestions = [
-    'Jean-Jacques Rousseau ve Voltaire Lizbon depremini nasıl farklı yorumladı?',
-    'Sultan III. Mustafa İstanbul depreminde her evden neden 22 akçe ek vergi toplattı?',
-    'Bakan Pombal’ın ülkeye dağıttığı 13 soruluk sismoloji anketinin önemi nedir?',
-    'Gaiola Pombalina ile Osmanlı Ahşap-Kâgir evlerinin ortak esneklik mantığı nedir?',
-    'Her iki depremin ortak (benzer) ve farklı yönlerini 3 maddede özetler misiniz?'
+    'Bakan Pombal’ın 1755 Lizbon depreminden sonra ülkeye dağıttığı 13 soruluk bilimsel anketin sismolojiye katkısı nedir?',
+    '1766 İstanbul depreminde Samatya’daki 4 değirmenin ve fırınların yıkılması ekmek krizini nasıl tetikledi, ne tedbir alındı?',
+    'Gaiola Pombalina kafes sistemi ile Osmanlı ahşap ev ve kâgir yangın duvarı uygulamalarının esneklik mantığı nedir?',
+    '1755 Lizbon depreminde basının sansasyonel haberleri ve Halley kuyruklu yıldızı iddiaları halk üzerinde nasıl bir etki yarattı?',
+    'Sultan III. Mustafa’nın her evden toplattığı 22 akçe ek vergi ve narh (tavan fiyat) uygulaması mali krizi nasıl yönetti?'
   ];
 
   const handleEvaluateSynthesis = async () => {

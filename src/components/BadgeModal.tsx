@@ -39,7 +39,7 @@ export const BadgeModal: React.FC<BadgeModalProps> = ({ isOpen, onClose, badges 
               <Award className="w-4 h-4 text-amber-400" /> Tarihsel Mühür ve Başarım Koleksiyonu
             </div>
             <h3 className="text-xl font-bold text-slate-100 font-cinzel">
-              TAR.11.1.3 Keşif Mühürlerin ({unlockedCount}/{badges.length})
+              Keşif Mühürlerin ({unlockedCount}/{badges.length})
             </h3>
           </div>
 
@@ -81,29 +81,6 @@ export const BadgeModal: React.FC<BadgeModalProps> = ({ isOpen, onClose, badges 
             </div>
           ))}
         </div>
-
-        {/* Certificate Display when all unlocked */}
-        {isAllUnlocked && (
-          <div className="bg-gradient-to-br from-[#3b2a1a] via-[#212933] to-[#182924] border-2 border-amber-400/80 p-6 rounded-3xl text-center space-y-3 shadow-xl relative overflow-hidden">
-            <div className="inline-flex p-3 bg-amber-500 text-slate-950 rounded-2xl mb-1 shadow-md border border-amber-300">
-              <ShieldCheck className="w-8 h-8" />
-            </div>
-            <h4 className="text-xl font-extrabold text-amber-300 font-cinzel">
-              TAR.11.1.3 MÜKEMMEL TARİHSEL ANALİZ SERTİFİKASI
-            </h4>
-            <p className="text-xs text-slate-200 max-w-lg mx-auto leading-relaxed font-serif font-medium">
-              1755 Lizbon ve 1766 İstanbul depremlerinin ortaya çıkardığı etkileri, benzerlikleri ve farklılıkları eksiksiz karşılaştırarak müfredat öğrenme çıktısını üstün başarıyla tamamladın.
-            </p>
-
-            <button
-              onClick={handlePrintCertificate}
-              className="inline-flex items-center gap-2 bg-amber-500 hover:bg-amber-400 text-slate-950 font-bold px-6 py-2.5 rounded-xl transition-all text-xs cursor-pointer shadow-md mt-2 font-cinzel border border-amber-300/40"
-            >
-              <Printer className="w-4 h-4" />
-              <span>Sertifikayı Yazdır / Yazdırılabilir Sürüm</span>
-            </button>
-          </div>
-        )}
 
         <div className="pt-2 border-t border-[#3d4959] flex justify-end">
           <button

@@ -6,9 +6,10 @@ import confetti from 'canvas-confetti';
 
 interface InteractiveMapProps {
   onUnlockBadge: (badgeId: string) => void;
+  onNavigateNext?: () => void;
 }
 
-export const InteractiveMap: React.FC<InteractiveMapProps> = ({ onUnlockBadge }) => {
+export const InteractiveMap: React.FC<InteractiveMapProps> = ({ onUnlockBadge, onNavigateNext }) => {
   const [filter, setFilter] = useState<'all' | 'lisbon' | 'istanbul'>('all');
   const [showFaults, setShowFaults] = useState<boolean>(true);
   const [selectedHotspot, setSelectedHotspot] = useState<Hotspot | null>(null);
@@ -43,37 +44,6 @@ export const InteractiveMap: React.FC<InteractiveMapProps> = ({ onUnlockBadge })
   return (
     <div className="space-y-6">
 
-      {/* 1. Bölüm Mühür İlerleme Çubuğu */}
-      <div className="bg-[#28303a] border border-[#3d4959] p-4 rounded-2xl flex flex-col sm:flex-row items-center justify-between gap-3 shadow-md">
-        <div className="flex items-center gap-3">
-          <div className={`p-2 rounded-xl ${isAllVisited ? 'bg-emerald-500/20 text-emerald-400 border border-emerald-500/40' : 'bg-amber-500/20 text-amber-400 border border-amber-500/40'}`}>
-            <Compass className="w-5 h-5" />
-          </div>
-          <div>
-            <h4 className="text-xs font-bold text-slate-100 uppercase tracking-wider font-cinzel">
-              1. Bölüm Mühür Şartı (Keşif Mührü)
-            </h4>
-            <p className="text-xs text-slate-300 font-medium mt-0.5">
-              {isAllVisited
-                ? '✓ Haritadaki tüm sıcak noktalar incelendi ve 1. Bölüm Mührü kazanıldı!'
-                : 'Mührün açılması için haritadaki 9 sıcak noktanın tamamına tıklayıp incelemeniz gerekmektedir.'}
-            </p>
-          </div>
-        </div>
-
-        <div className="flex items-center gap-3 bg-[#1e242b] px-4 py-2 rounded-2xl border border-[#3d4959] shrink-0">
-          <span className="text-xs font-bold text-slate-300 font-mono">
-            İncelenen: <span className={isAllVisited ? 'text-emerald-400' : 'text-amber-400'}>{visitedHotspotIds.length}</span> / {HOTSPOTS.length}
-          </span>
-          <div className="w-20 bg-[#12171e] h-2.5 rounded-full overflow-hidden border border-[#3d4959]">
-            <div
-              className={`h-full transition-all duration-300 ${isAllVisited ? 'bg-emerald-400' : 'bg-amber-400'}`}
-              style={{ width: `${(visitedHotspotIds.length / HOTSPOTS.length) * 100}%` }}
-            />
-          </div>
-        </div>
-      </div>
-
       {/* Interactive Map Visual Stage Card */}
       <div className="relative bg-[#181d23] border-2 border-amber-500/30 rounded-3xl overflow-hidden shadow-2xl min-h-[540px] flex flex-col justify-between p-3 sm:p-5">
         
@@ -93,7 +63,6 @@ export const InteractiveMap: React.FC<InteractiveMapProps> = ({ onUnlockBadge })
           {/* Left Region Header: Lizbon */}
           <div className="bg-[#181d23]/85 border border-sky-400/50 backdrop-blur-md p-3 rounded-2xl max-w-[260px] sm:max-w-xs shadow-xl">
             <div className="flex items-center gap-2 text-sky-300 font-bold text-xs uppercase tracking-wide font-cinzel">
-              <Waves className="w-4 h-4 text-sky-400 shrink-0" />
               <span>1755 Lizbon Tsunami Odağı</span>
             </div>
             <div className="text-[11px] text-slate-200 mt-1 font-medium leading-tight">
@@ -104,7 +73,6 @@ export const InteractiveMap: React.FC<InteractiveMapProps> = ({ onUnlockBadge })
           {/* Right Region Header: İstanbul */}
           <div className="bg-[#181d23]/85 border border-orange-400/50 backdrop-blur-md p-3 rounded-2xl max-w-[260px] sm:max-w-xs shadow-xl">
             <div className="flex items-center gap-2 text-orange-300 font-bold text-xs uppercase tracking-wide font-cinzel">
-              <Flame className="w-4 h-4 text-orange-400 shrink-0" />
               <span>1766 İstanbul Deprem Odağı</span>
             </div>
             <div className="text-[11px] text-slate-200 mt-1 font-medium leading-tight">
@@ -192,6 +160,35 @@ export const InteractiveMap: React.FC<InteractiveMapProps> = ({ onUnlockBadge })
 
       </div>
 
+      {/* 1. Bölüm Tamamlama & 2. Bölüm Kilidi Açılma Bildirimi */}
+      {isAllVisited && (
+        <div className="bg-gradient-to-r from-[#172e27] via-[#1a382e] to-[#172e27] border-2 border-emerald-500/70 p-5 rounded-3xl flex flex-col sm:flex-row items-center justify-between gap-4 shadow-xl animate-fadeIn">
+          <div className="flex items-center gap-3.5">
+            <div className="p-3 bg-emerald-500 text-slate-950 rounded-2xl shadow-md shrink-0">
+              <Compass className="w-6 h-6" />
+            </div>
+            <div>
+              <h4 className="text-sm sm:text-base font-bold text-emerald-300 font-cinzel">
+                Tebrikler! 1. Bölüm Keşif Mührü Kazanıldı!
+              </h4>
+              <p className="text-xs text-slate-200 font-medium mt-0.5">
+                Haritadaki 9 sıcak noktanın tamamını incelediniz. <strong>2. Bölüm (Görsel Analiz)</strong> kilitleri açıldı!
+              </p>
+            </div>
+          </div>
+
+          {onNavigateNext && (
+            <button
+              onClick={onNavigateNext}
+              className="bg-emerald-400 hover:bg-emerald-300 text-slate-950 font-extrabold px-6 py-3 rounded-2xl transition-all text-xs cursor-pointer shadow-lg shrink-0 flex items-center gap-2 font-cinzel tracking-wide"
+            >
+              <span>2. Bölüm'e Geç (Görsel Analiz)</span>
+              <ChevronRight className="w-4 h-4 text-slate-950" />
+            </button>
+          )}
+        </div>
+      )}
+
       {/* Selected Hotspot Detail Modal */}
       {selectedHotspot && (
         <div className="fixed inset-0 z-50 bg-slate-950/75 backdrop-blur-sm flex items-center justify-center p-4">
@@ -206,7 +203,7 @@ export const InteractiveMap: React.FC<InteractiveMapProps> = ({ onUnlockBadge })
                       ? 'bg-sky-500/20 text-sky-300 border border-sky-500/40'
                       : 'bg-orange-500/20 text-orange-300 border border-orange-500/40'
                   }`}>
-                    {selectedHotspot.city === 'lisbon' ? '🌊 1755 Lizbon Tsunami Felaketi' : '🕌 1766 İstanbul Depremi'}
+                    {selectedHotspot.city === 'lisbon' ? '1755 Lizbon Tsunami Felaketi' : '1766 İstanbul Depremi'}
                   </span>
                 </div>
                 <h3 className="text-xl font-bold text-slate-100 font-cinzel">{selectedHotspot.title}</h3>
@@ -220,18 +217,38 @@ export const InteractiveMap: React.FC<InteractiveMapProps> = ({ onUnlockBadge })
               </button>
             </div>
 
-            {/* Description */}
-            <div className="space-y-3">
-              <p className="text-sm text-slate-200 leading-relaxed font-medium">
-                {selectedHotspot.fullDesc}
-              </p>
+            {/* Description List with Separated Category Headers */}
+            <div className="space-y-2.5">
+              {selectedHotspot.fullDesc.split('\n').filter(Boolean).map((line, idx) => {
+                const colonIndex = line.indexOf(':');
+                if (colonIndex !== -1) {
+                  const header = line.slice(0, colonIndex + 1);
+                  const body = line.slice(colonIndex + 1);
+                  return (
+                    <div key={idx} className="bg-[#1c232c] border border-[#374252] p-3.5 rounded-2xl flex flex-col sm:flex-row sm:items-start gap-1.5 sm:gap-3 shadow-sm">
+                      <span className={`font-bold text-xs font-cinzel uppercase tracking-wider shrink-0 pt-0.5 ${
+                        selectedHotspot.city === 'lisbon' ? 'text-sky-300' : 'text-orange-300'
+                      }`}>
+                        {header}
+                      </span>
+                      <span className="text-sm text-slate-200 leading-relaxed font-medium">
+                        {body}
+                      </span>
+                    </div>
+                  );
+                }
+                return (
+                  <p key={idx} className="text-sm text-slate-200 leading-relaxed font-medium">
+                    {line}
+                  </p>
+                );
+              })}
             </div>
 
             {/* Primary Quote if available */}
             {selectedHotspot.primaryQuote && (
               <div className="bg-[#1a2027] border-l-4 border-amber-500 p-4 rounded-r-2xl space-y-2 border-t border-b border-r border-[#3d4959]">
                 <div className="flex items-center gap-2 text-amber-400 font-bold text-xs uppercase tracking-wider font-cinzel">
-                  <Quote className="w-4 h-4 text-amber-400" />
                   <span>Dönemin Birincil Tarihsel Kaynağı</span>
                 </div>
                 <blockquote className="text-sm italic text-amber-100/90 font-serif">

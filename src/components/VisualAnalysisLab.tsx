@@ -1,5 +1,5 @@
 import React, { useState, useRef, useEffect } from 'react';
-import { Layers, Building2, Shield, Eye, Info, Sparkles, Check, ChevronLeft, ChevronRight, SlidersHorizontal, Scale, AlertCircle, HelpCircle, CheckCircle2, RefreshCw } from 'lucide-react';
+import { Layers, Building2, Shield, Eye, Info, Sparkles, Check, ChevronLeft, ChevronRight, SlidersHorizontal, Scale, AlertCircle, HelpCircle, CheckCircle2, RefreshCw, Lock } from 'lucide-react';
 import confetti from 'canvas-confetti';
 
 interface VisualAnalysisLabProps {
@@ -16,56 +16,82 @@ interface MatchingTask {
   dimensionTitle: string;
   feedbackMessage: string;
   hintMessage: string;
+  strongHintMessage: string;
 }
 
 const MATCHING_TASKS: MatchingTask[] = [
   {
-    id: 'task-2',
-    title: 'Olay 1',
-    lisbonContent: 'Voltaire (Candide, Şiir) ile Leibnizci dinsel optimizm eleştirildi; J.J. Rousseau aşırı şehirleşmeyi eleştirip doğaya dönüş tezi sundu. Cizvit eğitimi yerine tüm halka açık yeni eğitim müfredatı kuruldu.',
-    istanbulContent: 'Kaza-kader anlayışı ile devlet tedbiri sentezlendi. Şeyhülislam dilenci fetvası yayımladı, Minas Ceranyan felaket şiiri yazdı, Rum ve Ermeni kiliselerinin onarımına Müslüman ustalar gönderildi.',
+    id: 'task-1',
+    title: 'Vaka 1: Toplumsal Hayat & Basın-İaşet Basısı',
+    lisbonContent: 'Basının ticari kaygılarla sansasyonel bir dil kullanıp gazetelerde 1757/1758 yıllarında geçmesi beklenen Halley kuyruklu yıldızının felakete yol açacağına dair dehşet haberleri yayımlaması; %85’i yıkılan kentte halkın inanç krizine düşmesi.',
+    istanbulContent: 'Fırın ve değirmenlerin (Samatya’da surlara bitişik 4 değirmenin) yıkılmasıyla buğdayın çürüme tehlikesi geçirmesi, fırın tamirine öncelik verilmesi, yapılmazsa satılması emredilmesi ve yardım dağıtımında kadın ve çocuklara öncelik tanınması.',
     correctDimension: 'social',
     correctType: 'farklilik',
     dimensionTitle: 'Sosyal & Düşünsel Boyut',
-    feedbackMessage: 'Tebrikler! Harika Buluş! Lizbon felaketi Batı Aydınlanması’nda Kilise ve dinsel optimizmin sorgulanmasına yol açarken; İstanbul felaketi kriz yönetiminde toplumsal birlik, vakıf ihya ve cemaatler arası dayanışmayı pekiştirdiği için bu olay Sosyal bir FARKLILIK’tır.',
-    hintMessage: 'İpucu: Bu içerikte Voltaire ve Rousseau’nun felsefi yazıları, Şeyhülislam fetvası, şiirler ve toplumsal cemaatler arası yardımlaşma var. Metni dikkatle inceleyiniz.'
+    feedbackMessage: 'Tebrikler! Lizbon felaketi basının Halley kuyruklu yıldızı sansasyonu ve halkta inanç krizi yaratmasıyla öne çıkarken; İstanbul kriz yönetimi fırın/değirmen iaşe önlemleri ile kadın ve çocuklara sosyal yardım önceliği sunduğu için bu durum Sosyal bir FARKLILIK’tır.',
+    hintMessage: 'İpucu: Bu içerikte gazetelerdeki Halley kuyruklu yıldızı haberleri, inanç tartışmaları, Samatya değirmenleri ve yardım dağıtımında kadın ve çocuk önceliği var. Metni dikkatle inceleyiniz.',
+    strongHintMessage: '💡 Cevaba Yönelik Rehber İpucu: Gazetelerdeki kuyruklu yıldız haberleri, halkın yaşadığı inanç sarsıntısı, değirmenlerin bozulması ve kadın/çocuklara yardım önceliği toplumsal hayatı ve zihniyeti ilgilendirir. İki başkentte farklı durumlar yaşandığı için doğru seçenek: SOSYAL boyut ve FARKLILIK\'tır.'
   },
   {
-    id: 'task-4',
-    title: 'Olay 2',
-    lisbonContent: 'Kral I. José ve Bakan Pombal 9 ay Bélem’de çadır ve kulübede ikamet etti. 12 bölge lideri atandı, yağmacılara idam cezası getirildi, 13 soruluk hasar anketi yollandı.',
-    istanbulContent: 'Sultan III. Mustafa çadırlarda halka yardım etti ve çadırda yaşadı. Arama-kurtarma ve imar için birer kaymakam, kadı ve subaşı görevlendirildi; yardımda kadın ve çocuklara öncelik tanındı.',
+    id: 'task-2',
+    title: 'Vaka 2: Asayiş, Sağlık & Adli Kurumlar',
+    lisbonContent: 'Salgın hastalık tehlikesine karşı vefat edenlerin Kilise izniyle dinî tören yapılmadan Tagus Nehri’ne batırılması, yağma ve hırsızlığın idamla cezalandırılması, geçici adli birimler kurulup arşiv kayıtlarının yenilenmesi.',
+    istanbulContent: 'Zarar gören mahkeme binalarının boşaltılarak geçici adli birimler oluşturulmasıyla hukuk işlerinin devamlılığının sağlanması; yıkılan medreseler yerine müderrislerin geçici ders halkaları kurması.',
     correctDimension: 'administration',
     correctType: 'benzerlik',
     dimensionTitle: 'İdari & Kriz Yönetimi',
-    feedbackMessage: 'Tebrikler! Doğru Tespit! Her iki imparatorluk başkentinde de kriz idaresi hükümdar ve bakan düzeyinde bizzat çadırlarda ikamet edilerek yürütüldüğü için bu olay İdari bir BENZERLİK’tir.',
-    hintMessage: 'İpucu: Bu içerikte hükümdarların çadırlarda yaşaması, acil mülki idareciler atanması (kaymakam, kadı, subaşı, 12 bölge lideri) ve asayiş önlemleri yer alıyor. Hangi boyuta ait olabilir?'
-  },
-  {
-    id: 'task-1',
-    title: 'Olay 3',
-    lisbonContent: 'Eugénio dos Santos ve Carlos Mardel projesi ile 60 feet caddeler ve gemi yapım tekniğinden esinlenen 3D esnek ahşap kafes (Gaiola Pombalina) zorunluluğu.',
-    istanbulContent: 'Kâgir yapma zorunluluğu fermanına karşılık halkın ahşap evlerde ısrarı, mahalle yangınlarını önleyen kâgir yangın duvarları (kulaklı duvar) ve Fatih Camii’nin Barok-Osmanlı ihyası.',
-    correctDimension: 'architecture',
-    correctType: 'benzerlik',
-    dimensionTitle: 'Mimari & İmar Boyutu',
-    feedbackMessage: 'Tebrikler! Doğru Analiz! Her iki imparatorluk başkenti de sarsıntılara karşı esnek ahşap karkas strüktürler (Gaiola & Ahşap Çatma) geliştirdiği için bu olay Mimari bir BENZERLİK’tir.',
-    hintMessage: 'İpucu: Bu olayda ahşap kafes (Gaiola), ahşap çatma evler ve kâgir yangın duvarları gibi fiziki/yapısal yöntemler ele alınıyor. İnceleyerek tekrar eşleştirin.'
+    feedbackMessage: 'Tebrikler! Her iki imparatorluk başkenti de adalet mekanizmasını aksatmamak için geçici adli birimler kurduğu ve krizde asayiş/kamu düzenini sağladığı için bu olay İdari bir BENZERLİK’tir.',
+    hintMessage: 'İpucu: Bu içerikte geçici adli birimlerin kurulması, arşiv kayıtlarının yenilenmesi, mahkeme binalarının taşınması ve idari asayiş tedbirleri yer alıyor.',
+    strongHintMessage: '💡 Cevaba Yönelik Rehber İpucu: Geçici adli birimlerin kurulması, arşiv kayıtlarının yenilenmesi ve mahkeme binalarının taşınması hukuk idaresi ve devlet yönetimiyle ilgilidir. Her iki devlet de adalet mekanizmasını kesintisiz işlettiği için doğru seçenek: İDARİ boyut ve BENZERLİK\'tir.'
   },
   {
     id: 'task-3',
-    title: 'Olay 4',
-    lisbonContent: 'İthalat gelirlerinden %4 oranında bağış kesintisi yapıldı, soylu sınıfa yeni vergiler getirildi ve 1761’de Kraliyet Hazinesi (Tesouraria Real) kuruldu.',
-    istanbulContent: 'Divan-ı Hümayun kararıyla her evden 22 akçe ek vergi toplandı, II. Bayezid Vakfı’nın 4 yıllık geliri tahsis edildi, Kapalıçarşı tonozları tamir edilip narh (tavan fiyat) koyuldu.',
-    correctDimension: 'economic',
+    title: 'Vaka 3: İmar Planlaması & Yapı Hasar Sınıfları',
+    lisbonContent: 'Rossio ile rıhtım arasının düzleştirilip dik batı yamaçlarının azaltılması; demir, ahşap bağlantı, kiremit ve seramik parçaların önceden standart üretilmesi ve su kıyısına büyük Ticaret Meydanı yapılması.',
+    istanbulContent: 'Depremde hasar gören yapıların işlevlerine göre sınıflandırılmasında %30 Cami, %20 Eğitim Binası, %15 Mirî Hizmet Binası (Devlet binası) tespiti yapılması ve ahşap evlerin arasına kâgir yangın duvarları örülmesi.',
+    correctDimension: 'architecture',
     correctType: 'farklilik',
+    dimensionTitle: 'Mimari & İmar Boyutu',
+    feedbackMessage: 'Tebrikler! Lizbon ızgara plan (grid) ve standart önceden üretilmiş yapı elemanlarıyla Ticaret Meydanı etrafında inşa edilirken; İstanbul %30 cami, %20 eğitim, %15 mirî bina tespiti ve kâgir yangın duvarlarıyla (kulaklı duvar) imar edildiği için bu durum Mimari bir FARKLILIK’tır.',
+    hintMessage: 'İpucu: Bu vaka Lizbon’un arazi düzleştirme ve standart üretim teknikleri ile İstanbul’un işlevsel yapı hasar sınıflarını (cami, eğitim, mirî bina) karşılaştırıyor.',
+    strongHintMessage: '💡 Cevaba Yönelik Rehber İpucu: Izgara şehir planı, standart üretim malzemeleri ile binaların işlevlerine göre hasar tespiti (%30 cami, %20 medrese vb.) ve kâgir yangın duvarları şehir mimarisiyle ilgilidir. İki kentin imar yaklaşımları farklı olduğu için doğru seçenek: MİMARİ boyut ve FARKLILIK\'tır.'
+  },
+  {
+    id: 'task-4',
+    title: 'Vaka 4: Piyasa Müdahalesi & Hazine Desteği',
+    lisbonContent: 'Sömürge ticareti ağlarının sekteye uğraması sonrası Brezilya, Hindistan ve Afrika’ya savaş gemileri sevk edilerek ticaretin güvenli olduğu mesajının verilmesi, vergilerin askıya alınması ve kamu harcamalarının bütçeden karşılanması.',
+    istanbulContent: 'İnşaat sektöründe ve gıdada fiyat artışlarını önlemek amacıyla narh (tavan fiyat) uygulaması getirilmesi, Sultan II. Bayezid Vakfı’nın 4 yıllık gelirinin ayrılması ve imar masraflarının kamusal kaynaklarla karşılanması.',
+    correctDimension: 'economic',
+    correctType: 'benzerlik',
     dimensionTitle: 'Ekonomik & Mali Boyut',
-    feedbackMessage: 'Tebrikler! Doğru Eşleştirme! Lizbon mali krizi deniz ticareti kesintileri ve Kraliyet Hazinesi kurarak çözerken; İstanbul ek 22 akçe hane vergisi, vakıf gelirleri ve narh (tavan fiyat) sistemiyle yönettiği için bu olay Ekonomik bir FARKLILIK’tır.',
-    hintMessage: 'İpucu: Bu içerikte vergiler, ithalat kesintileri, hazine kuruluşu, 22 akçe hane vergisi ve vakıf gelirleri bulunuyor. Hangi boyuta ait olabilir?'
+    feedbackMessage: 'Tebrikler! Her iki devlet de piyasa istikrarını ve kamu kaynaklarını seferber ederek afet harcamalarını bütçe, vakıf ve devlet imkânlarıyla karşıladığı için bu durum Ekonomik bir BENZERLİK’tir.',
+    hintMessage: 'İpucu: Bu içerikte narh uygulaması, savaş gemileriyle ticari güven tazelenmesi, vakıf gelirlerinin ayrılması ve kamu harcamalarının bütçeden karşılanması ele alınıyor.',
+    strongHintMessage: '💡 Cevaba Yönelik Rehber İpucu: Ticaret gemileriyle güven verilmesi, fiyat artışlarına karşı narh (tavan fiyat) konulması, vakıf ve devlet hazinesi desteği finans ve bütçe idaresiyle ilgilidir. Her iki devlet de piyasaya müdahale ettiği için doğru seçenek: EKONOMİK boyut ve BENZERLİK\'tir.'
   }
 ];
 
-export const VisualAnalysisLab: React.FC<VisualAnalysisLabProps> = ({ onUnlockBadge }) => {
+// Helper function to shuffle array
+function shuffleArray<T>(array: T[]): T[] {
+  const arr = [...array];
+  for (let i = arr.length - 1; i > 0; i--) {
+    const j = Math.floor(Math.random() * (i + 1));
+    [arr[i], arr[j]] = [arr[j], arr[i]];
+  }
+  return arr;
+}
+
+const DIMENSION_OPTIONS = [
+  { id: 'social', label: 'Sosyal & Düşünsel' },
+  { id: 'administration', label: 'İdari & Kriz' },
+  { id: 'architecture', label: 'Mimari & İmar' },
+  { id: 'economic', label: 'Ekonomik & Mali' }
+];
+
+export const VisualAnalysisLab: React.FC<VisualAnalysisLabProps> = ({ onUnlockBadge, onNavigateNext }) => {
+  // Shuffle tasks and dimensions per session so order is completely mixed
+  const [matchingTasks] = useState<MatchingTask[]>(() => shuffleArray(MATCHING_TASKS));
+  const [dimensionOptions] = useState(() => shuffleArray(DIMENSION_OPTIONS));
+
   const [sliderPosition, setSliderPosition] = useState<number>(50);
   const [currentTaskIndex, setCurrentTaskIndex] = useState<number>(0);
   
@@ -98,6 +124,13 @@ export const VisualAnalysisLab: React.FC<VisualAnalysisLabProps> = ({ onUnlockBa
     'task-4': 'none'
   });
 
+  const [attemptCounts, setAttemptCounts] = useState<Record<string, number>>({
+    'task-1': 0,
+    'task-2': 0,
+    'task-3': 0,
+    'task-4': 0
+  });
+
   const containerRef = useRef<HTMLDivElement>(null);
   const [containerWidth, setContainerWidth] = useState<number>(0);
 
@@ -115,7 +148,7 @@ export const VisualAnalysisLab: React.FC<VisualAnalysisLabProps> = ({ onUnlockBa
   const completedCount = Object.values(matchedTasks).filter(Boolean).length;
 
   const handleCheckMatching = (taskId: string) => {
-    const task = MATCHING_TASKS.find(t => t.id === taskId);
+    const task = matchingTasks.find(t => t.id === taskId);
     if (!task) return;
 
     const chosenDim = selectedDimensions[taskId];
@@ -140,7 +173,7 @@ export const VisualAnalysisLab: React.FC<VisualAnalysisLabProps> = ({ onUnlockBa
       });
 
       // Check if all 4 matched!
-      if (Object.values(updatedMatched).filter(Boolean).length >= MATCHING_TASKS.length) {
+      if (Object.values(updatedMatched).filter(Boolean).length >= matchingTasks.length) {
         onUnlockBadge('badge-visual');
         confetti({
           particleCount: 100,
@@ -149,6 +182,8 @@ export const VisualAnalysisLab: React.FC<VisualAnalysisLabProps> = ({ onUnlockBa
         });
       }
     } else {
+      const nextCount = (attemptCounts[taskId] || 0) + 1;
+      setAttemptCounts({ ...attemptCounts, [taskId]: nextCount });
       setFeedbackStates({ ...feedbackStates, [taskId]: 'error' });
     }
   };
@@ -230,17 +265,8 @@ export const VisualAnalysisLab: React.FC<VisualAnalysisLabProps> = ({ onUnlockBa
         
         {/* Header with Progress Bar */}
         <div className="border-b border-[#3d4959] pb-5 space-y-3">
-          <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3">
-            <div>
-              <div className="text-emerald-400 font-bold text-xs uppercase tracking-wider mb-1 font-cinzel">
-                Eşleştirme & Vaka Analizi
-              </div>
-              <h3 className="text-xl font-bold text-slate-100 font-cinzel">
-                Tarihsel Durumları Analiz Edin ve Eşleştirin
-              </h3>
-            </div>
-            
-            <div className="bg-[#1e242b] px-3.5 py-1.5 rounded-xl border border-[#3d4959] text-xs font-bold font-mono text-amber-400 self-start sm:self-auto">
+          <div className="flex items-center justify-end gap-3">
+            <div className="bg-[#1e242b] px-3.5 py-1.5 rounded-xl border border-[#3d4959] text-xs font-bold font-mono text-amber-400">
               {completedCount} / 4
             </div>
           </div>
@@ -256,14 +282,14 @@ export const VisualAnalysisLab: React.FC<VisualAnalysisLabProps> = ({ onUnlockBa
 
         {/* SINGLE MATCHING TASK CARD (Sequential display) */}
         {(() => {
-          const task = MATCHING_TASKS[currentTaskIndex] || MATCHING_TASKS[0];
+          const task = matchingTasks[currentTaskIndex] || matchingTasks[0];
           return (
             <div key={task.id} className="bg-[#181f28] border-2 border-[#3d4959] rounded-3xl p-5 sm:p-7 space-y-6 shadow-2xl">
               {/* 1. TOP SECTION: HISTORICAL EVENT READOUT CARDS */}
               <div className="space-y-3">
                 <div className="flex items-center justify-between px-1">
-                  <span className="text-xs font-bold tracking-wider text-slate-300 font-cinzel">
-                    Vaka Metinleri
+                  <span className="text-xs font-bold tracking-wider text-amber-400 font-cinzel">
+                    Vaka {currentTaskIndex + 1} / {matchingTasks.length}
                   </span>
                 </div>
 
@@ -309,12 +335,7 @@ export const VisualAnalysisLab: React.FC<VisualAnalysisLabProps> = ({ onUnlockBa
                   </div>
 
                   <div className="grid grid-cols-2 sm:grid-cols-4 gap-3">
-                    {[
-                      { id: 'social', label: 'Sosyal & Düşünsel' },
-                      { id: 'administration', label: 'İdari & Kriz' },
-                      { id: 'architecture', label: 'Mimari & İmar' },
-                      { id: 'economic', label: 'Ekonomik & Mali' }
-                    ].map(dim => {
+                    {dimensionOptions.map(dim => {
                       const isSelected = selectedDimensions[task.id] === dim.id;
                       return (
                         <button
@@ -368,7 +389,7 @@ export const VisualAnalysisLab: React.FC<VisualAnalysisLabProps> = ({ onUnlockBa
                 </div>
 
                 {/* Action Button */}
-                <div className="pt-3 flex justify-end border-t border-slate-800">
+                <div className="pt-3 flex justify-center border-t border-slate-800">
                   <button
                     onClick={() => handleCheckMatching(task.id)}
                     className="w-full sm:w-auto bg-gradient-to-r from-amber-500 to-amber-400 hover:from-amber-400 hover:to-amber-300 text-slate-950 font-bold px-7 py-3 rounded-xl transition-all shadow-xl font-cinzel text-xs flex items-center justify-center gap-2 cursor-pointer scale-[1.01] active:scale-[0.99]"
@@ -388,14 +409,26 @@ export const VisualAnalysisLab: React.FC<VisualAnalysisLabProps> = ({ onUnlockBa
               )}
 
               {feedbackStates[task.id] === 'error' && (
-                <div className="bg-rose-950/80 border-2 border-rose-500/80 p-4 rounded-2xl space-y-2 animate-fadeIn">
-                  <div className="flex items-center gap-2 text-rose-400 font-bold text-xs uppercase tracking-wider font-cinzel">
-                    Öğretici İpucu & Geri Dönüt:
+                (attemptCounts[task.id] || 0) >= 2 ? (
+                  <div className="bg-amber-950/90 border-2 border-amber-400 p-4.5 rounded-2xl space-y-2 animate-fadeIn shadow-xl">
+                    <div className="flex items-center gap-2 text-amber-300 font-bold text-xs uppercase tracking-wider font-cinzel">
+                      <Sparkles className="w-4 h-4 text-amber-400 shrink-0" />
+                      <span>Rehber İpucu (2. Deneme):</span>
+                    </div>
+                    <p className="text-xs sm:text-sm text-amber-100 leading-relaxed font-medium">
+                      {task.strongHintMessage}
+                    </p>
                   </div>
-                  <p className="text-xs text-rose-200 leading-relaxed font-medium">
-                    {task.hintMessage}
-                  </p>
-                </div>
+                ) : (
+                  <div className="bg-rose-950/80 border-2 border-rose-500/80 p-4 rounded-2xl space-y-2 animate-fadeIn">
+                    <div className="flex items-center gap-2 text-rose-400 font-bold text-xs uppercase tracking-wider font-cinzel">
+                      Geri Dönüt:
+                    </div>
+                    <p className="text-xs text-rose-200 leading-relaxed font-medium">
+                      {task.hintMessage}
+                    </p>
+                  </div>
+                )
               )}
 
               {/* Sequential Bottom Navigation */}
@@ -403,17 +436,34 @@ export const VisualAnalysisLab: React.FC<VisualAnalysisLabProps> = ({ onUnlockBa
                 <button
                   onClick={() => setCurrentTaskIndex(prev => Math.max(0, prev - 1))}
                   disabled={currentTaskIndex === 0}
-                  className="px-4 py-2 rounded-xl text-xs font-bold bg-[#161c23] border border-[#3d4959] text-slate-300 hover:text-white disabled:opacity-30 disabled:cursor-not-allowed transition-all flex items-center gap-1.5 cursor-pointer"
+                  className="px-4 py-2 rounded-xl text-xs font-bold bg-[#161c23] border border-[#3d4959] text-slate-300 hover:text-white disabled:opacity-30 disabled:cursor-not-allowed transition-all flex items-center gap-1.5 cursor-pointer font-cinzel"
                 >
                   <ChevronLeft className="w-4 h-4" /> Önceki
                 </button>
 
                 <button
-                  onClick={() => setCurrentTaskIndex(prev => Math.min(MATCHING_TASKS.length - 1, prev + 1))}
-                  disabled={currentTaskIndex === MATCHING_TASKS.length - 1}
-                  className="px-4 py-2 rounded-xl text-xs font-bold bg-amber-500 hover:bg-amber-400 text-slate-950 disabled:opacity-30 disabled:cursor-not-allowed transition-all flex items-center gap-1.5 cursor-pointer font-cinzel shadow-md"
+                  onClick={() => {
+                    const isTaskDone = matchedTasks[task.id] === true;
+                    if (!isTaskDone) {
+                      alert('Sonraki vakaya geçebilmek için lütfen mevcut vakanın eşleştirmesini doğru yaparak gönderiniz!');
+                      return;
+                    }
+                    setCurrentTaskIndex(prev => Math.min(matchingTasks.length - 1, prev + 1));
+                  }}
+                  disabled={!matchedTasks[task.id] || currentTaskIndex === matchingTasks.length - 1}
+                  className={`px-5 py-2.5 rounded-xl text-xs font-bold transition-all flex items-center gap-2 font-cinzel ${
+                    matchedTasks[task.id] && currentTaskIndex < matchingTasks.length - 1
+                      ? 'bg-amber-500 hover:bg-amber-400 text-slate-950 cursor-pointer shadow-md shadow-amber-500/20 active:scale-95'
+                      : 'bg-[#161c23] border border-slate-700 text-slate-500 opacity-60 cursor-not-allowed'
+                  }`}
+                  title={!matchedTasks[task.id] ? 'Mevcut soruyu doğru yanıtladıktan sonra açılır' : ''}
                 >
-                  Sonraki <ChevronRight className="w-4 h-4" />
+                  <span>Sonraki</span>
+                  {matchedTasks[task.id] ? (
+                    <ChevronRight className="w-4 h-4 text-slate-950" />
+                  ) : (
+                    <Lock className="w-3.5 h-3.5 text-amber-500/70" />
+                  )}
                 </button>
               </div>
 
@@ -422,6 +472,35 @@ export const VisualAnalysisLab: React.FC<VisualAnalysisLabProps> = ({ onUnlockBa
         })()}
 
       </div>
+
+      {/* 2. Bölüm Tamamlama & 3. Bölüm Kilidi Açılma Bildirimi */}
+      {completedCount >= matchingTasks.length && (
+        <div className="bg-gradient-to-r from-[#172e27] via-[#1a382e] to-[#172e27] border-2 border-emerald-500/70 p-5 rounded-3xl flex flex-col sm:flex-row items-center justify-between gap-4 shadow-xl animate-fadeIn">
+          <div className="flex items-center gap-3.5">
+            <div className="p-3 bg-emerald-500 text-slate-950 rounded-2xl shadow-md shrink-0">
+              <Layers className="w-6 h-6" />
+            </div>
+            <div>
+              <h4 className="text-sm sm:text-base font-bold text-emerald-300 font-cinzel">
+                Tebrikler! 2. Bölüm Analiz Mührü Kazanıldı!
+              </h4>
+              <p className="text-xs text-slate-200 font-medium mt-0.5">
+                4 vaka analizinin tamamını doğru eşleştirdiniz. <strong>3. Bölüm (Karşılaştırma)</strong> kilitleri açıldı!
+              </p>
+            </div>
+          </div>
+
+          {onNavigateNext && (
+            <button
+              onClick={onNavigateNext}
+              className="bg-emerald-400 hover:bg-emerald-300 text-slate-950 font-extrabold px-6 py-3 rounded-2xl transition-all text-xs cursor-pointer shadow-lg shrink-0 flex items-center gap-2 font-cinzel tracking-wide"
+            >
+              <span>3. Bölüm'e Geç (Karşılaştırma)</span>
+              <ChevronRight className="w-4 h-4 text-slate-950" />
+            </button>
+          )}
+        </div>
+      )}
     </div>
   );
 };

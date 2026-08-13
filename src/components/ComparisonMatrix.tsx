@@ -6,6 +6,7 @@ import confetti from 'canvas-confetti';
 
 interface ComparisonMatrixProps {
   onUnlockBadge: (badgeId: string) => void;
+  onFinishActivity?: () => void;
 }
 
 // Helper function to shuffle array
@@ -18,7 +19,7 @@ function shuffleArray<T>(array: T[]): T[] {
   return arr;
 }
 
-export const ComparisonMatrix: React.FC<ComparisonMatrixProps> = ({ onUnlockBadge }) => {
+export const ComparisonMatrix: React.FC<ComparisonMatrixProps> = ({ onUnlockBadge, onFinishActivity }) => {
   // Shuffled Cards State so order is completely mixed up
   const [shuffledCards, setShuffledCards] = useState<ComparisonCard[]>(() => shuffleArray(COMPARISON_CARDS));
   
@@ -74,7 +75,6 @@ export const ComparisonMatrix: React.FC<ComparisonMatrixProps> = ({ onUnlockBadg
     setIsChecked(true);
 
     if (isAllCorrect) {
-      onUnlockBadge('badge-matrix');
       confetti({
         particleCount: 120,
         spread: 90,
@@ -99,8 +99,18 @@ export const ComparisonMatrix: React.FC<ComparisonMatrixProps> = ({ onUnlockBadg
     setShowAnswers(true);
     setIsChecked(true);
     setActiveCardId(null);
+  };
 
+  const handleFinish = () => {
     onUnlockBadge('badge-matrix');
+
+    // SCORM / MEBİS değerlendirmesini ve tamamlandı/tamamlanmadı bilgisini gönder
+    if (window.SCORM && typeof window.SCORM.sendScore === 'function') {
+      const passed = correctCount >= 5 || isAllCorrect;
+      window.SCORM.sendScore(correctCount, totalCount, passed);
+    }
+
+    onFinishActivity?.();
   };
 
   const handleRetry = () => {
@@ -328,7 +338,7 @@ export const ComparisonMatrix: React.FC<ComparisonMatrixProps> = ({ onUnlockBadg
               Tebrikler! Tüm Etkileri Doğru Sınıflandırdınız!
             </div>
             <p className="text-xs text-emerald-200 leading-relaxed font-medium">
-              1755 Lizbon ve 1766 İstanbul depremlerinin toplumsal, idari, düşünsel ve mimari etkilerini kusursuz bir şekilde analiz ederek doğru sütunlara yerleştirdiniz.
+              1755 Lizbon ve 1766 İstanbul depremlerinin etkilerini analiz ederek hangi başkente ait olduğunu kusursuz bir şekilde belirleyip doğru sütunlara yerleştirdiniz.
             </p>
           </div>
         )}
@@ -341,6 +351,19 @@ export const ComparisonMatrix: React.FC<ComparisonMatrixProps> = ({ onUnlockBadg
             <p className="text-xs text-rose-200 leading-relaxed font-medium">
               Toplam {totalCount} karttan {correctCount} tanesi doğru yerleştirildi. Yanlış yerleştirilen kartları düzeltmek için yukarıdaki "Yeniden Dene" veya tüm otomatik doğru konumları mor renkli olarak görmek için "Cevapları Göster" butonunu kullanabilirsiniz.
             </p>
+          </div>
+        )}
+
+        {/* Dedicated "Etkinliği Bitir" Button when evaluated */}
+        {(isChecked || showAnswers) && (
+          <div className="pt-4 border-t border-[#3d4959] flex justify-center animate-fadeIn">
+            <button
+              onClick={handleFinish}
+              className="bg-emerald-500 hover:bg-emerald-400 text-slate-950 font-extrabold px-8 py-3.5 rounded-2xl transition-all text-sm cursor-pointer shadow-xl flex items-center gap-2.5 font-cinzel tracking-wide active:scale-95 border-2 border-emerald-300/60"
+            >
+              <CheckCircle2 className="w-5 h-5 text-slate-950" />
+              <span>Etkinliği Bitir</span>
+            </button>
           </div>
         )}
 

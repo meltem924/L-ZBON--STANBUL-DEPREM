@@ -1,5 +1,5 @@
-import React from 'react';
-import { Award, BookOpen, RotateCcw, Sparkles, Map, Layers, LayoutGrid, PenTool, CheckCircle } from 'lucide-react';
+import React, { useState } from 'react';
+import { Award, RotateCcw, Sparkles, Map, Layers, LayoutGrid, CheckCircle, Lock, Maximize2, Minimize2 } from 'lucide-react';
 import { ActiveTab, Badge } from '../types';
 
 interface HeaderProps {
@@ -7,10 +7,27 @@ interface HeaderProps {
   setActiveTab: (tab: ActiveTab) => void;
   badges: Badge[];
   onOpenBadges: () => void;
+  onOpenWelcome?: () => void;
   onReset: () => void;
 }
 
 export const Header: React.FC<HeaderProps> = ({ activeTab, setActiveTab, badges, onOpenBadges, onReset }) => {
+  const [isFullscreen, setIsFullscreen] = useState<boolean>(false);
+
+  const toggleFullscreen = () => {
+    if (!document.fullscreenElement) {
+      document.documentElement.requestFullscreen().catch(err => {
+        console.error(`Fullscreen error: ${err.message}`);
+      });
+      setIsFullscreen(true);
+    } else {
+      if (document.exitFullscreen) {
+        document.exitFullscreen();
+        setIsFullscreen(false);
+      }
+    }
+  };
+
   const unlockedCount = badges.filter(b => b.unlocked).length;
   const progressPercent = Math.round((unlockedCount / badges.length) * 100);
   const isBadgeUnlocked = (id: string) => badges.find(b => b.id === id)?.unlocked;
@@ -20,19 +37,25 @@ export const Header: React.FC<HeaderProps> = ({ activeTab, setActiveTab, badges,
       id: 'map' as ActiveTab,
       label: 'Etkileşimli Harita',
       icon: Map,
-      badgeId: 'badge-map'
+      badgeId: 'badge-map',
+      prereqBadgeId: null,
+      lockAlert: ''
     },
     {
       id: 'visual' as ActiveTab,
       label: 'Görsel Analiz',
       icon: Layers,
-      badgeId: 'badge-visual'
+      badgeId: 'badge-visual',
+      prereqBadgeId: 'badge-map',
+      lockAlert: '🔒 2. Bölüm (Görsel Analiz) kilitlidir!\n\nAçılması için önce 1. Bölümdeki (Etkileşimli Harita) 9 sıcak noktayı inceleyip Keşif Mührünü kazanmalısınız.'
     },
     {
       id: 'matrix' as ActiveTab,
       label: 'Karşılaştırma',
       icon: LayoutGrid,
-      badgeId: 'badge-matrix'
+      badgeId: 'badge-matrix',
+      prereqBadgeId: 'badge-visual',
+      lockAlert: '🔒 3. Bölüm (Karşılaştırma) kilitlidir!\n\nAçılması için önce 2. Bölümdeki (Görsel Analiz) 4 vakayı başarıyla tamamlayıp Analiz Mührünü kazanmalısınız.'
     }
   ];
 
@@ -46,19 +69,36 @@ export const Header: React.FC<HeaderProps> = ({ activeTab, setActiveTab, badges,
             const Icon = step.icon;
             const isActive = activeTab === step.id;
             const isCompleted = isBadgeUnlocked(step.badgeId);
+            const isLocked = step.prereqBadgeId ? !isBadgeUnlocked(step.prereqBadgeId) : false;
+
+            const handleTabClick = () => {
+              if (isLocked) {
+                alert(step.lockAlert);
+                return;
+              }
+              setActiveTab(step.id);
+            };
 
             return (
               <button
                 key={step.id}
-                onClick={() => setActiveTab(step.id)}
-                className={`flex-1 lg:flex-none flex items-center justify-center gap-2 px-3.5 py-2 rounded-xl text-xs font-bold font-cinzel transition-all duration-200 cursor-pointer whitespace-nowrap ${
-                  isActive
-                    ? 'bg-amber-500 text-slate-950 shadow-md shadow-amber-500/20 ring-1 ring-amber-300'
-                    : 'text-slate-300 hover:text-white hover:bg-[#252d37]'
+                onClick={handleTabClick}
+                className={`flex-1 lg:flex-none flex items-center justify-center gap-2 px-3.5 py-2 rounded-xl text-xs font-bold font-cinzel transition-all duration-200 whitespace-nowrap ${
+                  isLocked
+                    ? 'bg-[#161b21] text-slate-400 border border-slate-700/50 cursor-not-allowed hover:bg-[#1e252e]'
+                    : isActive
+                    ? 'bg-amber-500 text-slate-950 shadow-md shadow-amber-500/20 ring-1 ring-amber-300 cursor-pointer'
+                    : 'text-slate-300 hover:text-white hover:bg-[#252d37] cursor-pointer'
                 }`}
               >
-                <Icon className={`w-3.5 h-3.5 shrink-0 ${isActive ? 'text-slate-950' : 'text-amber-400'}`} />
+                {isLocked ? (
+                  <Lock className="w-3.5 h-3.5 shrink-0 text-amber-400" />
+                ) : (
+                  <Icon className={`w-3.5 h-3.5 shrink-0 ${isActive ? 'text-slate-950' : 'text-amber-400'}`} />
+                )}
+
                 <span className="truncate">{step.label}</span>
+
                 {isCompleted && (
                   <CheckCircle className={`w-3.5 h-3.5 shrink-0 ${isActive ? 'text-emerald-950 font-extrabold' : 'text-emerald-400'}`} title="Mühürlendi" />
                 )}
@@ -99,11 +139,30 @@ export const Header: React.FC<HeaderProps> = ({ activeTab, setActiveTab, badges,
             )}
           </button>
 
+          {/* Tam Ekran Butonu */}
+          <button
+            onClick={toggleFullscreen}
+            title={isFullscreen ? "Tam Ekrandan Çık" : "Tam Ekran Yap"}
+            className="p-2 text-amber-400 hover:text-amber-300 bg-[#1e242b] hover:bg-[#28323e] rounded-xl transition-colors cursor-pointer border border-[#374354] flex items-center gap-1.5 text-xs font-bold font-cinzel active:scale-95"
+          >
+            {isFullscreen ? (
+              <>
+                <Minimize2 className="w-4 h-4 text-amber-400" />
+                <span className="hidden sm:inline">Küçült</span>
+              </>
+            ) : (
+              <>
+                <Maximize2 className="w-4 h-4 text-amber-400" />
+                <span className="hidden sm:inline">Tam Ekran</span>
+              </>
+            )}
+          </button>
+
           {/* Reset Button */}
           <button
             onClick={onReset}
             title="Etkinliği Sıfırla"
-            className="p-1.5 text-slate-400 hover:text-slate-100 hover:bg-[#1e242b] rounded-lg transition-colors cursor-pointer border border-transparent hover:border-[#3c4756]"
+            className="p-2 text-slate-400 hover:text-slate-100 hover:bg-[#1e242b] rounded-xl transition-colors cursor-pointer border border-transparent hover:border-[#3c4756]"
           >
             <RotateCcw className="w-4 h-4" />
           </button>

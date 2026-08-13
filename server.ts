@@ -30,37 +30,42 @@ app.post('/api/tutor', async (req, res) => {
     if (!ai) {
       // Fallback response if GEMINI_API_KEY is not set
       return res.json({
-        reply: "Tarihçi Asistan: Harika bir soru! 1755 Lizbon depremi (8,3 büyüklük) Aydınlanma felsefesini (Voltaire'in Candide'i ve J.J. Rousseau'nun doğaya dönüş tezini) ile 13 soruluk sismoloji anketini tetiklerken; 1766 İstanbul depremi (7,5 büyüklük, Kurban Bayramı 3. günü) Mimarbaşı Halit Efendi tespiti, Mimar Tahir Ağa ihyası, kâgir fermanına karşılık ahşap ısrarı, 22 akçe ek vergi ve Sultan III. Mustafa'nın devlet kriz yönetimini şekillendirmiştir.",
-        feedback: "Yanıtınız gayet başarılı. Ders kitabındaki idari, toplumsal ve felsefi detayları doğru vurguladınız.",
-        scoreCategory: "Mükemmel Anlayış",
-        tips: ["Tarihsel belgeleri ve 11. sınıf ders kitabı kaynaklarını incelemeye devam edin!"]
+        reply: "Tarihçi Asistan: Harika bir soru! 1755 Lizbon depremi (8,3 büyüklük, Azizler Günü) Voltaire'in Candide'i ve J.J. Rousseau'nun doğaya dönüş tezi ile felsefi tartışmaları tetiklerken; Bakan Pombal'ın 13 soruluk bilimsel anketini ve Gaiola Pombalina kafes yapısını doğurmuştur. 1766 İstanbul depremi (7,5 büyüklük, Kurban Bayramı 3. günü) ise Mimarbaşı Halit Efendi'nin teknik hasar tespiti, Mimar Tahir Ağa'nın Fatih Camii ihyası, kâgir fermanına karşılık halkın ahşap ev ve kâgir yangın duvarı ısrarı, Samatya değirmenleri/fırın önceliği, 22 akçe ek hane vergisi ve Sultan III. Mustafa'nın çadır kriz yönetimiyle şekillenmiştir.",
+        feedback: "Analiziniz 11. Sınıf Tarih ders kitabı ölçütleri açısından gayet başarılıdır. Depremlerin idari, sosyal, mimari ve ekonomik boyutlarını doğru bağdaştırdınız.",
+        scoreCategory: "Vak'anüvis Onayı Kazanıldı",
+        tips: ["Ders kitabındaki birincil arşiv belgelerini ve gravür analizlerini incelemeye devam ediniz!"]
       });
     }
 
     const systemInstruction = `
-Sen 11. Sınıf Tarih Dersi (TAR.11.1.3 öğrenme çıktısı - 11. Sınıf Tarih Ders Kitabı) için tasarlanmış uzman, nazik ve teşvik edici bir Yapay Zeka Tarih Eğitmenisin.
+Sen 11. Sınıf Tarih Dersi (11. Sınıf Tarih Ders Kitabı "depremkitapbilgi.pdf") için tasarlanmış uzman, nazik ve teşvik edici bir Yapay Zeka Tarih Eğitmenisin.
 ÖĞRENCİYE HİTAP EDERKEN HER ZAMAN KİBAR, RESMİ VE ÖĞRETEN 'SİZ' DİLİNİ KULLAN (Örn: "incelediniz", "belirlediniz", "tebrik ederiz", "yazınız").
 Konu: 1755 Lizbon (~8,3 büyüklük) ve 1766 İstanbul (~7,5 büyüklük) Depremlerinin Karşılaştırılması.
 Öğrenme Çıktısı Ölçütleri:
 a) Lizbon ve İstanbul depremlerinin etkilerini belirler.
-b) Etkilerin benzerliklerini listeler (Tsunami - Lizbon'da 45 dk sonra / İstanbul'da Marmara kıyıları, yangınlar, merkezi idare müdahalesi - çadırda ikamet, ahşap karkas sismik mimari - Gaiola Pombalina & Osmanlı Ahşap Çatma).
+b) Etkilerin benzerliklerini listeler:
+  - Tsunami etkisi (Lizbon'da 45 dk sonra Tagus kıyıları & Fas'ta 8m / İstanbul'da Marmara kıyıları).
+  - Yangınlar ve asayiş tedbirleri (Asker/mülki idare görevlendirmesi).
+  - Hükümdar ve devlet adamlarının çadırlarda yaşaması (Kral I. José & Bakan Pombal Bélem'de 9 ay / Sultan III. Mustafa çadırlarda ikamet).
+  - Sismik mimari esneklik (Gaiola Pombalina 3D ahşap kafes & Osmanlı Ahşap Çatma ve kâgir yangın duvarı).
+  - Afet harcamalarının devlet/vakıf bütçesinden karşılanması ve piyasa düzenlemeleri.
 c) Etkilerin farklılıklarını listeler:
-  - Lizbon: Voltaire (Candide, Şiir) ve Jean-Jacques Rousseau (şehirleşme eleştirisi & doğaya dönüş), 13 soruluk bilimsel sismoloji anketi, Eugénio dos Santos & Carlos Mardel 60 feet caddeli grid planı, %4 ithalat bağış kesintisi, 1761 Kraliyet Hazinesi (Tesouraria Real).
-  - İstanbul: Kurban Bayramı 3. günü sabahı, Mimarbaşı Halit Efendi teknik tespiti, Fatih Camii Osmanlı-Barok ihyası (Mimar Tahir Ağa), kâgir yapma fermanına karşılık halkın ahşap ev ısrarı ve kâgir yangın duvarı, her evden 22 akçe ek vergi, II. Bayezid Vakfı 4 yıllık geliri, Şeyhülislam dilenci fetvası, Rum/Ermeni kiliselerine Müslüman usta gönderilmesi, Minas Ceranyan şiiri, yapı hasar oranları (%30 cami, %20 eğitim binası, %15 mirî hizmet binası).
+  - Lizbon: 1 Kasım 1755 Azizler Günü, Voltaire (Candide & Şiir) ve Jean-Jacques Rousseau (şehirleşme eleştirisi & doğaya dönüş), Bakan Pombal'ın 13 soruluk sismoloji anketi, Eugénio dos Santos & Carlos Mardel 60 feet caddeli grid planı ve Ticaret Meydanı, %4 ithalat bağış kesintisi, soylulara vergi, 1761 Kraliyet Hazinesi (Tesouraria Real), gazetelerin Halley kuyruklu yıldızı sansasyonu, salgın hastalığa karşı cesetlerin Tagus'a batırılması, Cizvit eğitimi yerine halka açık yeni müfredat.
+  - İstanbul: 22 Mayıs 1766 Kurban Bayramı 3. günü sabah namazı sonrası, Mimarbaşı Halit Efendi teknik tespiti, Fatih Camii Osmanlı-Barok ihyası (Mimar Tahir Ağa), kâgir yapma fermanına karşılık halkın ahşap ev ısrarı ve kâgir yangın duvarı, Samatya surlarındaki 4 değirmenin yıkılması ve fırın tamir önceliği, karaborsaya karşı narh (tavan fiyat) uygulaması, her evden 22 akçe ek vergi, II. Bayezid Vakfı 4 yıllık geliri, Şeyhülislam dilenci fetvası, Rum/Ermeni kiliselerine Müslüman usta gönderilmesi, Minas Ceranyan şiiri, yapı hasar oranları (%30 cami, %20 eğitim binası, %15 mirî hizmet binası, %10 sur, %10 saray, %5 ticari yapı), 22.000 kese (~11.000.000 kuruş) toplam zarar.
 
 ÖĞRENCİYE ASLA SAYISAL PUAN VEYA NOT VERME. Sadece yapıcı, motive edici, tarihsel mantığı güçlendiren geri dönütler ver.
 Yanıtını JSON formatında döndür:
 {
   "reply": "Öğrenciye doğrudan tarihsel açıklama ve yanıt",
   "feedback": "Öğrencinin cevabı/sorusu hakkında yapıcı değerlendirme",
-  "scoreCategory": "Örn: Tarihçi Mührü Kazanıldı / Harika Analiz / Düşündürücü Soru",
+  "scoreCategory": "Örn: Vak'anüvis Onayı Kazanıldı / Harika Analiz / Düşündürücü Soru",
   "tips": ["1-2 kısa ipucu veya soru"]
 }
 `;
 
     let prompt = "";
     if (mode === "evaluate_synthesis") {
-      prompt = `Öğrenci 1755 Lizbon ve 1766 İstanbul depremlerini karşılaştıran şu paragrafı yazdı:\n\n"${studentResponse}"\n\nLütfen bu cevabı TAR.11.1.3 öğrenme çıktısı ölçütlerine göre değerlendir. Benzerlikler ve farklılıklar doğru kurulmuş mu? Öğrenciyi tebrik et ve eksik veya eklenebilecek tarihsel nüanslar varsa nazikçe hatırlat.`;
+      prompt = `Öğrenci 1755 Lizbon ve 1766 İstanbul depremlerini karşılaştıran şu paragrafı yazdı:\n\n"${studentResponse}"\n\nLütfen bu cevabı ders kitabı öğrenme çıktısı ölçütlerine göre değerlendir. Benzerlikler ve farklılıklar doğru kurulmuş mu? Öğrenciyi tebrik et ve eksik veya eklenebilecek tarihsel nüanslar varsa nazikçe hatırlat.`;
     } else {
       prompt = `Öğrencinin sorusu/mesajı: "${message}"\nKonu Bağlamı: ${context || "Genel Karşılaştırma"}\nLütfen pedagojik, 11. sınıf seviyesine uygun ve ilgi çekici şekilde yanıtla.`;
     }
