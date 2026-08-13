@@ -169,7 +169,7 @@ export const InteractiveMap: React.FC<InteractiveMapProps> = ({ onUnlockBadge, o
             </div>
             <div>
               <h4 className="text-sm sm:text-base font-bold text-emerald-300 font-cinzel">
-                Tebrikler! 1. Bölüm Keşif Mührü Kazanıldı!
+                Tebrikler! 1. Bölüm Mührü Kazanıldı!
               </h4>
               <p className="text-xs text-slate-200 font-medium mt-0.5">
                 Haritadaki 9 sıcak noktanın tamamını incelediniz. <strong>2. Bölüm (Görsel Analiz)</strong> kilitleri açıldı!

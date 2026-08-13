@@ -3,10 +3,10 @@ import { Hotspot, ComparisonCard, Badge, ArchitecturalFeature, StepInstruction }
 export const STEP_INSTRUCTIONS: Record<string, StepInstruction> = {
   map: {
     stepId: 'map',
-    title: 'Keşif Haritası',
+    title: 'Etkileşimli Harita',
     curriculumGoal: '',
-    instructionText: 'Haritadaki odak noktalarına ve şehir sıcak noktalarına tıklayarak depremlerin doğurduğu afet, kriz yönetimi, felsefi ve mimari etkileri yerinde keşfedin.',
-    actionPrompt: 'Harita katmanlarını değiştirin ve tüm sıcak noktalardaki birincil tarihsel kaynakları okuyun.'
+    instructionText: 'Haritadaki odak noktalarına ve şehir sıcak noktalarına tıklayarak depremlerin doğurduğu afet, kriz yönetimi, felsefi ve mimari etkileri yerinde inceleyiniz.',
+    actionPrompt: 'Harita katmanlarını değiştirin ve tüm sıcak noktalardaki birincil tarihsel kaynakları okuyunuz.'
   },
   visual: {
     stepId: 'visual',
@@ -288,7 +288,7 @@ export const ARCHITECTURAL_FEATURES: ArchitecturalFeature[] = [
 export const BADGES: Badge[] = [
   {
     id: 'badge-map',
-    title: 'Keşif',
+    title: 'Harita İncelemesi',
     description: '1755 Lizbon ve 1766 İstanbul haritalarındaki tüm odak ve sıcak noktaları incelediniz.',
     iconName: 'MapPin',
     unlocked: false

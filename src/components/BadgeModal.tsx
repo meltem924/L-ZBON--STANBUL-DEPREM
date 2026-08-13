@@ -39,7 +39,7 @@ export const BadgeModal: React.FC<BadgeModalProps> = ({ isOpen, onClose, badges 
               <Award className="w-4 h-4 text-amber-400" /> Tarihsel Mühür ve Başarım Koleksiyonu
             </div>
             <h3 className="text-xl font-bold text-slate-100 font-cinzel">
-              Keşif Mühürlerin ({unlockedCount}/{badges.length})
+              Kazanılan Mühürler ({unlockedCount}/{badges.length})
             </h3>
           </div>
 

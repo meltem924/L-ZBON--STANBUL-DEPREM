@@ -47,7 +47,7 @@ export const Header: React.FC<HeaderProps> = ({ activeTab, setActiveTab, badges,
       icon: Layers,
       badgeId: 'badge-visual',
       prereqBadgeId: 'badge-map',
-      lockAlert: '🔒 2. Bölüm (Görsel Analiz) kilitlidir!\n\nAçılması için önce 1. Bölümdeki (Etkileşimli Harita) 9 sıcak noktayı inceleyip Keşif Mührünü kazanmalısınız.'
+      lockAlert: '🔒 2. Bölüm (Görsel Analiz) kilitlidir!\n\nAçılması için önce 1. Bölümdeki (Etkileşimli Harita) 9 sıcak noktayı inceleyip Harita Mührünü kazanmalısınız.'
     },
     {
       id: 'matrix' as ActiveTab,
@@ -113,7 +113,6 @@ export const Header: React.FC<HeaderProps> = ({ activeTab, setActiveTab, badges,
           {/* Progress Indicator */}
           <div className="flex items-center gap-2.5 bg-[#1e242b] px-3 py-1.5 rounded-xl border border-[#374354] shadow-inner">
             <div className="text-right">
-              <div className="text-[10px] text-slate-400 font-medium">Tarihsel Keşif</div>
               <div className="text-xs font-bold text-amber-400 flex items-center justify-end gap-1">
                 <span>%{progressPercent}</span>
                 <Sparkles className="w-3 h-3 text-amber-400" />
