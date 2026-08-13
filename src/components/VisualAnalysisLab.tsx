@@ -203,7 +203,7 @@ export const VisualAnalysisLab: React.FC<VisualAnalysisLabProps> = ({ onUnlockBa
           <div className="absolute inset-0 bg-[#12171e] p-3 sm:p-4 flex flex-col justify-between">
             <div className="relative w-full h-full rounded-2xl overflow-hidden border border-[#3d4959] bg-[#0c1015] flex items-center justify-center">
               <img
-                src="/İSTANBULDEPREM4.jpeg"
+                src={`${import.meta.env.BASE_URL}istanbul_deprem4.jpeg`}
                 alt="Görsel 2: 1766 İstanbul Depremi"
                 className="w-full h-full object-contain p-2"
               />
@@ -225,7 +225,7 @@ export const VisualAnalysisLab: React.FC<VisualAnalysisLabProps> = ({ onUnlockBa
               style={{ width: containerWidth ? `${containerWidth - (window.innerWidth >= 640 ? 32 : 24)}px` : '100%' }}
             >
               <img
-                src="/LİZBON.jpeg"
+                src={`${import.meta.env.BASE_URL}lizbon.jpeg`}
                 alt="Görsel 1: 1755 Lizbon Depremi"
                 className="w-full h-full object-contain p-2"
               />

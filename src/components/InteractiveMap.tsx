@@ -50,7 +50,7 @@ export const InteractiveMap: React.FC<InteractiveMapProps> = ({ onUnlockBadge, o
         {/* High Resolution Dual Event Map Background Image */}
         <div className="absolute inset-0 pointer-events-none">
           <img
-            src="/1.OLAY_HARİTA.png"
+            src={`${import.meta.env.BASE_URL}olay_harita.png`}
             alt="1755 Lizbon Tsunami ve 1766 İstanbul Depremi Olay Haritası"
             className="w-full h-full object-cover object-center select-none"
           />
