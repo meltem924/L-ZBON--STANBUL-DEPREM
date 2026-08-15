@@ -55,7 +55,7 @@ export default function App() {
   };
 
   return (
-    <div className="min-h-screen bg-[#1e242b] text-slate-100 selection:bg-sky-600 selection:text-white flex flex-col justify-between relative overflow-hidden">
+    <div className="min-h-screen bg-[#f4f7fa] text-slate-800 selection:bg-amber-500 selection:text-slate-950 flex flex-col justify-between relative overflow-hidden">
 
       {/* Top Bar Header with Embedded Tabs */}
       <Header

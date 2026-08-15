@@ -13,17 +13,17 @@ export const InstructionsBanner: React.FC<InstructionsBannerProps> = ({ activeTa
   if (!currentInfo) return null;
 
   return (
-    <div className="bg-[#28303a] border border-[#3d4959] rounded-2xl p-4 sm:p-5 mb-6 text-slate-100 shadow-md">
+    <div className="bg-white border-2 border-slate-300 rounded-2xl p-4 sm:p-5 mb-6 text-slate-800 shadow-xs border-l-[6px] border-l-amber-500">
       <div className="space-y-1.5">
         {currentInfo.curriculumGoal && (
-          <div className="inline-flex items-center gap-1.5 bg-amber-500/20 text-amber-300 text-[11px] font-bold px-2.5 py-0.5 rounded-full border border-amber-500/40 font-mono mb-1">
+          <div className="inline-flex items-center gap-1.5 bg-amber-50 text-amber-900 text-[11px] font-bold px-3 py-0.5 rounded-full border-2 border-amber-300 font-mono mb-1">
             🎯 {currentInfo.curriculumGoal}
           </div>
         )}
-        <h2 className="text-lg font-bold text-slate-100 font-cinzel flex items-center gap-2 tracking-wide">
+        <h2 className="text-lg font-bold text-slate-900 font-cinzel flex items-center gap-2 tracking-wide">
           <span>{currentInfo.title}</span>
         </h2>
-        <p className="text-sm text-slate-300 leading-relaxed font-medium">
+        <p className="text-sm text-slate-600 leading-relaxed font-medium">
           {currentInfo.instructionText}
         </p>
       </div>

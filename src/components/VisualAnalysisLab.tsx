@@ -192,23 +192,23 @@ export const VisualAnalysisLab: React.FC<VisualAnalysisLabProps> = ({ onUnlockBa
     <div className="space-y-8">
       
       {/* 1. SECTION: COMPARATIVE VISUAL SLIDER */}
-      <div className="bg-[#28303a] border border-[#3d4959] rounded-3xl p-6 shadow-md space-y-4">
+      <div className="bg-white border-2 border-slate-300 rounded-3xl p-6 shadow-sm space-y-4">
 
         {/* Visual Split Canvas Stage Card */}
         <div
           ref={containerRef}
-          className="relative h-[540px] sm:h-[620px] rounded-3xl overflow-hidden border border-[#3d4959] select-none shadow-2xl bg-[#12171e]"
+          className="relative h-[540px] sm:h-[620px] rounded-3xl overflow-hidden border-2 border-slate-300 select-none shadow-md bg-slate-900"
         >
           {/* Base Layer: Right Image (1766 Istanbul Earthquake) */}
-          <div className="absolute inset-0 bg-[#12171e] p-3 sm:p-4 flex flex-col justify-between">
-            <div className="relative w-full h-full rounded-2xl overflow-hidden border border-[#3d4959] bg-[#0c1015] flex items-center justify-center">
+          <div className="absolute inset-0 bg-slate-900 p-3 sm:p-4 flex flex-col justify-between">
+            <div className="relative w-full h-full rounded-2xl overflow-hidden border-2 border-slate-700 bg-slate-950 flex items-center justify-center">
               <img
                 src={`${import.meta.env.BASE_URL}istanbul_deprem4.jpeg`}
                 alt="Görsel 2: 1766 İstanbul Depremi"
                 className="w-full h-full object-contain p-2"
               />
               <div className="absolute top-4 right-4 z-10 pointer-events-none">
-                <span className="bg-orange-600/90 backdrop-blur-md text-white border border-orange-400/60 px-3.5 py-1.5 rounded-full text-xs font-bold font-cinzel shadow-xl">
+                <span className="bg-orange-600/95 backdrop-blur-md text-white border border-orange-400/60 px-3.5 py-1.5 rounded-full text-xs font-bold font-cinzel shadow-lg">
                   Görsel 2: 1766 İstanbul Depremi
                 </span>
               </div>
@@ -217,11 +217,11 @@ export const VisualAnalysisLab: React.FC<VisualAnalysisLabProps> = ({ onUnlockBa
 
           {/* Overlapping Left Layer: Left Image (1755 Lisbon Earthquake Tsunami) */}
           <div
-            className="absolute inset-y-0 left-0 bg-[#12171e] overflow-hidden border-r-4 border-amber-400 shadow-2xl z-10 p-3 sm:p-4"
+            className="absolute inset-y-0 left-0 bg-slate-900 overflow-hidden border-r-4 border-amber-400 shadow-2xl z-10 p-3 sm:p-4"
             style={{ width: `${sliderPosition}%` }}
           >
             <div
-              className="relative h-full flex items-center justify-center rounded-2xl overflow-hidden border border-[#3d4959] bg-[#0c1015]"
+              className="relative h-full flex items-center justify-center rounded-2xl overflow-hidden border-2 border-slate-700 bg-slate-950"
               style={{ width: containerWidth ? `${containerWidth - (window.innerWidth >= 640 ? 32 : 24)}px` : '100%' }}
             >
               <img
@@ -230,7 +230,7 @@ export const VisualAnalysisLab: React.FC<VisualAnalysisLabProps> = ({ onUnlockBa
                 className="w-full h-full object-contain p-2"
               />
               <div className="absolute top-4 left-4 z-10 pointer-events-none">
-                <span className="bg-sky-600/90 backdrop-blur-md text-white border border-sky-400/60 px-3.5 py-1.5 rounded-full text-xs font-bold font-cinzel shadow-xl">
+                <span className="bg-sky-600/95 backdrop-blur-md text-white border border-sky-400/60 px-3.5 py-1.5 rounded-full text-xs font-bold font-cinzel shadow-lg">
                   Görsel 1: 1755 Lizbon Depremi
                 </span>
               </div>
@@ -252,7 +252,7 @@ export const VisualAnalysisLab: React.FC<VisualAnalysisLabProps> = ({ onUnlockBa
             className="absolute top-0 bottom-0 w-1 bg-amber-400 z-20 pointer-events-none flex items-center justify-center"
             style={{ left: `${sliderPosition}%` }}
           >
-            <div className="w-11 h-11 rounded-full bg-amber-500 text-slate-950 flex items-center justify-center font-bold text-xs shadow-2xl border-2 border-slate-900 cursor-ew-resize">
+            <div className="w-11 h-11 rounded-full bg-amber-500 text-slate-950 flex items-center justify-center font-bold text-xs shadow-xl border-2 border-slate-900 cursor-ew-resize">
               <ChevronLeft className="w-5 h-5 inline shrink-0" />
               <ChevronRight className="w-5 h-5 inline shrink-0" />
             </div>
@@ -261,19 +261,19 @@ export const VisualAnalysisLab: React.FC<VisualAnalysisLabProps> = ({ onUnlockBa
       </div>
 
       {/* 2. SECTION: INTERACTIVE MATCHING LAB (Eşleştirme & Anlık Dönüt Laboratuvarı) */}
-      <div className="bg-[#28303a] border border-[#3d4959] rounded-3xl p-6 shadow-md space-y-6">
+      <div className="bg-white border-2 border-slate-300 rounded-3xl p-6 shadow-sm space-y-6">
         
         {/* Header with Progress Bar */}
-        <div className="border-b border-[#3d4959] pb-5 space-y-3">
+        <div className="border-b border-slate-300 pb-5 space-y-3">
           <div className="flex items-center justify-end gap-3">
-            <div className="bg-[#1e242b] px-3.5 py-1.5 rounded-xl border border-[#3d4959] text-xs font-bold font-mono text-amber-400">
+            <div className="bg-slate-100 px-3.5 py-1.5 rounded-xl border border-slate-300 text-xs font-bold font-mono text-amber-800">
               {completedCount} / 4
             </div>
           </div>
 
           {/* Prominent & Explanatory Instruction Box */}
-          <div className="bg-[#1a2330] border-l-4 border-amber-400 p-4 rounded-2xl text-xs sm:text-sm text-slate-200 leading-relaxed font-medium shadow-md">
-            <span className="font-bold text-amber-400 block mb-1 font-cinzel text-xs uppercase tracking-wider">
+          <div className="bg-amber-50/80 border-l-4 border-amber-500 p-4 rounded-2xl text-xs sm:text-sm text-slate-800 leading-relaxed font-medium shadow-none border-t border-b border-r border-amber-300">
+            <span className="font-bold text-amber-900 block mb-1 font-cinzel text-xs uppercase tracking-wider">
               📌 Eşleştirme Yönergesi:
             </span>
             Aşağıda verilen 1755 Lizbon ve 1766 İstanbul depremlerine ait vaka metinlerini okuyunuz. Metindeki konunun hangi <strong>boyuta</strong> (Sosyal, İdari, Mimari veya Ekonomik) ait olduğunu ve durumun iki imparatorluk arasında bir <strong>Benzerlik</strong> mi yoksa <strong>Farklılık</strong> mı gösterdiğini seçerek eşleştirmeyi kontrol ediniz.
@@ -284,36 +284,36 @@ export const VisualAnalysisLab: React.FC<VisualAnalysisLabProps> = ({ onUnlockBa
         {(() => {
           const task = matchingTasks[currentTaskIndex] || matchingTasks[0];
           return (
-            <div key={task.id} className="bg-[#181f28] border-2 border-[#3d4959] rounded-3xl p-5 sm:p-7 space-y-6 shadow-2xl">
+            <div key={task.id} className="bg-slate-50 border-2 border-slate-300 rounded-3xl p-5 sm:p-7 space-y-6 shadow-xs">
               {/* 1. TOP SECTION: HISTORICAL EVENT READOUT CARDS */}
               <div className="space-y-3">
                 <div className="flex items-center justify-between px-1">
-                  <span className="text-xs font-bold tracking-wider text-amber-400 font-cinzel">
+                  <span className="text-xs font-bold tracking-wider text-amber-900 font-cinzel">
                     Vaka {currentTaskIndex + 1} / {matchingTasks.length}
                   </span>
                 </div>
 
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
                   {/* Lisbon Event Card */}
-                  <div className="relative overflow-hidden bg-gradient-to-br from-sky-950/80 via-[#111f33] to-[#0d131c] border-2 border-sky-500/50 rounded-2xl p-5 space-y-3 shadow-lg shadow-sky-950/40">
-                    <div className="border-b border-sky-500/30 pb-2">
-                      <span className="text-xs font-bold text-sky-300 font-cinzel tracking-wide block">
+                  <div className="relative overflow-hidden bg-gradient-to-br from-sky-50 via-white to-sky-50/50 border-2 border-sky-400 rounded-2xl p-5 space-y-3 shadow-xs">
+                    <div className="border-b border-sky-300 pb-2">
+                      <span className="text-xs font-bold text-sky-900 font-cinzel tracking-wide block">
                         1755 Lizbon Etkisi
                       </span>
                     </div>
-                    <p className="text-xs sm:text-sm text-slate-200 leading-relaxed font-medium">
+                    <p className="text-xs sm:text-sm text-slate-800 leading-relaxed font-medium">
                       {task.lisbonContent}
                     </p>
                   </div>
 
                   {/* Istanbul Event Card */}
-                  <div className="relative overflow-hidden bg-gradient-to-br from-amber-950/80 via-[#271d17] to-[#0d131c] border-2 border-amber-500/50 rounded-2xl p-5 space-y-3 shadow-lg shadow-amber-950/40">
-                    <div className="border-b border-amber-500/30 pb-2">
-                      <span className="text-xs font-bold text-amber-300 font-cinzel tracking-wide block">
+                  <div className="relative overflow-hidden bg-gradient-to-br from-amber-50 via-white to-amber-50/50 border-2 border-amber-400 rounded-2xl p-5 space-y-3 shadow-xs">
+                    <div className="border-b border-amber-300 pb-2">
+                      <span className="text-xs font-bold text-amber-900 font-cinzel tracking-wide block">
                         1766 İstanbul Etkisi
                       </span>
                     </div>
-                    <p className="text-xs sm:text-sm text-slate-200 leading-relaxed font-medium">
+                    <p className="text-xs sm:text-sm text-slate-800 leading-relaxed font-medium">
                       {task.istanbulContent}
                     </p>
                   </div>
@@ -321,15 +321,15 @@ export const VisualAnalysisLab: React.FC<VisualAnalysisLabProps> = ({ onUnlockBa
               </div>
 
               {/* 2. BOTTOM SECTION: INTERACTIVE MATCHING QUESTIONS PANEL */}
-              <div className="bg-[#111720] border-2 border-slate-700/90 p-5 sm:p-6 rounded-2xl space-y-6 shadow-inner">
+              <div className="bg-white border-2 border-slate-300 p-5 sm:p-6 rounded-2xl space-y-6 shadow-xs">
 
                 {/* Step 1: Dimension Selection */}
                 <div className="space-y-3">
                   <div className="flex items-center gap-2">
-                    <span className="w-6 h-6 rounded-full bg-amber-500 text-slate-950 flex items-center justify-center font-bold text-xs font-mono shadow-md">
+                    <span className="w-6 h-6 rounded-full bg-amber-500 text-slate-950 flex items-center justify-center font-bold text-xs font-mono shadow-sm">
                       1
                     </span>
-                    <label className="text-xs sm:text-sm font-bold text-slate-100 block">
+                    <label className="text-xs sm:text-sm font-bold text-slate-900 block">
                       Yukarıdaki tarihsel olaylar ve durumlar hangi boyuta aittir?
                     </label>
                   </div>
@@ -341,10 +341,10 @@ export const VisualAnalysisLab: React.FC<VisualAnalysisLabProps> = ({ onUnlockBa
                         <button
                           key={dim.id}
                           onClick={() => setSelectedDimensions({ ...selectedDimensions, [task.id]: dim.id as any })}
-                          className={`p-3.5 rounded-xl border-2 text-xs font-bold transition-all cursor-pointer text-center flex flex-col items-center justify-center gap-1.5 shadow-md ${
+                          className={`p-3.5 rounded-xl border-2 text-xs font-bold transition-all cursor-pointer text-center flex flex-col items-center justify-center gap-1.5 shadow-xs ${
                             isSelected
-                              ? 'bg-gradient-to-r from-amber-500 to-amber-400 text-slate-950 border-amber-300 ring-2 ring-amber-400/50 scale-[1.02]'
-                              : 'bg-[#1a222d] border-slate-700 text-slate-200 hover:bg-[#222c3b] hover:border-amber-400/60'
+                              ? 'bg-gradient-to-r from-amber-500 to-amber-400 text-slate-950 border-amber-500 ring-2 ring-amber-400/50 scale-[1.02] shadow-sm'
+                              : 'bg-slate-50 border-slate-300 text-slate-700 hover:bg-slate-100 hover:border-amber-400'
                           }`}
                         >
                           <span>{dim.label}</span>
@@ -355,30 +355,30 @@ export const VisualAnalysisLab: React.FC<VisualAnalysisLabProps> = ({ onUnlockBa
                 </div>
 
                 {/* Step 2: Similarity or Difference Tag Selection */}
-                <div className="space-y-3 pt-4 border-t border-slate-800">
+                <div className="space-y-3 pt-4 border-t border-slate-300">
                   <div className="flex items-center gap-2">
-                    <span className="w-6 h-6 rounded-full bg-sky-500 text-slate-950 flex items-center justify-center font-bold text-xs font-mono shadow-md">
+                    <span className="w-6 h-6 rounded-full bg-sky-600 text-white flex items-center justify-center font-bold text-xs font-mono shadow-sm">
                       2
                     </span>
-                    <label className="text-xs sm:text-sm font-bold text-slate-100 block">
+                    <label className="text-xs sm:text-sm font-bold text-slate-900 block">
                       Bu durum bir farklılık mıdır yoksa benzerlik mi?
                     </label>
                   </div>
 
                   <div className="grid grid-cols-2 gap-3.5">
                     {[
-                      { id: 'farklilik', label: 'FARKLILIK', activeClass: 'bg-gradient-to-r from-sky-500 to-sky-400 text-slate-950 border-sky-300 ring-2 ring-sky-400/50 scale-[1.02]' },
-                      { id: 'benzerlik', label: 'BENZERLİK', activeClass: 'bg-gradient-to-r from-amber-500 to-amber-400 text-slate-950 border-amber-300 ring-2 ring-amber-400/50 scale-[1.02]' }
+                      { id: 'farklilik', label: 'FARKLILIK', activeClass: 'bg-gradient-to-r from-sky-500 to-sky-400 text-slate-950 border-sky-400 ring-2 ring-sky-400/50 scale-[1.02] shadow-sm' },
+                      { id: 'benzerlik', label: 'BENZERLİK', activeClass: 'bg-gradient-to-r from-amber-500 to-amber-400 text-slate-950 border-amber-400 ring-2 ring-amber-400/50 scale-[1.02] shadow-sm' }
                     ].map(type => {
                       const isSelected = selectedTypes[task.id] === type.id;
                       return (
                         <button
                           key={type.id}
                           onClick={() => setSelectedTypes({ ...selectedTypes, [task.id]: type.id as any })}
-                          className={`p-3.5 rounded-xl border-2 text-xs font-bold transition-all cursor-pointer text-center shadow-md ${
+                          className={`p-3.5 rounded-xl border-2 text-xs font-bold transition-all cursor-pointer text-center shadow-xs ${
                             isSelected
                               ? type.activeClass
-                              : 'bg-[#1a222d] border-slate-700 text-slate-200 hover:bg-[#222c3b] hover:border-slate-500'
+                              : 'bg-slate-50 border-slate-300 text-slate-700 hover:bg-slate-100 hover:border-slate-400'
                           }`}
                         >
                           {type.label}
@@ -389,10 +389,10 @@ export const VisualAnalysisLab: React.FC<VisualAnalysisLabProps> = ({ onUnlockBa
                 </div>
 
                 {/* Action Button */}
-                <div className="pt-3 flex justify-center border-t border-slate-800">
+                <div className="pt-3 flex justify-center border-t border-slate-300">
                   <button
                     onClick={() => handleCheckMatching(task.id)}
-                    className="w-full sm:w-auto bg-gradient-to-r from-amber-500 to-amber-400 hover:from-amber-400 hover:to-amber-300 text-slate-950 font-bold px-7 py-3 rounded-xl transition-all shadow-xl font-cinzel text-xs flex items-center justify-center gap-2 cursor-pointer scale-[1.01] active:scale-[0.99]"
+                    className="w-full sm:w-auto bg-gradient-to-r from-amber-500 to-amber-400 hover:from-amber-400 hover:to-amber-300 text-slate-950 font-bold px-7 py-3 rounded-xl transition-all shadow-md border border-amber-500 font-cinzel text-xs flex items-center justify-center gap-2 cursor-pointer scale-[1.01] active:scale-[0.99]"
                   >
                     EŞLEŞTİRMEYİ KONTROL ET & DÖNÜTÜ GÖR
                   </button>
@@ -401,8 +401,8 @@ export const VisualAnalysisLab: React.FC<VisualAnalysisLabProps> = ({ onUnlockBa
 
               {/* IMMEDIATE EDUCATIONAL FEEDBACK DISPLAY */}
               {feedbackStates[task.id] === 'success' && (
-                <div className="bg-emerald-950/80 border-2 border-emerald-500 p-4 rounded-2xl animate-fadeIn">
-                  <p className="text-xs text-emerald-200 leading-relaxed font-medium">
+                <div className="bg-emerald-50 border-2 border-emerald-500 p-4 rounded-2xl animate-fadeIn">
+                  <p className="text-xs text-emerald-950 leading-relaxed font-medium">
                     {task.feedbackMessage}
                   </p>
                 </div>
@@ -410,21 +410,21 @@ export const VisualAnalysisLab: React.FC<VisualAnalysisLabProps> = ({ onUnlockBa
 
               {feedbackStates[task.id] === 'error' && (
                 (attemptCounts[task.id] || 0) >= 2 ? (
-                  <div className="bg-amber-950/90 border-2 border-amber-400 p-4.5 rounded-2xl space-y-2 animate-fadeIn shadow-xl">
-                    <div className="flex items-center gap-2 text-amber-300 font-bold text-xs uppercase tracking-wider font-cinzel">
-                      <Sparkles className="w-4 h-4 text-amber-400 shrink-0" />
+                  <div className="bg-amber-50/95 border-2 border-amber-500 p-4.5 rounded-2xl space-y-2 animate-fadeIn shadow-sm">
+                    <div className="flex items-center gap-2 text-amber-900 font-bold text-xs uppercase tracking-wider font-cinzel">
+                      <Sparkles className="w-4 h-4 text-amber-600 shrink-0" />
                       <span>Rehber İpucu (2. Deneme):</span>
                     </div>
-                    <p className="text-xs sm:text-sm text-amber-100 leading-relaxed font-medium">
+                    <p className="text-xs sm:text-sm text-amber-950 leading-relaxed font-medium">
                       {task.strongHintMessage}
                     </p>
                   </div>
                 ) : (
-                  <div className="bg-rose-950/80 border-2 border-rose-500/80 p-4 rounded-2xl space-y-2 animate-fadeIn">
-                    <div className="flex items-center gap-2 text-rose-400 font-bold text-xs uppercase tracking-wider font-cinzel">
+                  <div className="bg-rose-50 border-2 border-rose-500 p-4 rounded-2xl space-y-2 animate-fadeIn">
+                    <div className="flex items-center gap-2 text-rose-800 font-bold text-xs uppercase tracking-wider font-cinzel">
                       Geri Dönüt:
                     </div>
-                    <p className="text-xs text-rose-200 leading-relaxed font-medium">
+                    <p className="text-xs text-rose-950 leading-relaxed font-medium">
                       {task.hintMessage}
                     </p>
                   </div>
@@ -432,11 +432,11 @@ export const VisualAnalysisLab: React.FC<VisualAnalysisLabProps> = ({ onUnlockBa
               )}
 
               {/* Sequential Bottom Navigation */}
-              <div className="flex items-center justify-between pt-3 border-t border-[#3d4959]">
+              <div className="flex items-center justify-between pt-3 border-t border-slate-300">
                 <button
                   onClick={() => setCurrentTaskIndex(prev => Math.max(0, prev - 1))}
                   disabled={currentTaskIndex === 0}
-                  className="px-4 py-2 rounded-xl text-xs font-bold bg-[#161c23] border border-[#3d4959] text-slate-300 hover:text-white disabled:opacity-30 disabled:cursor-not-allowed transition-all flex items-center gap-1.5 cursor-pointer font-cinzel"
+                  className="px-4 py-2 rounded-xl text-xs font-bold bg-white border-2 border-slate-300 text-slate-700 hover:text-slate-900 hover:bg-slate-50 disabled:opacity-30 disabled:cursor-not-allowed transition-all flex items-center gap-1.5 cursor-pointer font-cinzel"
                 >
                   <ChevronLeft className="w-4 h-4" /> Önceki
                 </button>
@@ -453,8 +453,8 @@ export const VisualAnalysisLab: React.FC<VisualAnalysisLabProps> = ({ onUnlockBa
                   disabled={!matchedTasks[task.id] || currentTaskIndex === matchingTasks.length - 1}
                   className={`px-5 py-2.5 rounded-xl text-xs font-bold transition-all flex items-center gap-2 font-cinzel ${
                     matchedTasks[task.id] && currentTaskIndex < matchingTasks.length - 1
-                      ? 'bg-amber-500 hover:bg-amber-400 text-slate-950 cursor-pointer shadow-md shadow-amber-500/20 active:scale-95'
-                      : 'bg-[#161c23] border border-slate-700 text-slate-500 opacity-60 cursor-not-allowed'
+                      ? 'bg-amber-500 hover:bg-amber-400 text-slate-950 cursor-pointer shadow-sm shadow-amber-500/20 active:scale-95 border border-amber-500'
+                      : 'bg-slate-100 border border-slate-300 text-slate-400 opacity-60 cursor-not-allowed'
                   }`}
                   title={!matchedTasks[task.id] ? 'Mevcut soruyu doğru yanıtladıktan sonra açılır' : ''}
                 >
@@ -462,7 +462,7 @@ export const VisualAnalysisLab: React.FC<VisualAnalysisLabProps> = ({ onUnlockBa
                   {matchedTasks[task.id] ? (
                     <ChevronRight className="w-4 h-4 text-slate-950" />
                   ) : (
-                    <Lock className="w-3.5 h-3.5 text-amber-500/70" />
+                    <Lock className="w-3.5 h-3.5 text-amber-600/70" />
                   )}
                 </button>
               </div>
@@ -475,16 +475,16 @@ export const VisualAnalysisLab: React.FC<VisualAnalysisLabProps> = ({ onUnlockBa
 
       {/* 2. Bölüm Tamamlama & 3. Bölüm Kilidi Açılma Bildirimi */}
       {completedCount >= matchingTasks.length && (
-        <div className="bg-gradient-to-r from-[#172e27] via-[#1a382e] to-[#172e27] border-2 border-emerald-500/70 p-5 rounded-3xl flex flex-col sm:flex-row items-center justify-between gap-4 shadow-xl animate-fadeIn">
+        <div className="bg-emerald-50 border-2 border-emerald-400 p-5 rounded-3xl flex flex-col sm:flex-row items-center justify-between gap-4 shadow-sm animate-fadeIn">
           <div className="flex items-center gap-3.5">
-            <div className="p-3 bg-emerald-500 text-slate-950 rounded-2xl shadow-md shrink-0">
+            <div className="p-3 bg-emerald-600 text-white rounded-2xl shadow-sm shrink-0">
               <Layers className="w-6 h-6" />
             </div>
             <div>
-              <h4 className="text-sm sm:text-base font-bold text-emerald-300 font-cinzel">
+              <h4 className="text-sm sm:text-base font-bold text-emerald-950 font-cinzel">
                 Tebrikler! 2. Bölüm Analiz Mührü Kazanıldı!
               </h4>
-              <p className="text-xs text-slate-200 font-medium mt-0.5">
+              <p className="text-xs text-emerald-800 font-medium mt-0.5">
                 4 vaka analizinin tamamını doğru eşleştirdiniz. <strong>3. Bölüm (Karşılaştırma)</strong> kilitleri açıldı!
               </p>
             </div>
@@ -493,10 +493,10 @@ export const VisualAnalysisLab: React.FC<VisualAnalysisLabProps> = ({ onUnlockBa
           {onNavigateNext && (
             <button
               onClick={onNavigateNext}
-              className="bg-emerald-400 hover:bg-emerald-300 text-slate-950 font-extrabold px-6 py-3 rounded-2xl transition-all text-xs cursor-pointer shadow-lg shrink-0 flex items-center gap-2 font-cinzel tracking-wide"
+              className="bg-emerald-600 hover:bg-emerald-500 text-white font-extrabold px-6 py-3 rounded-2xl transition-all text-xs cursor-pointer shadow-md shrink-0 flex items-center gap-2 font-cinzel tracking-wide active:scale-95"
             >
               <span>3. Bölüm'e Geç (Karşılaştırma)</span>
-              <ChevronRight className="w-4 h-4 text-slate-950" />
+              <ChevronRight className="w-4 h-4 text-white" />
             </button>
           )}
         </div>

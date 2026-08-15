@@ -3,8 +3,8 @@
 @layer base {
   body {
     font-family: 'Plus Jakarta Sans', system-ui, -apple-system, sans-serif;
-    background-color: #1e242b;
-    color: #f1f5f9;
+    background-color: #f4f7fa;
+    color: #1e293b;
   }
 
   h1, h2, h3, .font-serif-hist {
@@ -12,7 +12,7 @@
   }
 }
 
-/* Mid-tone Theme & Card Utility Tokens */
+/* Font Family Utility Tokens */
 .font-cinzel {
   font-family: 'Cinzel', serif;
 }
@@ -21,37 +21,37 @@
   font-family: 'Playfair Display', serif;
 }
 
-/* Eye-soothing Mid-tone Card styles */
-.bg-mid-base {
-  background-color: #1e242b;
+/* Soft Modern Card Utility Tokens */
+.bg-soft-base {
+  background-color: #f4f7fa;
 }
 
-.bg-mid-card {
-  background-color: #2a323d;
-  border: 1px solid #3c4756;
-  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.18);
+.bg-soft-card {
+  background-color: #ffffff;
+  border: 2px solid #cbd5e1;
+  box-shadow: 0 4px 16px rgba(15, 23, 42, 0.05);
 }
 
-.bg-mid-card-hover:hover {
-  background-color: #313b48;
-  border-color: #4a586c;
+.bg-soft-card-hover:hover {
+  background-color: #f8fafc;
+  border-color: #64748b;
 }
 
-/* Custom Scrollbar for mid-tone theme */
+/* Custom Scrollbar for Soft Light Theme */
 ::-webkit-scrollbar {
   width: 8px;
   height: 8px;
 }
 
 ::-webkit-scrollbar-track {
-  background: #181d23;
+  background: #eef2f6;
 }
 
 ::-webkit-scrollbar-thumb {
-  background: #3b4656;
+  background: #cbd5e1;
   border-radius: 4px;
 }
 
 ::-webkit-scrollbar-thumb:hover {
-  background: #0284c7;
+  background: #94a3b8;
 }
