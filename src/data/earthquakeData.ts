@@ -50,7 +50,7 @@ export const HOTSPOTS: Hotspot[] = [
     y: 22,
     category: 'philosophy',
     shortDesc: 'Devrilen mumların başlattığı yangın, Carmo Manastırı yıkımı, Voltaire ve J.J. Rousseau.',
-    fullDesc: 'Yangın ve Yıkım: Halk kiliselerdeyken devrilen mumlar büyük yangın çıkardı. Kiliseler ve Carmo Manastırı dâhil şehrin %85’i yıkıldı.\nFelsefi Tartışma: Voltaire, Candide ve Lizbon Felaketi Şiiri ile kilisenin dinsel optimizmini eleştirdi. Rousseau ise felaketin aşırı şehirleşmeden kaynaklandığını belirtip doğaya dönülmesi gerektiğini savundu.\nEğitim Reformu: Cizvit eğitimi yerine tüm halka hitap eden yeni bir eğitim modeli ve müfredat oluşturuldu.',
+    fullDesc: 'Yangın ve Yıkım: Halk kiliselerdeyken devrilen mumlar büyük yangın çıkardı. Kiliseler ve Carmo Manastırı dâhil şehrin %85’i yıkıldı.\nFelsefi Tartışma: Voltaire, Candide ve Lizbon Felaketi Şiiri ile kilisenin dinsel iyimserlik anlayışını eleştirdi. Rousseau ise felaketin aşırı şehirleşmeden kaynaklandığını belirtip doğaya dönülmesi gerektiğini savundu.\nEğitim Reformu: Cizvit eğitimi yerine tüm halka hitap eden yeni bir eğitim modeli ve müfredat oluşturuldu.',
     primaryQuote: {
       author: 'Voltaire ve J.J. Rousseau (1756)',
       text: 'Voltaire dinsel iyimserliği sorgularken; Rousseau, felaketin sorumlusunun doğa değil binaları üst üste yığan insan yaşamı olduğunu savundu.',
@@ -178,11 +178,11 @@ export const COMPARISON_CARDS: ComparisonCard[] = [
   // 3 LISBON CARDS
   {
     id: 'card-1',
-    text: 'Afetin ardından Leibnizci dinsel optimizm (iyimserlik) felsefesinin sertçe sorgulanması, Kilise anlayışına karşı eleştirel şiirler ve romanlar kaleme alınması.',
+    text: 'Afetin ardından Leibnizci dinsel iyimserlik felsefesinin sertçe sorgulanması, Kilise anlayışına karşı eleştirel şiirler ve romanlar kaleme alınması.',
     correctZone: 'lisbon',
     category: 'Aydınlanma / Felsefe',
-    explanation: 'Voltaire "Candide" ve felaket şiiriyle Leibnizci dinsel optimizmi eleştirmiş, Kilise anlayışıyla Batı Aydınlanması arasında inanç tartışması başlamıştır.',
-    hint: 'Dinsel optimizmin ve kilisenin sorgulanması Voltaire ile Lizbon depremi sürecinde yaşanmıştır.'
+    explanation: 'Voltaire "Candide" ve felaket şiiriyle Leibnizci dinsel iyimserliği eleştirmiş, Kilise anlayışıyla Batı Aydınlanması arasında inanç tartışması başlamıştır.',
+    hint: 'Dinsel iyimserliğin ve kilisenin sorgulanması Voltaire ile Lizbon depremi sürecinde yaşanmıştır.'
   },
   {
     id: 'card-2',
