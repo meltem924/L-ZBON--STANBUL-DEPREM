@@ -62,7 +62,7 @@ export const HOTSPOTS: Hotspot[] = [
     id: 'lisbon-palace',
     title: 'Kral I. José, Bakan Pombal ve 13 Anket Sorusu',
     city: 'lisbon',
-    x: 28,
+    x: 34,
     y: 29,
     category: 'administration',
     shortDesc: 'Kral I. José ve Pombal’ın 9 ay çadırda yaşaması, 12 bölge lideri ve 13 anket sorusu.',

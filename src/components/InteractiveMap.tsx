@@ -44,45 +44,46 @@ export const InteractiveMap: React.FC<InteractiveMapProps> = ({ onUnlockBadge, o
   return (
     <div className="space-y-6">
 
-      {/* Interactive Map Visual Stage Card */}
-      <div className="relative bg-slate-900 border-2 border-amber-300/80 rounded-3xl overflow-hidden shadow-lg min-h-[540px] flex flex-col justify-between p-3 sm:p-5">
+      {/* Region Overview Cards (Side by side on desktop, stacked on mobile) */}
+      <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
+        {/* Left Region Card: Lizbon */}
+        <div className="bg-sky-50/95 border-2 border-sky-300 p-3 sm:p-3.5 rounded-2xl shadow-xs">
+          <div className="flex items-center gap-2 text-sky-900 font-bold text-xs uppercase tracking-wide font-cinzel">
+            <Waves className="w-4 h-4 text-sky-600 shrink-0" />
+            <span>1755 Lizbon Tsunami Odağı</span>
+          </div>
+          <div className="text-[11px] sm:text-xs text-slate-700 mt-1 font-medium leading-relaxed">
+            Atlantik tabanlı kırılma (~8,3 büyüklük), 45 dk sonra dev tsunami ve 6 günlük yangın felaketi.
+          </div>
+        </div>
+
+        {/* Right Region Card: İstanbul */}
+        <div className="bg-orange-50/95 border-2 border-orange-300 p-3 sm:p-3.5 rounded-2xl shadow-xs">
+          <div className="flex items-center gap-2 text-orange-900 font-bold text-xs uppercase tracking-wide font-cinzel">
+            <Building2 className="w-4 h-4 text-orange-600 shrink-0" />
+            <span>1766 İstanbul Deprem Odağı</span>
+          </div>
+          <div className="text-[11px] sm:text-xs text-slate-700 mt-1 font-medium leading-relaxed">
+            Marmara fayı kırılması (~7,5 büyüklük, Kurban Bayramı 3. günü), Fatih Camii yıkımı ve kriz yönetimi.
+          </div>
+        </div>
+      </div>
+
+      {/* Interactive Map Visual Stage Card (Strict Aspect Ratio 1293/672 matching original image) */}
+      <div className="relative w-full aspect-[1293/672] bg-slate-950 border-2 border-amber-400/80 rounded-2xl sm:rounded-3xl overflow-hidden shadow-xl select-none">
         
         {/* High Resolution Dual Event Map Background Image */}
-        <div className="absolute inset-0 pointer-events-none">
-          <img
-            src={`${import.meta.env.BASE_URL}olay_harita.png`}
-            alt="1755 Lizbon Tsunami ve 1766 İstanbul Depremi Olay Haritası"
-            className="w-full h-full object-cover object-center select-none"
-          />
-          {/* Subtle dark gradient overlay to make pins and text popping readable */}
-          <div className="absolute inset-0 bg-gradient-to-t from-slate-950/70 via-slate-950/20 to-slate-950/50" />
-        </div>
+        <img
+          src={`${import.meta.env.BASE_URL}olay_harita.png`}
+          alt="1755 Lizbon Tsunami ve 1766 İstanbul Depremi Olay Haritası"
+          className="absolute inset-0 w-full h-full object-fill pointer-events-none select-none"
+        />
+        
+        {/* Subtle dark gradient overlay to make pins popping readable */}
+        <div className="absolute inset-0 bg-gradient-to-t from-slate-950/40 via-transparent to-slate-950/20 pointer-events-none" />
 
-        {/* Region Headers Overlay */}
-        <div className="relative z-10 flex justify-between items-start pointer-events-none mb-4 gap-2">
-          {/* Left Region Header: Lizbon */}
-          <div className="bg-white/95 border-2 border-sky-400 backdrop-blur-md p-3 rounded-2xl max-w-[260px] sm:max-w-xs shadow-md">
-            <div className="flex items-center gap-2 text-sky-800 font-bold text-xs uppercase tracking-wide font-cinzel">
-              <span>1755 Lizbon Tsunami Odağı</span>
-            </div>
-            <div className="text-[11px] text-slate-700 mt-1 font-medium leading-tight">
-              Atlantik tabanlı kırılma (~8,3 büyüklük), 45 dk sonra dev tsunami ve 6 günlük yangın felaketi.
-            </div>
-          </div>
-
-          {/* Right Region Header: İstanbul */}
-          <div className="bg-white/95 border-2 border-orange-400 backdrop-blur-md p-3 rounded-2xl max-w-[260px] sm:max-w-xs shadow-md">
-            <div className="flex items-center gap-2 text-orange-800 font-bold text-xs uppercase tracking-wide font-cinzel">
-              <span>1766 İstanbul Deprem Odağı</span>
-            </div>
-            <div className="text-[11px] text-slate-700 mt-1 font-medium leading-tight">
-              Marmara fayı kırılması (~7,5 büyüklük, Kurban Bayramı 3. günü), Fatih Camii yıkımı ve kriz yönetimi.
-            </div>
-          </div>
-        </div>
-
-        {/* Hotspot Pins on Map */}
-        <div className="relative z-20 min-h-[350px]">
+        {/* Hotspot Pins on Map - Exact 1:1 mathematical coordinate layer */}
+        <div className="absolute inset-0 z-20">
           {filteredHotspots.map((hotspot) => {
             const isVisited = visitedHotspotIds.includes(hotspot.id);
             const isSelected = selectedHotspot?.id === hotspot.id;
@@ -92,12 +93,12 @@ export const InteractiveMap: React.FC<InteractiveMapProps> = ({ onUnlockBadge, o
             const shortLabelMap: Record<string, string> = {
               'lisbon-epicenter': 'Atlantik',
               'lisbon-cathedral': 'Katedral',
-              'lisbon-palace': 'Kraliyet Sarayı',
+              'lisbon-palace': 'Saray',
               'lisbon-baixa': 'Baixa Planı',
               'istanbul-marmara': 'Marmara Fayı',
               'istanbul-fatih': 'Fatih Camii',
               'istanbul-housing': 'Ahşap Evler',
-              'istanbul-topkapi': 'Topkapı Sarayı',
+              'istanbul-topkapi': 'Topkapı',
               'istanbul-bazaar': 'Kapalıçarşı'
             };
             const pinLabel = shortLabelMap[hotspot.id] || hotspot.title;
@@ -111,17 +112,17 @@ export const InteractiveMap: React.FC<InteractiveMapProps> = ({ onUnlockBadge, o
                 {/* Slow Gentle Radar Ring Pulse (3s duration, low opacity) */}
                 <div
                   style={{ animationDuration: '3.2s' }}
-                  className={`absolute -inset-2 rounded-full animate-ping opacity-30 pointer-events-none ${
+                  className={`absolute -inset-1 sm:-inset-2 rounded-full animate-ping opacity-30 pointer-events-none ${
                     isLisbon ? 'bg-sky-400' : 'bg-orange-400'
                   }`}
                 />
 
-                {/* Pin Button */}
+                {/* Scaled Responsive Pin Button */}
                 <button
                   onClick={() => handleSelectHotspot(hotspot)}
-                  className={`relative flex items-center gap-1.5 px-2.5 py-1 rounded-full border-2 shadow-xl transition-all duration-200 cursor-pointer ${
+                  className={`relative flex items-center gap-1 sm:gap-1.5 px-1.5 py-0.5 sm:px-2.5 sm:py-1 rounded-full border sm:border-2 shadow-md sm:shadow-xl transition-all duration-200 cursor-pointer ${
                     isSelected
-                      ? 'scale-115 ring-4 ring-amber-400 bg-amber-500 text-slate-950 font-extrabold border-amber-200 z-40'
+                      ? 'scale-110 sm:scale-115 ring-2 sm:ring-4 ring-amber-400 bg-amber-500 text-slate-950 font-extrabold border-amber-200 z-40'
                       : isVisited
                       ? 'bg-emerald-700 text-white border-emerald-300 hover:bg-emerald-600 shadow-emerald-950/40'
                       : isLisbon
@@ -129,27 +130,27 @@ export const InteractiveMap: React.FC<InteractiveMapProps> = ({ onUnlockBadge, o
                       : 'bg-[#ea580c] text-white border-orange-200 hover:bg-orange-500 shadow-orange-950/50'
                   }`}
                 >
-                  <MapPin className="w-3 h-3 text-white shrink-0" />
+                  <MapPin className="w-2.5 h-2.5 sm:w-3 sm:h-3 text-white shrink-0" />
                   
-                  {/* Compact Short Label */}
-                  <span className="text-[11px] font-bold font-cinzel whitespace-nowrap tracking-tight">
+                  {/* Proportional Scaled Label */}
+                  <span className="text-[8px] sm:text-[10px] md:text-xs font-bold font-cinzel whitespace-nowrap tracking-tight">
                     {pinLabel}
                   </span>
 
                   {isVisited && (
-                    <span className="w-1.5 h-1.5 rounded-full bg-emerald-300 shrink-0" title="İncelendi" />
+                    <span className="w-1 h-1 sm:w-1.5 sm:h-1.5 rounded-full bg-emerald-300 shrink-0" title="İncelendi" />
                   )}
                 </button>
 
                 {/* Hover Tooltip Card */}
-                <div className="absolute bottom-full left-1/2 -translate-x-1/2 mb-2 hidden group-hover:block z-50 bg-white border-2 border-amber-500 text-slate-800 text-xs p-3 rounded-2xl whitespace-nowrap shadow-2xl pointer-events-none min-w-[200px]">
-                  <div className="flex items-center gap-1.5 mb-1 text-amber-900 font-bold text-xs uppercase tracking-wider font-cinzel">
-                    <MapPin className="w-3.5 h-3.5 text-amber-600" /> {hotspot.title}
+                <div className="absolute bottom-full left-1/2 -translate-x-1/2 mb-1.5 sm:mb-2 hidden group-hover:block z-50 bg-white border-2 border-amber-500 text-slate-800 text-xs p-2.5 sm:p-3 rounded-2xl whitespace-nowrap shadow-2xl pointer-events-none min-w-[180px] sm:min-w-[200px]">
+                  <div className="flex items-center gap-1.5 mb-1 text-amber-900 font-bold text-[11px] sm:text-xs uppercase tracking-wider font-cinzel">
+                    <MapPin className="w-3 h-3 text-amber-600" /> {hotspot.title}
                   </div>
-                  <div className="text-[11px] text-slate-700 max-w-[220px] whitespace-normal leading-relaxed font-medium">
+                  <div className="text-[10px] sm:text-[11px] text-slate-700 max-w-[200px] sm:max-w-[220px] whitespace-normal leading-relaxed font-medium">
                     {hotspot.shortDesc}
                   </div>
-                  <div className="mt-2 text-[10px] text-emerald-700 font-bold font-mono">
+                  <div className="mt-1.5 text-[9px] sm:text-[10px] text-emerald-700 font-bold font-mono">
                     {isVisited ? '✓ İncelendi' : '👉 İncelemek için tıklayın'}
                   </div>
                 </div>
