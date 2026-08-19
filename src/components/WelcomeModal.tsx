@@ -10,7 +10,7 @@ export const WelcomeModal: React.FC<WelcomeModalProps> = ({ isOpen, onClose }) =
   if (!isOpen) return null;
 
   return (
-    <div className="fixed inset-0 z-50 bg-slate-900/60 backdrop-blur-sm flex items-center justify-center p-4 sm:p-6 overflow-y-auto">
+    <div className="fixed inset-0 z-[100] bg-slate-900/60 backdrop-blur-sm flex items-center justify-center p-4 sm:p-6 overflow-y-auto">
       <div className="bg-white border-2 border-amber-400/80 rounded-3xl max-w-2xl w-full p-8 sm:p-10 md:p-12 shadow-2xl space-y-8 relative text-slate-800 animate-fadeIn text-center">
 
         {/* Module Header Badge & Title */}
