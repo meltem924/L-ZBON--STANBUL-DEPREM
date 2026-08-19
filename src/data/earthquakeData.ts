@@ -164,7 +164,7 @@ export const HOTSPOTS: Hotspot[] = [
     y: 32,
     category: 'architecture',
     shortDesc: 'Kâgir fermanına karşılık halkın ahşap ev ısrarı, kâgir yangın duvarı ve Samatya fırın önceliği.',
-    fullDesc: 'Kâgir Fermanı ve Ahşap Israrı: Devlet binaların kâgir (taş/tuğla) yapılmasını emretti; ancak halk hızlı ve ucuz barınmak için ahşap evde ısrar etti.\nYangın Duvarı: Ahşap evlerin arasına yangın sıçramasını önlemek için kâgir yangın duvarı (kulaklı duvar) şart koşuldu.\nDeğirmen Krizi: Samatya’da surlara bitişik 4 değirmenin yıkılması üzerine buğday çürüme tehlikesi doğdu; fırınların tamirine ilk öncelik verildi.',
+    fullDesc: 'Kâgir Fermanı ve Ahşap Israrı: Devlet binaların kâgir (taş/tuğla) yapılmasını emretti; ancak halk hızlı ve ucuz barınmak için ahşap evde ısrar etti.\nYangın Duvarı: Ahşap evlerin arasına yangın sıçramasını önlemek için kâgir yangın duvarı (kulaklı duvar) şart koşuldu.\nDeğirmen Krizi: Samatya’da surlara bitişik 4 değirmenin yıkılması üzerine buğday çürüme tehlikesi doğdu; öncelik fırınların tamirine verildi.',
     primaryQuote: {
       author: 'İmar Nizamı (1766)',
       text: 'Ahşap evlerin arasına yangın sirayetini önlemek üzere kâgir duvarlar çekilecek; fırınların tamirine diğer binalardan öncelik tanınacaktır.',
