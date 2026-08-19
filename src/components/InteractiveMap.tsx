@@ -151,7 +151,7 @@ export const InteractiveMap: React.FC<InteractiveMapProps> = ({ onUnlockBadge, o
                     {hotspot.shortDesc}
                   </div>
                   <div className="mt-1.5 text-[9px] sm:text-[10px] text-emerald-700 font-bold font-mono">
-                    {isVisited ? '✓ İncelendi' : '👉 İncelemek için tıklayın'}
+                    {isVisited ? '✓ İncelendi' : 'İncelemek için tıklayınız'}
                   </div>
                 </div>
               </div>

@@ -23,16 +23,9 @@
         }
     }
 
-    // Konsol loglama aracı
+    // Konsol loglama aracı (Sessiz mod)
     function logScorm(message, type = 'info') {
-        // MEBİS ortamı aktifse ve durum hata değilse konsol logu yazdırılmaz (Sessiz Çalışma)
-        if (isMebiPresent() && type !== 'error') {
-            return;
-        }
-        console.log(`%c[MEBİS] %c${message}`, 
-            `color: ${type === 'error' ? '#ef4444' : type === 'success' ? '#10b981' : '#6366f1'}; font-weight: bold;`, 
-            'color: inherit;'
-        );
+        // Konsol logları devre dışı bırakıldı
     }
 
     const SCORM = {
