@@ -44,16 +44,16 @@ export const Header: React.FC<HeaderProps> = ({ activeTab, setActiveTab, badges,
       label: 'Görsel Analiz ve Eşleştirme',
       icon: Layers,
       badgeId: 'badge-visual',
-      prereqBadgeId: null,
-      lockAlert: ''
+      prereqBadgeId: 'badge-map',
+      lockAlert: '🔒 2. Bölüm (Görsel Analiz ve Eşleştirme) kilitlidir!\n\nAçılması için önce 1. Bölümdeki (Etkileşimli Harita) 9 noktayı incelemelisiniz.'
     },
     {
       id: 'matrix' as ActiveTab,
       label: 'Karşılaştırma',
       icon: LayoutGrid,
       badgeId: 'badge-matrix',
-      prereqBadgeId: null,
-      lockAlert: ''
+      prereqBadgeId: 'badge-visual',
+      lockAlert: '🔒 3. Bölüm (Karşılaştırma) kilitlidir!\n\nAçılması için önce 2. Bölümdeki (Görsel Analiz ve Eşleştirme) 4 vakayı başarıyla tamamlamalısınız.'
     }
   ];
 
@@ -70,9 +70,13 @@ export const Header: React.FC<HeaderProps> = ({ activeTab, setActiveTab, badges,
               const Icon = step.icon;
               const isActive = activeTab === step.id;
               const isCompleted = isBadgeUnlocked(step.badgeId);
-              const isLocked = false;
+              const isLocked = step.prereqBadgeId ? !isBadgeUnlocked(step.prereqBadgeId) : false;
 
               const handleTabClick = () => {
+                if (isLocked) {
+                  alert(step.lockAlert);
+                  return;
+                }
                 setActiveTab(step.id);
               };
 

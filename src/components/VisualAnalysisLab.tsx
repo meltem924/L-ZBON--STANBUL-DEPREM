@@ -463,16 +463,28 @@ export const VisualAnalysisLab: React.FC<VisualAnalysisLabProps> = ({ onUnlockBa
                 </button>
 
                 <button
-                  onClick={() => setCurrentTaskIndex(prev => Math.min(matchingTasks.length - 1, prev + 1))}
-                  disabled={currentTaskIndex === matchingTasks.length - 1}
+                  onClick={() => {
+                    const isTaskDone = matchedTasks[task.id] === true;
+                    if (!isTaskDone) {
+                      alert('Sonraki vakaya geçebilmek için lütfen mevcut vakanın eşleştirmesini doğru yaparak gönderiniz!');
+                      return;
+                    }
+                    setCurrentTaskIndex(prev => Math.min(matchingTasks.length - 1, prev + 1));
+                  }}
+                  disabled={!matchedTasks[task.id] || currentTaskIndex === matchingTasks.length - 1}
                   className={`px-5 py-2.5 rounded-xl text-xs font-bold transition-all flex items-center gap-2 font-cinzel ${
-                    currentTaskIndex < matchingTasks.length - 1
+                    matchedTasks[task.id] && currentTaskIndex < matchingTasks.length - 1
                       ? 'bg-amber-500 hover:bg-amber-400 text-slate-950 cursor-pointer shadow-sm shadow-amber-500/20 active:scale-95 border border-amber-500'
                       : 'bg-slate-100 border border-slate-300 text-slate-400 opacity-60 cursor-not-allowed'
                   }`}
+                  title={!matchedTasks[task.id] ? 'Mevcut soruyu doğru yanıtladıktan sonra açılır' : ''}
                 >
                   <span>Sonraki</span>
-                  <ChevronRight className="w-4 h-4" />
+                  {matchedTasks[task.id] ? (
+                    <ChevronRight className="w-4 h-4 text-slate-950" />
+                  ) : (
+                    <Lock className="w-3.5 h-3.5 text-amber-600/70" />
+                  )}
                 </button>
               </div>
 

@@ -171,7 +171,7 @@ export const InteractiveMap: React.FC<InteractiveMapProps> = ({ onUnlockBadge, o
                 Tebrikler! 1. Bölüm Başarıyla Tamamlandı!
               </h4>
               <p className="text-xs text-emerald-800 font-medium mt-0.5">
-                Haritadaki 9 sıcak noktanın tamamını incelediniz. <strong>2. Bölüm (Görsel Analiz)</strong> kilidi açıldı!
+                Haritadaki 9 sıcak noktanın tamamını incelediniz. <strong>2. Bölüm (Görsel Analiz ve Eşleştirme)</strong> açıldı!
               </p>
             </div>
           </div>
@@ -179,9 +179,9 @@ export const InteractiveMap: React.FC<InteractiveMapProps> = ({ onUnlockBadge, o
           {onNavigateNext && (
             <button
               onClick={onNavigateNext}
-              className="bg-emerald-600 hover:bg-emerald-500 text-white font-extrabold px-6 py-3 rounded-2xl transition-all text-xs cursor-pointer shadow-md shrink-0 flex items-center gap-2 font-cinzel tracking-wide active:scale-95"
+              className="bg-amber-500 hover:bg-amber-400 text-slate-950 font-bold px-4 py-2 rounded-xl text-xs flex items-center gap-2 transition-all cursor-pointer font-cinzel border border-amber-600 shrink-0"
             >
-              <span>2. Bölüm'e Geç (Görsel Analiz)</span>
+              <span>2. Bölüm'e Geç (Görsel Analiz ve Eşleştirme)</span>
               <ChevronRight className="w-4 h-4 text-white" />
             </button>
           )}
