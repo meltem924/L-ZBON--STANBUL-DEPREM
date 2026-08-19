@@ -1,5 +1,5 @@
 import React from 'react';
-import { ArrowRight, Compass } from 'lucide-react';
+import { ArrowRight } from 'lucide-react';
 
 interface WelcomeModalProps {
   isOpen: boolean;
@@ -15,9 +15,6 @@ export const WelcomeModal: React.FC<WelcomeModalProps> = ({ isOpen, onClose }) =
 
         {/* Module Header Badge & Title */}
         <div className="space-y-3">
-          <div className="inline-flex p-3.5 bg-amber-50 text-amber-700 border-2 border-amber-300 rounded-2xl shadow-xs mx-auto mb-2">
-            <Compass className="w-8 h-8 text-amber-600" />
-          </div>
           <h2 className="font-extrabold font-cinzel leading-tight space-y-2">
             <span className="block text-2xl sm:text-3xl md:text-4xl text-amber-700 tracking-wider font-black">
               Sarsılan Başkentler

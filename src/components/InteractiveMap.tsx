@@ -256,9 +256,6 @@ export const InteractiveMap: React.FC<InteractiveMapProps> = ({ onUnlockBadge, o
             {/* Primary Quote if available */}
             {selectedHotspot.primaryQuote && (
               <div className="bg-amber-50/90 border-2 border-amber-400 border-l-[6px] border-l-amber-500 p-4.5 rounded-2xl space-y-2 text-amber-950 shadow-xs">
-                <div className="flex items-center gap-2 text-amber-900 font-bold text-xs uppercase tracking-wider font-cinzel">
-                  <span>Dönemin Birincil Tarihsel Kaynağı</span>
-                </div>
                 <blockquote className="text-sm italic text-amber-950 font-serif leading-relaxed">
                   "{selectedHotspot.primaryQuote.text}"
                 </blockquote>

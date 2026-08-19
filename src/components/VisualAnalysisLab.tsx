@@ -22,48 +22,48 @@ interface MatchingTask {
 const MATCHING_TASKS: MatchingTask[] = [
   {
     id: 'task-1',
-    title: 'Vaka 1: Toplumsal Hayat & Basın-İaşet Basısı',
+    title: 'Vaka 1: Toplumsal Hayat ve Basın-İaşet Basısı',
     lisbonContent: 'Basının ticari kaygılarla sansasyonel bir dil kullanıp gazetelerde 1757/1758 yıllarında geçmesi beklenen Halley kuyruklu yıldızının felakete yol açacağına dair dehşet haberleri yayımlaması; %85’i yıkılan kentte halkın inanç krizine düşmesi.',
     istanbulContent: 'Fırın ve değirmenlerin (Samatya’da surlara bitişik 4 değirmenin) yıkılmasıyla buğdayın çürüme tehlikesi geçirmesi, fırın tamirine öncelik verilmesi, yapılmazsa satılması emredilmesi ve yardım dağıtımında kadın ve çocuklara öncelik tanınması.',
     correctDimension: 'social',
     correctType: 'farklilik',
-    dimensionTitle: 'Sosyal & Düşünsel Boyut',
+    dimensionTitle: 'Sosyal ve Düşünsel Boyut',
     feedbackMessage: 'Tebrikler! Lizbon felaketi basının Halley kuyruklu yıldızı sansasyonu ve halkta inanç krizi yaratmasıyla öne çıkarken; İstanbul kriz yönetimi fırın/değirmen iaşe önlemleri ile kadın ve çocuklara sosyal yardım önceliği sunduğu için bu durum Sosyal bir FARKLILIK’tır.',
     hintMessage: 'İpucu: Bu içerikte gazetelerdeki Halley kuyruklu yıldızı haberleri, inanç tartışmaları, Samatya değirmenleri ve yardım dağıtımında kadın ve çocuk önceliği var. Metni dikkatle inceleyiniz.',
     strongHintMessage: '💡 Cevaba Yönelik Rehber İpucu: Gazetelerdeki kuyruklu yıldız haberleri, halkın yaşadığı inanç sarsıntısı, değirmenlerin bozulması ve kadın/çocuklara yardım önceliği toplumsal hayatı ve zihniyeti ilgilendirir. İki başkentte farklı durumlar yaşandığı için doğru seçenek: SOSYAL boyut ve FARKLILIK\'tır.'
   },
   {
     id: 'task-2',
-    title: 'Vaka 2: Asayiş, Sağlık & Adli Kurumlar',
+    title: 'Vaka 2: Asayiş, Sağlık ve Adli Kurumlar',
     lisbonContent: 'Salgın hastalık tehlikesine karşı vefat edenlerin Kilise izniyle dinî tören yapılmadan Tagus Nehri’ne batırılması, yağma ve hırsızlığın idamla cezalandırılması, geçici adli birimler kurulup arşiv kayıtlarının yenilenmesi.',
     istanbulContent: 'Zarar gören mahkeme binalarının boşaltılarak geçici adli birimler oluşturulmasıyla hukuk işlerinin devamlılığının sağlanması; yıkılan medreseler yerine müderrislerin geçici ders halkaları kurması.',
     correctDimension: 'administration',
     correctType: 'benzerlik',
-    dimensionTitle: 'İdari & Kriz Yönetimi',
+    dimensionTitle: 'İdari ve Kriz Yönetimi',
     feedbackMessage: 'Tebrikler! Her iki imparatorluk başkenti de adalet mekanizmasını aksatmamak için geçici adli birimler kurduğu ve krizde asayiş/kamu düzenini sağladığı için bu olay İdari bir BENZERLİK’tir.',
     hintMessage: 'İpucu: Bu içerikte geçici adli birimlerin kurulması, arşiv kayıtlarının yenilenmesi, mahkeme binalarının taşınması ve idari asayiş tedbirleri yer alıyor.',
     strongHintMessage: '💡 Cevaba Yönelik Rehber İpucu: Geçici adli birimlerin kurulması, arşiv kayıtlarının yenilenmesi ve mahkeme binalarının taşınması hukuk idaresi ve devlet yönetimiyle ilgilidir. Her iki devlet de adalet mekanizmasını kesintisiz işlettiği için doğru seçenek: İDARİ boyut ve BENZERLİK\'tir.'
   },
   {
     id: 'task-3',
-    title: 'Vaka 3: İmar Planlaması & Yapı Hasar Sınıfları',
+    title: 'Vaka 3: İmar Planlaması ve Yapı Hasar Sınıfları',
     lisbonContent: 'Rossio ile rıhtım arasının düzleştirilip dik batı yamaçlarının azaltılması; demir, ahşap bağlantı, kiremit ve seramik parçaların önceden standart üretilmesi ve su kıyısına büyük Ticaret Meydanı yapılması.',
     istanbulContent: 'Depremde hasar gören yapıların işlevlerine göre sınıflandırılmasında %30 Cami, %20 Eğitim Binası, %15 Mirî Hizmet Binası (Devlet binası) tespiti yapılması ve ahşap evlerin arasına kâgir yangın duvarları örülmesi.',
     correctDimension: 'architecture',
     correctType: 'farklilik',
-    dimensionTitle: 'Mimari & İmar Boyutu',
+    dimensionTitle: 'Mimari ve İmar Boyutu',
     feedbackMessage: 'Tebrikler! Lizbon ızgara plan (grid) ve standart önceden üretilmiş yapı elemanlarıyla Ticaret Meydanı etrafında inşa edilirken; İstanbul %30 cami, %20 eğitim, %15 mirî bina tespiti ve kâgir yangın duvarlarıyla (kulaklı duvar) imar edildiği için bu durum Mimari bir FARKLILIK’tır.',
     hintMessage: 'İpucu: Bu vaka Lizbon’un arazi düzleştirme ve standart üretim teknikleri ile İstanbul’un işlevsel yapı hasar sınıflarını (cami, eğitim, mirî bina) karşılaştırıyor.',
     strongHintMessage: '💡 Cevaba Yönelik Rehber İpucu: Izgara şehir planı, standart üretim malzemeleri ile binaların işlevlerine göre hasar tespiti (%30 cami, %20 medrese vb.) ve kâgir yangın duvarları şehir mimarisiyle ilgilidir. İki kentin imar yaklaşımları farklı olduğu için doğru seçenek: MİMARİ boyut ve FARKLILIK\'tır.'
   },
   {
     id: 'task-4',
-    title: 'Vaka 4: Piyasa Müdahalesi & Hazine Desteği',
+    title: 'Vaka 4: Piyasa Müdahalesi ve Hazine Desteği',
     lisbonContent: 'Sömürge ticareti ağlarının sekteye uğraması sonrası Brezilya, Hindistan ve Afrika’ya savaş gemileri sevk edilerek ticaretin güvenli olduğu mesajının verilmesi, vergilerin askıya alınması ve kamu harcamalarının bütçeden karşılanması.',
     istanbulContent: 'İnşaat sektöründe ve gıdada fiyat artışlarını önlemek amacıyla narh (tavan fiyat) uygulaması getirilmesi, Sultan II. Bayezid Vakfı’nın 4 yıllık gelirinin ayrılması ve imar masraflarının kamusal kaynaklarla karşılanması.',
     correctDimension: 'economic',
     correctType: 'benzerlik',
-    dimensionTitle: 'Ekonomik & Mali Boyut',
+    dimensionTitle: 'Ekonomik ve Mali Boyut',
     feedbackMessage: 'Tebrikler! Her iki devlet de piyasa istikrarını ve kamu kaynaklarını seferber ederek afet harcamalarını bütçe, vakıf ve devlet imkânlarıyla karşıladığı için bu durum Ekonomik bir BENZERLİK’tir.',
     hintMessage: 'İpucu: Bu içerikte narh uygulaması, savaş gemileriyle ticari güven tazelenmesi, vakıf gelirlerinin ayrılması ve kamu harcamalarının bütçeden karşılanması ele alınıyor.',
     strongHintMessage: '💡 Cevaba Yönelik Rehber İpucu: Ticaret gemileriyle güven verilmesi, fiyat artışlarına karşı narh (tavan fiyat) konulması, vakıf ve devlet hazinesi desteği finans ve bütçe idaresiyle ilgilidir. Her iki devlet de piyasaya müdahale ettiği için doğru seçenek: EKONOMİK boyut ve BENZERLİK\'tir.'
@@ -81,10 +81,10 @@ function shuffleArray<T>(array: T[]): T[] {
 }
 
 const DIMENSION_OPTIONS = [
-  { id: 'social', label: 'Sosyal & Düşünsel' },
-  { id: 'administration', label: 'İdari & Kriz' },
-  { id: 'architecture', label: 'Mimari & İmar' },
-  { id: 'economic', label: 'Ekonomik & Mali' }
+  { id: 'social', label: 'Sosyal ve Düşünsel' },
+  { id: 'administration', label: 'İdari ve Kriz' },
+  { id: 'architecture', label: 'Mimari ve İmar' },
+  { id: 'economic', label: 'Ekonomik ve Mali' }
 ];
 
 export const VisualAnalysisLab: React.FC<VisualAnalysisLabProps> = ({ onUnlockBadge, onNavigateNext }) => {
@@ -394,7 +394,7 @@ export const VisualAnalysisLab: React.FC<VisualAnalysisLabProps> = ({ onUnlockBa
                     onClick={() => handleCheckMatching(task.id)}
                     className="w-full sm:w-auto bg-gradient-to-r from-amber-500 to-amber-400 hover:from-amber-400 hover:to-amber-300 text-slate-950 font-bold px-7 py-3 rounded-xl transition-all shadow-md border border-amber-500 font-cinzel text-xs flex items-center justify-center gap-2 cursor-pointer scale-[1.01] active:scale-[0.99]"
                   >
-                    EŞLEŞTİRMEYİ KONTROL ET & DÖNÜTÜ GÖR
+                    EŞLEŞTİRMEYİ KONTROL ET VE DÖNÜTÜ GÖR
                   </button>
                 </div>
               </div>

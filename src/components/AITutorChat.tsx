@@ -177,7 +177,7 @@ export const AITutorChat: React.FC<AITutorChatProps> = ({ onUnlockBadge }) => {
             className="w-full bg-amber-500 hover:bg-amber-400 disabled:opacity-50 text-slate-950 font-bold py-3.5 px-6 rounded-2xl transition-all shadow-md flex items-center justify-center gap-2 text-sm cursor-pointer font-cinzel border border-amber-300/40"
           >
             <Sparkles className="w-4 h-4" />
-            <span>{loading ? 'Tarihçi Asistan İncelemekte...' : 'Tarihçi Değerlendirmesi Al & Mühür Kazan'}</span>
+            <span>{loading ? 'Tarihçi Asistan İncelemekte...' : 'Tarihçi Değerlendirmesi Al ve Mühür Kazan'}</span>
           </button>
 
           {synthesisSubmitted && (
@@ -199,7 +199,7 @@ export const AITutorChat: React.FC<AITutorChatProps> = ({ onUnlockBadge }) => {
             </div>
             <div>
               <h4 className="font-bold text-slate-100 text-sm font-cinzel">Vak'anüvis (Yapay Zeka Tarih Rehberi)</h4>
-              <span className="text-[11px] text-emerald-400 font-semibold font-mono">● Dönem Analizi & Etkileşimli Destek</span>
+              <span className="text-[11px] text-emerald-400 font-semibold font-mono">● Dönem Analizi ve Etkileşimli Destek</span>
             </div>
           </div>
         </div>

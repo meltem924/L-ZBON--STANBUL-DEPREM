@@ -28,13 +28,13 @@ export const HOTSPOTS: Hotspot[] = [
   // LISBON HOTSPOTS (Positioned accurately on left half of 1.OLAY_HARİTA.png)
   {
     id: 'lisbon-epicenter',
-    title: 'Atlantik Okyanusu Merkez Üssü & Tsunami',
+    title: 'Atlantik Okyanusu Merkez Üssü ve Tsunami',
     city: 'lisbon',
     x: 14,
     y: 74,
     category: 'destruction',
     shortDesc: '1 Kasım 1755 sabahı ~8,3 büyüklüğünde deprem ve 45 dk sonra gelen tsunami.',
-    fullDesc: 'Tarih & Şiddet: 1 Kasım 1755 Azizler Günü sabahı 8,3 büyüklüğünde deprem meydana geldi.\nTsunami Etkisi: Sarsıntıdan 45 dakika sonra Atlas Okyanusu’nda oluşan tsunami, Tagus Nehri kıyılarını ve Fas sahillerini (8 metre) vurdu. Mermer Cais de Pedra Rıhtımı sular altında kaldı.\nCan Kaybı: Kıyılara kaçan yaklaşık 20 bin kişi tsunami nedeniyle hayatını kaybetti. Toplam kayıp 10-100 bin kişi arası olup Avrupa’nın en büyük doğal afetidir.',
+    fullDesc: 'Tarih ve Şiddet: 1 Kasım 1755 Azizler Günü sabahı 8,3 büyüklüğünde deprem meydana geldi.\nTsunami Etkisi: Sarsıntıdan 45 dakika sonra Atlas Okyanusu’nda oluşan tsunami, Tagus Nehri kıyılarını ve Fas sahillerini (8 metre) vurdu. Mermer Cais de Pedra Rıhtımı sular altında kaldı.\nCan Kaybı: Kıyılara kaçan yaklaşık 20 bin kişi tsunami nedeniyle hayatını kaybetti. Toplam kayıp 10-100 bin kişi arası olup Avrupa’nın en büyük doğal afetidir.',
     primaryQuote: {
       author: 'Rahip Charles Davy (1755)',
       text: 'Deniz geliyor, hepimiz yok olacağız! Tagus’taki sular çekilmişti... Saat 10.10 sularında tsunami vurdu, limanı yerle bir etti. Zenginler ve yoksullar şu anda aynı durumda.',
@@ -44,7 +44,7 @@ export const HOTSPOTS: Hotspot[] = [
   },
   {
     id: 'lisbon-cathedral',
-    title: 'Carmo Manastırı & Düşünsel Sarsıntı',
+    title: 'Carmo Manastırı ve Düşünsel Sarsıntı',
     city: 'lisbon',
     x: 22,
     y: 22,
@@ -52,7 +52,7 @@ export const HOTSPOTS: Hotspot[] = [
     shortDesc: 'Devrilen mumların başlattığı yangın, Carmo Manastırı yıkımı, Voltaire ve J.J. Rousseau.',
     fullDesc: 'Yangın ve Yıkım: Halk kiliselerdeyken devrilen mumlar büyük yangın çıkardı. Kiliseler ve Carmo Manastırı dâhil şehrin %85’i yıkıldı.\nFelsefi Tartışma: Voltaire, Candide ve Lizbon Felaketi Şiiri ile kilisenin dinsel optimizmini eleştirdi. Rousseau ise felaketin aşırı şehirleşmeden kaynaklandığını belirtip doğaya dönülmesi gerektiğini savundu.\nEğitim Reformu: Cizvit eğitimi yerine tüm halka hitap eden yeni bir eğitim modeli ve müfredat oluşturuldu.',
     primaryQuote: {
-      author: 'Voltaire & J.J. Rousseau (1756)',
+      author: 'Voltaire ve J.J. Rousseau (1756)',
       text: 'Voltaire dinsel iyimserliği sorgularken; Rousseau, felaketin sorumlusunun doğa değil binaları üst üste yığan insan yaşamı olduğunu savundu.',
       source: 'Felsefi Tartışma Metinleri'
     },
@@ -60,7 +60,7 @@ export const HOTSPOTS: Hotspot[] = [
   },
   {
     id: 'lisbon-palace',
-    title: 'Kral I. José, Bakan Pombal & 13 Anket Sorusu',
+    title: 'Kral I. José, Bakan Pombal ve 13 Anket Sorusu',
     city: 'lisbon',
     x: 28,
     y: 29,
@@ -76,7 +76,7 @@ export const HOTSPOTS: Hotspot[] = [
   },
   {
     id: 'lisbon-baixa',
-    title: 'Baixa Pombalina & Ahşap Kafes (Gaiola)',
+    title: 'Baixa Pombalina ve Ahşap Kafes (Gaiola)',
     city: 'lisbon',
     x: 17,
     y: 29,
@@ -94,7 +94,7 @@ export const HOTSPOTS: Hotspot[] = [
   // ISTANBUL HOTSPOTS (Positioned accurately on right half of 1.OLAY_HARİTA.png)
   {
     id: 'istanbul-marmara',
-    title: 'Marmara Denizi Merkez Üssü & Şiirsel Ağıt',
+    title: 'Marmara Denizi Merkez Üssü ve Şiirsel Ağıt',
     city: 'istanbul',
     x: 58,
     y: 67,
@@ -110,7 +110,7 @@ export const HOTSPOTS: Hotspot[] = [
   },
   {
     id: 'istanbul-fatih',
-    title: 'Fatih Camii Re-inşası & Mimarbaşı Halit Efendi',
+    title: 'Fatih Camii Re-inşası ve Mimarbaşı Halit Efendi',
     city: 'istanbul',
     x: 67,
     y: 35,
@@ -126,7 +126,7 @@ export const HOTSPOTS: Hotspot[] = [
   },
   {
     id: 'istanbul-bazaar',
-    title: 'Kapalıçarşı & Yapı Hasar Dağılım Oranları',
+    title: 'Kapalıçarşı ve Yapı Hasar Dağılım Oranları',
     city: 'istanbul',
     x: 73,
     y: 42,
@@ -142,7 +142,7 @@ export const HOTSPOTS: Hotspot[] = [
   },
   {
     id: 'istanbul-topkapi',
-    title: 'Sultan III. Mustafa & İdari Görevlendirmeler',
+    title: 'Sultan III. Mustafa ve İdari Görevlendirmeler',
     city: 'istanbul',
     x: 75,
     y: 50,
@@ -158,7 +158,7 @@ export const HOTSPOTS: Hotspot[] = [
   },
   {
     id: 'istanbul-housing',
-    title: 'Kâgir Fermanı, Ahşap Israrı & Samatya Değirmenleri',
+    title: 'Kâgir Fermanı, Ahşap Israrı ve Samatya Değirmenleri',
     city: 'istanbul',
     x: 84,
     y: 32,
@@ -271,7 +271,7 @@ export const ARCHITECTURAL_FEATURES: ArchitecturalFeature[] = [
   },
   {
     id: 'osmanli-1',
-    title: 'Osmanlı Kâgir Fermanı & Halkın Ahşap Israrı',
+    title: 'Osmanlı Kâgir Fermanı ve Halkın Ahşap Israrı',
     system: 'osmanli',
     description: 'Devlet binaların kâgir (taş/tuğla) olması zorunluluğunu getirdi; ancak halk barınma ihtiyacını hızlı karşılamak için ahşap çatma evlerde ısrar etti.',
     advantage: 'Ahşap çatma evler esnek yapısıyla sarsıntıda sallanır, ansızın çöküp insanları ezmez.'
