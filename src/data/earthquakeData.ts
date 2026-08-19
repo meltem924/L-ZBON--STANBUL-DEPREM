@@ -110,7 +110,7 @@ export const HOTSPOTS: Hotspot[] = [
   },
   {
     id: 'istanbul-fatih',
-    title: 'Fatih Camii Re-inşası ve Mimarbaşı Halit Efendi',
+    title: 'Fatih Camii Yeniden İnşası ve Mimarbaşı Halit Efendi',
     city: 'istanbul',
     x: 67,
     y: 35,
@@ -122,7 +122,7 @@ export const HOTSPOTS: Hotspot[] = [
       text: 'Mabetlerin ve fukara meskenlerinin derhal ihyası, hazine ve vakıf gelirlerinden karşılanıp vatandaş mağdur edilmeyecektir.',
       source: 'Sultan III. Mustafa Fermanı'
     },
-    impactTags: ['Mimarbaşı Halit Efendi', 'Mimar Tahir Ağa', 'Fatih Camii Rekonstrüksiyonu', 'II. Bayezid Vakfı Geliri']
+    impactTags: ['Mimarbaşı Halit Efendi', 'Mimar Tahir Ağa', 'Fatih Camii Yeniden İnşası', 'II. Bayezid Vakfı Geliri']
   },
   {
     id: 'istanbul-bazaar',
