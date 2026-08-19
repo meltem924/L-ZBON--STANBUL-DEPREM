@@ -19,7 +19,7 @@ export const WelcomeModal: React.FC<WelcomeModalProps> = ({ isOpen, onClose }) =
             <span className="block text-2xl sm:text-3xl md:text-4xl text-amber-700 tracking-wider font-black">
               Sarsılan Başkentler
             </span>
-            <span className="block text-xl sm:text-2xl md:text-3xl text-slate-900 font-bold">
+            <span className="block text-xl sm:text-2xl md:text-3xl text-slate-900 font-bold font-serif">
               1755 Lizbon ve 1766 İstanbul Depremleri
             </span>
           </h2>

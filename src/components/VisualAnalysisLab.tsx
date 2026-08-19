@@ -482,10 +482,10 @@ export const VisualAnalysisLab: React.FC<VisualAnalysisLabProps> = ({ onUnlockBa
             </div>
             <div>
               <h4 className="text-sm sm:text-base font-bold text-emerald-950 font-cinzel">
-                Tebrikler! 2. Bölüm Analiz Mührü Kazanıldı!
+                Tebrikler! 2. Bölüm Başarıyla Tamamlandı!
               </h4>
               <p className="text-xs text-emerald-800 font-medium mt-0.5">
-                4 vaka analizinin tamamını doğru eşleştirdiniz. <strong>3. Bölüm (Karşılaştırma)</strong> kilitleri açıldı!
+                4 vaka analizinin tamamını doğru eşleştirdiniz. <strong>3. Bölüm (Karşılaştırma)</strong> kilidi açıldı!
               </p>
             </div>
           </div>

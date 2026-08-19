@@ -45,7 +45,7 @@ export const Header: React.FC<HeaderProps> = ({ activeTab, setActiveTab, badges,
       icon: Layers,
       badgeId: 'badge-visual',
       prereqBadgeId: 'badge-map',
-      lockAlert: '🔒 2. Bölüm (Görsel Analiz) kilitlidir!\n\nAçılması için önce 1. Bölümdeki (Etkileşimli Harita) 9 sıcak noktayı inceleyip Harita Mührünü kazanmalısınız.'
+      lockAlert: '🔒 2. Bölüm (Görsel Analiz) kilitlidir!\n\nAçılması için önce 1. Bölümdeki (Etkileşimli Harita) 9 noktayı incelemelisiniz.'
     },
     {
       id: 'matrix' as ActiveTab,
@@ -53,14 +53,14 @@ export const Header: React.FC<HeaderProps> = ({ activeTab, setActiveTab, badges,
       icon: LayoutGrid,
       badgeId: 'badge-matrix',
       prereqBadgeId: 'badge-visual',
-      lockAlert: '🔒 3. Bölüm (Karşılaştırma) kilitlidir!\n\nAçılması için önce 2. Bölümdeki (Görsel Analiz) 4 vakayı başarıyla tamamlayıp Analiz Mührünü kazanmalısınız.'
+      lockAlert: '🔒 3. Bölüm (Karşılaştırma) kilitlidir!\n\nAçılması için önce 2. Bölümdeki (Görsel Analiz) 4 vakayı başarıyla tamamlamalısınız.'
     }
   ];
 
   return (
     <header className="bg-white/95 backdrop-blur-md text-slate-800 border-b-2 border-slate-300 sticky top-0 z-40 shadow-xs">
       <div className="max-w-7xl mx-auto px-3 sm:px-6 lg:px-8 py-2">
-        
+
         {/* Unified Scrollable Tabs & Actions Bar */}
         <div className="flex items-center gap-1.5 overflow-x-auto w-full no-scrollbar bg-slate-100 p-1.5 rounded-2xl border-2 border-slate-300 shadow-xs">
           {steps.map(step => {
@@ -81,13 +81,12 @@ export const Header: React.FC<HeaderProps> = ({ activeTab, setActiveTab, badges,
               <button
                 key={step.id}
                 onClick={handleTabClick}
-                className={`flex-1 min-w-[130px] sm:min-w-0 flex items-center justify-center gap-1.5 sm:gap-2 px-3 sm:px-4 py-2 rounded-xl text-xs font-bold font-cinzel transition-all duration-200 whitespace-nowrap border-2 shrink-0 sm:shrink ${
-                  isLocked
+                className={`flex-1 min-w-[130px] sm:min-w-0 flex items-center justify-center gap-1.5 sm:gap-2 px-3 sm:px-4 py-2 rounded-xl text-xs font-bold font-cinzel transition-all duration-200 whitespace-nowrap border-2 shrink-0 sm:shrink ${isLocked
                     ? 'bg-slate-200/80 text-slate-400 border-slate-300 cursor-not-allowed'
                     : isActive
-                    ? 'bg-amber-500 text-slate-950 shadow-sm border-amber-600 ring-2 ring-amber-400/50 cursor-pointer'
-                    : 'bg-white text-slate-700 hover:text-slate-950 hover:bg-slate-50 border-slate-300 hover:border-slate-400 cursor-pointer shadow-2xs'
-                }`}
+                      ? 'bg-amber-500 text-slate-950 shadow-sm border-amber-600 ring-2 ring-amber-400/50 cursor-pointer'
+                      : 'bg-white text-slate-700 hover:text-slate-950 hover:bg-slate-50 border-slate-300 hover:border-slate-400 cursor-pointer shadow-2xs'
+                  }`}
               >
                 {isLocked ? (
                   <Lock className="w-3.5 h-3.5 shrink-0 text-slate-400" />
@@ -98,7 +97,7 @@ export const Header: React.FC<HeaderProps> = ({ activeTab, setActiveTab, badges,
                 <span className="truncate">{step.label}</span>
 
                 {isCompleted && (
-                  <CheckCircle className={`w-3.5 h-3.5 shrink-0 ${isActive ? 'text-emerald-950 font-extrabold' : 'text-emerald-600'}`} title="Mühürlendi" />
+                  <CheckCircle className={`w-3.5 h-3.5 shrink-0 ${isActive ? 'text-emerald-950 font-extrabold' : 'text-emerald-600'}`} title="Tamamlandı" />
                 )}
               </button>
             );

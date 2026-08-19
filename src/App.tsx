@@ -49,7 +49,7 @@ export default function App() {
   };
 
   const handleReset = () => {
-    if (window.confirm('Tüm ilerleme ve rozetleriniz sıfırlanacaktır. Emin misiniz?')) {
+    if (window.confirm('Tüm ilerlemeniz sıfırlanacaktır. Emin misiniz?')) {
       handleRestartAll();
     }
   };

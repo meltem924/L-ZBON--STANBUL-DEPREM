@@ -177,13 +177,13 @@ export const AITutorChat: React.FC<AITutorChatProps> = ({ onUnlockBadge }) => {
             className="w-full bg-amber-500 hover:bg-amber-400 disabled:opacity-50 text-slate-950 font-bold py-3.5 px-6 rounded-2xl transition-all shadow-md flex items-center justify-center gap-2 text-sm cursor-pointer font-cinzel border border-amber-300/40"
           >
             <Sparkles className="w-4 h-4" />
-            <span>{loading ? 'Tarihçi Asistan İncelemekte...' : 'Tarihçi Değerlendirmesi Al ve Mühür Kazan'}</span>
+            <span>{loading ? 'Tarihçi Asistan İncelemekte...' : 'Tarihçi Değerlendirmesi Al'}</span>
           </button>
 
           {synthesisSubmitted && (
             <div className="bg-emerald-950/80 border border-emerald-500/50 p-3 rounded-2xl text-xs text-emerald-300 flex items-center gap-2 font-cinzel font-bold">
               <Award className="w-5 h-5 text-emerald-400 shrink-0" />
-              <span>Tebrikler! Özel Vak'anüvis Mührü başarıyla rozetlerinize eklendi.</span>
+              <span>Tebrikler! Değerlendirmeniz başarıyla tamamlandı.</span>
             </div>
           )}
         </div>

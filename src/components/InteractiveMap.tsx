@@ -170,10 +170,10 @@ export const InteractiveMap: React.FC<InteractiveMapProps> = ({ onUnlockBadge, o
             </div>
             <div>
               <h4 className="text-sm sm:text-base font-bold text-emerald-950 font-cinzel">
-                Tebrikler! 1. Bölüm Mührü Kazanıldı!
+                Tebrikler! 1. Bölüm Başarıyla Tamamlandı!
               </h4>
               <p className="text-xs text-emerald-800 font-medium mt-0.5">
-                Haritadaki 9 sıcak noktanın tamamını incelediniz. <strong>2. Bölüm (Görsel Analiz)</strong> kilitleri açıldı!
+                Haritadaki 9 sıcak noktanın tamamını incelediniz. <strong>2. Bölüm (Görsel Analiz)</strong> kilidi açıldı!
               </p>
             </div>
           </div>
