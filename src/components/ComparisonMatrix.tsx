@@ -179,16 +179,18 @@ export const ComparisonMatrix: React.FC<ComparisonMatrixProps> = ({ onUnlockBadg
           <div className="text-[11px] font-medium leading-normal border-t border-slate-300 pt-2 space-y-1">
             <div className="flex items-center gap-1">
               {isAutoFixed ? (
-                <span className="text-purple-700 font-bold uppercase tracking-wider text-[10px]">
-                  Cevap Gösterildi (Doğru Konumu)
+                <span className="text-purple-700 font-bold uppercase tracking-wider text-[10px] flex items-center gap-1">
+                  <span>Doğru Yerleşim</span>
                 </span>
               ) : isUserCorrect ? (
-                <span className="text-emerald-700 font-bold uppercase tracking-wider text-[10px]">
-                  Sizin Doğru Yerleşiminiz
+                <span className="text-emerald-700 font-bold uppercase tracking-wider text-[10px] flex items-center gap-1">
+                  <CheckCircle2 className="w-3.5 h-3.5 text-emerald-600 shrink-0" />
+                  <span>Doğru</span>
                 </span>
               ) : (
-                <span className="text-rose-700 font-bold uppercase tracking-wider text-[10px]">
-                  Hatalı Yerleşim
+                <span className="text-rose-700 font-bold uppercase tracking-wider text-[10px] flex items-center gap-1">
+                  <AlertCircle className="w-3.5 h-3.5 text-rose-600 shrink-0" />
+                  <span>Hatalı Yerleşim</span>
                 </span>
               )}
             </div>
@@ -205,23 +207,11 @@ export const ComparisonMatrix: React.FC<ComparisonMatrixProps> = ({ onUnlockBadg
     <div className="space-y-6">
       
       {/* Active Card Box (Ultra Minimal) */}
-      {activeCard ? (
+      {activeCard && (
         <div className="bg-amber-50/90 border-2 border-amber-500 rounded-3xl p-5 shadow-xs animate-fadeIn">
           <div className="text-base font-bold text-slate-900 bg-white p-4 rounded-2xl border-2 border-amber-300 leading-relaxed shadow-xs font-serif">
             "{activeCard.text}"
           </div>
-        </div>
-      ) : (
-        <div className="bg-emerald-50 border-2 border-emerald-400 rounded-3xl p-4 flex items-center justify-between gap-4">
-          <div className="text-xs font-bold text-emerald-950 font-mono">
-            Tüm 9 etki kartı sütunlara yerleştirildi. Aşağıdaki "Kontrol Et" butonuna basarak değerlendiriniz.
-          </div>
-          <button
-            onClick={handleResetAll}
-            className="bg-amber-500 hover:bg-amber-400 text-slate-950 text-xs font-bold px-3.5 py-1.5 rounded-xl transition-colors cursor-pointer font-cinzel shadow-xs border border-amber-600"
-          >
-            Tümünü Sıfırla
-          </button>
         </div>
       )}
 
@@ -349,7 +339,7 @@ export const ComparisonMatrix: React.FC<ComparisonMatrixProps> = ({ onUnlockBadg
               Bazı Kartlar Hatalı Sütunlara Yerleştirildi
             </div>
             <p className="text-xs text-rose-800 leading-relaxed font-medium">
-              Toplam {totalCount} karttan {correctCount} tanesi doğru yerleştirildi. Yanlış yerleştirilen kartları düzeltmek için yukarıdaki "Yeniden Dene" veya tüm otomatik doğru konumları mor renkli olarak görmek için "Cevapları Göster" butonunu kullanabilirsiniz.
+              Toplam {totalCount} karttan {correctCount} tanesi doğru yerleştirildi. Yanlış yerleştirilen kartları düzeltmek için "Yeniden Dene" veya doğru konumları görmek için "Cevapları Göster" butonunu kullanabilirsiniz.
             </p>
           </div>
         )}

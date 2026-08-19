@@ -48,8 +48,7 @@ export const InteractiveMap: React.FC<InteractiveMapProps> = ({ onUnlockBadge, o
       <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
         {/* Left Region Card: Lizbon */}
         <div className="bg-sky-50/95 border-2 border-sky-300 p-3 sm:p-3.5 rounded-2xl shadow-xs">
-          <div className="flex items-center gap-2 text-sky-900 font-bold text-xs uppercase tracking-wide font-cinzel">
-            <Waves className="w-4 h-4 text-sky-600 shrink-0" />
+          <div className="text-sky-900 font-bold text-xs uppercase tracking-wide font-cinzel">
             <span>1755 Lizbon Tsunami Odağı</span>
           </div>
           <div className="text-[11px] sm:text-xs text-slate-700 mt-1 font-medium leading-relaxed">
@@ -59,8 +58,7 @@ export const InteractiveMap: React.FC<InteractiveMapProps> = ({ onUnlockBadge, o
 
         {/* Right Region Card: İstanbul */}
         <div className="bg-orange-50/95 border-2 border-orange-300 p-3 sm:p-3.5 rounded-2xl shadow-xs">
-          <div className="flex items-center gap-2 text-orange-900 font-bold text-xs uppercase tracking-wide font-cinzel">
-            <Building2 className="w-4 h-4 text-orange-600 shrink-0" />
+          <div className="text-orange-900 font-bold text-xs uppercase tracking-wide font-cinzel">
             <span>1766 İstanbul Deprem Odağı</span>
           </div>
           <div className="text-[11px] sm:text-xs text-slate-700 mt-1 font-medium leading-relaxed">

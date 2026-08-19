@@ -11,7 +11,7 @@ interface MatchingTask {
   title: string;
   lisbonContent: string;
   istanbulContent: string;
-  correctDimension: 'architecture' | 'social' | 'economic' | 'administration';
+  correctDimension: 'architecture' | 'social' | 'economic' | 'administration' | 'intellectual';
   correctType: 'benzerlik' | 'farklilik';
   dimensionTitle: string;
   feedbackMessage: string;
@@ -22,48 +22,48 @@ interface MatchingTask {
 const MATCHING_TASKS: MatchingTask[] = [
   {
     id: 'task-1',
-    title: 'Vaka 1: Toplumsal Hayat ve Basın-İaşet Basısı',
+    title: 'Toplumsal Hayat ve İaşe Tedbirleri',
     lisbonContent: 'Basının ticari kaygılarla sansasyonel bir dil kullanıp gazetelerde 1757/1758 yıllarında geçmesi beklenen Halley kuyruklu yıldızının felakete yol açacağına dair dehşet haberleri yayımlaması; %85’i yıkılan kentte halkın inanç krizine düşmesi.',
     istanbulContent: 'Fırın ve değirmenlerin (Samatya’da surlara bitişik 4 değirmenin) yıkılmasıyla buğdayın çürüme tehlikesi geçirmesi, fırın tamirine öncelik verilmesi, yapılmazsa satılması emredilmesi ve yardım dağıtımında kadın ve çocuklara öncelik tanınması.',
     correctDimension: 'social',
     correctType: 'farklilik',
-    dimensionTitle: 'Sosyal ve Düşünsel Boyut',
+    dimensionTitle: 'Sosyal Boyut',
     feedbackMessage: 'Tebrikler! Lizbon felaketi basının Halley kuyruklu yıldızı sansasyonu ve halkta inanç krizi yaratmasıyla öne çıkarken; İstanbul kriz yönetimi fırın/değirmen iaşe önlemleri ile kadın ve çocuklara sosyal yardım önceliği sunduğu için bu durum Sosyal bir FARKLILIK’tır.',
     hintMessage: 'İpucu: Bu içerikte gazetelerdeki Halley kuyruklu yıldızı haberleri, inanç tartışmaları, Samatya değirmenleri ve yardım dağıtımında kadın ve çocuk önceliği var. Metni dikkatle inceleyiniz.',
     strongHintMessage: '💡 Cevaba Yönelik Rehber İpucu: Gazetelerdeki kuyruklu yıldız haberleri, halkın yaşadığı inanç sarsıntısı, değirmenlerin bozulması ve kadın/çocuklara yardım önceliği toplumsal hayatı ve zihniyeti ilgilendirir. İki başkentte farklı durumlar yaşandığı için doğru seçenek: SOSYAL boyut ve FARKLILIK\'tır.'
   },
   {
     id: 'task-2',
-    title: 'Vaka 2: Asayiş, Sağlık ve Adli Kurumlar',
+    title: 'Asayiş, Sağlık ve Adli Kurumlar',
     lisbonContent: 'Salgın hastalık tehlikesine karşı vefat edenlerin Kilise izniyle dinî tören yapılmadan Tagus Nehri’ne batırılması, yağma ve hırsızlığın idamla cezalandırılması, geçici adli birimler kurulup arşiv kayıtlarının yenilenmesi.',
     istanbulContent: 'Zarar gören mahkeme binalarının boşaltılarak geçici adli birimler oluşturulmasıyla hukuk işlerinin devamlılığının sağlanması; yıkılan medreseler yerine müderrislerin geçici ders halkaları kurması.',
     correctDimension: 'administration',
     correctType: 'benzerlik',
-    dimensionTitle: 'İdari ve Kriz Yönetimi',
-    feedbackMessage: 'Tebrikler! Her iki imparatorluk başkenti de adalet mekanizmasını aksatmamak için geçici adli birimler kurduğu ve krizde asayiş/kamu düzenini sağladığı için bu olay İdari bir BENZERLİK’tir.',
+    dimensionTitle: 'İdari Boyut',
+    feedbackMessage: 'Tebrikler! Her iki devlet de adalet mekanizmasını aksatmamak için geçici adli birimler kurduğu ve krizde asayiş/kamu düzenini sağladığı için bu olay İdari bir BENZERLİK’tir.',
     hintMessage: 'İpucu: Bu içerikte geçici adli birimlerin kurulması, arşiv kayıtlarının yenilenmesi, mahkeme binalarının taşınması ve idari asayiş tedbirleri yer alıyor.',
     strongHintMessage: '💡 Cevaba Yönelik Rehber İpucu: Geçici adli birimlerin kurulması, arşiv kayıtlarının yenilenmesi ve mahkeme binalarının taşınması hukuk idaresi ve devlet yönetimiyle ilgilidir. Her iki devlet de adalet mekanizmasını kesintisiz işlettiği için doğru seçenek: İDARİ boyut ve BENZERLİK\'tir.'
   },
   {
     id: 'task-3',
-    title: 'Vaka 3: İmar Planlaması ve Yapı Hasar Sınıfları',
+    title: 'İmar Planlaması ve Yapı Hasar Sınıfları',
     lisbonContent: 'Rossio ile rıhtım arasının düzleştirilip dik batı yamaçlarının azaltılması; demir, ahşap bağlantı, kiremit ve seramik parçaların önceden standart üretilmesi ve su kıyısına büyük Ticaret Meydanı yapılması.',
     istanbulContent: 'Depremde hasar gören yapıların işlevlerine göre sınıflandırılmasında %30 Cami, %20 Eğitim Binası, %15 Mirî Hizmet Binası (Devlet binası) tespiti yapılması ve ahşap evlerin arasına kâgir yangın duvarları örülmesi.',
     correctDimension: 'architecture',
     correctType: 'farklilik',
-    dimensionTitle: 'Mimari ve İmar Boyutu',
+    dimensionTitle: 'Mimari Boyut',
     feedbackMessage: 'Tebrikler! Lizbon ızgara plan (grid) ve standart önceden üretilmiş yapı elemanlarıyla Ticaret Meydanı etrafında inşa edilirken; İstanbul %30 cami, %20 eğitim, %15 mirî bina tespiti ve kâgir yangın duvarlarıyla (kulaklı duvar) imar edildiği için bu durum Mimari bir FARKLILIK’tır.',
     hintMessage: 'İpucu: Bu vaka Lizbon’un arazi düzleştirme ve standart üretim teknikleri ile İstanbul’un işlevsel yapı hasar sınıflarını (cami, eğitim, mirî bina) karşılaştırıyor.',
     strongHintMessage: '💡 Cevaba Yönelik Rehber İpucu: Izgara şehir planı, standart üretim malzemeleri ile binaların işlevlerine göre hasar tespiti (%30 cami, %20 medrese vb.) ve kâgir yangın duvarları şehir mimarisiyle ilgilidir. İki kentin imar yaklaşımları farklı olduğu için doğru seçenek: MİMARİ boyut ve FARKLILIK\'tır.'
   },
   {
     id: 'task-4',
-    title: 'Vaka 4: Piyasa Müdahalesi ve Hazine Desteği',
+    title: 'Piyasa Müdahalesi ve Hazine Desteği',
     lisbonContent: 'Sömürge ticareti ağlarının sekteye uğraması sonrası Brezilya, Hindistan ve Afrika’ya savaş gemileri sevk edilerek ticaretin güvenli olduğu mesajının verilmesi, vergilerin askıya alınması ve kamu harcamalarının bütçeden karşılanması.',
     istanbulContent: 'İnşaat sektöründe ve gıdada fiyat artışlarını önlemek amacıyla narh (tavan fiyat) uygulaması getirilmesi, Sultan II. Bayezid Vakfı’nın 4 yıllık gelirinin ayrılması ve imar masraflarının kamusal kaynaklarla karşılanması.',
     correctDimension: 'economic',
     correctType: 'benzerlik',
-    dimensionTitle: 'Ekonomik ve Mali Boyut',
+    dimensionTitle: 'Ekonomik Boyut',
     feedbackMessage: 'Tebrikler! Her iki devlet de piyasa istikrarını ve kamu kaynaklarını seferber ederek afet harcamalarını bütçe, vakıf ve devlet imkânlarıyla karşıladığı için bu durum Ekonomik bir BENZERLİK’tir.',
     hintMessage: 'İpucu: Bu içerikte narh uygulaması, savaş gemileriyle ticari güven tazelenmesi, vakıf gelirlerinin ayrılması ve kamu harcamalarının bütçeden karşılanması ele alınıyor.',
     strongHintMessage: '💡 Cevaba Yönelik Rehber İpucu: Ticaret gemileriyle güven verilmesi, fiyat artışlarına karşı narh (tavan fiyat) konulması, vakıf ve devlet hazinesi desteği finans ve bütçe idaresiyle ilgilidir. Her iki devlet de piyasaya müdahale ettiği için doğru seçenek: EKONOMİK boyut ve BENZERLİK\'tir.'
@@ -81,10 +81,11 @@ function shuffleArray<T>(array: T[]): T[] {
 }
 
 const DIMENSION_OPTIONS = [
-  { id: 'social', label: 'Sosyal ve Düşünsel' },
-  { id: 'administration', label: 'İdari ve Kriz' },
-  { id: 'architecture', label: 'Mimari ve İmar' },
-  { id: 'economic', label: 'Ekonomik ve Mali' }
+  { id: 'administration', label: 'İdari' },
+  { id: 'social', label: 'Sosyal' },
+  { id: 'economic', label: 'Ekonomik' },
+  { id: 'intellectual', label: 'Düşünsel' },
+  { id: 'architecture', label: 'Mimari' }
 ];
 
 export const VisualAnalysisLab: React.FC<VisualAnalysisLabProps> = ({ onUnlockBadge, onNavigateNext }) => {
@@ -96,7 +97,7 @@ export const VisualAnalysisLab: React.FC<VisualAnalysisLabProps> = ({ onUnlockBa
   const [currentTaskIndex, setCurrentTaskIndex] = useState<number>(0);
   
   // User interactive matching selections
-  const [selectedDimensions, setSelectedDimensions] = useState<Record<string, 'architecture' | 'social' | 'economic' | 'administration' | null>>({
+  const [selectedDimensions, setSelectedDimensions] = useState<Record<string, 'architecture' | 'social' | 'economic' | 'administration' | 'intellectual' | null>>({
     'task-1': null,
     'task-2': null,
     'task-3': null,
@@ -263,20 +264,10 @@ export const VisualAnalysisLab: React.FC<VisualAnalysisLabProps> = ({ onUnlockBa
       {/* 2. SECTION: INTERACTIVE MATCHING LAB (Eşleştirme & Anlık Dönüt Laboratuvarı) */}
       <div className="bg-white border-2 border-slate-300 rounded-3xl p-6 shadow-sm space-y-6">
         
-        {/* Header with Progress Bar */}
-        <div className="border-b border-slate-300 pb-5 space-y-3">
-          <div className="flex items-center justify-end gap-3">
-            <div className="bg-slate-100 px-3.5 py-1.5 rounded-xl border border-slate-300 text-xs font-bold font-mono text-amber-800">
-              {completedCount} / 4
-            </div>
-          </div>
-
-          {/* Prominent & Explanatory Instruction Box */}
+        {/* Instruction Box */}
+        <div className="border-b border-slate-300 pb-5">
           <div className="bg-amber-50/80 border-l-4 border-amber-500 p-4 rounded-2xl text-xs sm:text-sm text-slate-800 leading-relaxed font-medium shadow-none border-t border-b border-r border-amber-300">
-            <span className="font-bold text-amber-900 block mb-1 font-cinzel text-xs uppercase tracking-wider">
-              📌 Eşleştirme Yönergesi:
-            </span>
-            Aşağıda verilen 1755 Lizbon ve 1766 İstanbul depremlerine ait vaka metinlerini okuyunuz. Metindeki konunun hangi <strong>boyuta</strong> (Sosyal, İdari, Mimari veya Ekonomik) ait olduğunu ve durumun iki imparatorluk arasında bir <strong>Benzerlik</strong> mi yoksa <strong>Farklılık</strong> mı gösterdiğini seçerek eşleştirmeyi kontrol ediniz.
+            Aşağıda verilen 1755 Lizbon ve 1766 İstanbul depremlerine ait metinleri okuyunuz. Metindeki konunun hangi <strong>boyuta</strong> (İdari, Sosyal, Ekonomik, Düşünsel veya Mimari) ait olduğunu ve iki devlet arasında bir <strong>Benzerlik</strong> mi yoksa <strong>Farklılık</strong> mı oluşturduğunu belirleyerek eşleştirmeyi yapınız.
           </div>
         </div>
 
@@ -287,12 +278,6 @@ export const VisualAnalysisLab: React.FC<VisualAnalysisLabProps> = ({ onUnlockBa
             <div key={task.id} className="bg-slate-50 border-2 border-slate-300 rounded-3xl p-5 sm:p-7 space-y-6 shadow-xs">
               {/* 1. TOP SECTION: HISTORICAL EVENT READOUT CARDS */}
               <div className="space-y-3">
-                <div className="flex items-center justify-between px-1">
-                  <span className="text-xs font-bold tracking-wider text-amber-900 font-cinzel">
-                    Vaka {currentTaskIndex + 1} / {matchingTasks.length}
-                  </span>
-                </div>
-
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
                   {/* Lisbon Event Card */}
                   <div className="relative overflow-hidden bg-gradient-to-br from-sky-50 via-white to-sky-50/50 border-2 border-sky-400 rounded-2xl p-5 space-y-3 shadow-xs">
@@ -330,21 +315,33 @@ export const VisualAnalysisLab: React.FC<VisualAnalysisLabProps> = ({ onUnlockBa
                       1
                     </span>
                     <label className="text-xs sm:text-sm font-bold text-slate-900 block">
-                      Yukarıdaki tarihsel olaylar ve durumlar hangi boyuta aittir?
+                      Yukarıdaki olaylar ve durumlar hangi boyuta aittir?
                     </label>
                   </div>
 
-                  <div className="grid grid-cols-2 sm:grid-cols-4 gap-3">
+                  <div className="grid grid-cols-2 sm:grid-cols-5 gap-2.5 sm:gap-3">
                     {dimensionOptions.map(dim => {
                       const isSelected = selectedDimensions[task.id] === dim.id;
+                      const isCorrect = matchedTasks[task.id] === true;
+                      const isError = feedbackStates[task.id] === 'error';
+
                       return (
                         <button
                           key={dim.id}
-                          onClick={() => setSelectedDimensions({ ...selectedDimensions, [task.id]: dim.id as any })}
-                          className={`p-3.5 rounded-xl border-2 text-xs font-bold transition-all cursor-pointer text-center flex flex-col items-center justify-center gap-1.5 shadow-xs ${
+                          disabled={isCorrect}
+                          onClick={() => {
+                            if (isCorrect) return;
+                            if (isError) setFeedbackStates({ ...feedbackStates, [task.id]: null });
+                            setSelectedDimensions({ ...selectedDimensions, [task.id]: dim.id as any });
+                          }}
+                          className={`p-3.5 rounded-xl border-2 text-xs font-bold transition-all text-center flex flex-col items-center justify-center gap-1.5 shadow-xs ${
                             isSelected
-                              ? 'bg-gradient-to-r from-amber-500 to-amber-400 text-slate-950 border-amber-500 ring-2 ring-amber-400/50 scale-[1.02] shadow-sm'
-                              : 'bg-slate-50 border-slate-300 text-slate-700 hover:bg-slate-100 hover:border-amber-400'
+                              ? isCorrect
+                                ? 'bg-emerald-600 text-white border-emerald-600 ring-2 ring-emerald-400/60 scale-[1.02] shadow-md cursor-default'
+                                : isError
+                                ? 'bg-rose-600 text-white border-rose-600 ring-2 ring-rose-400/60 scale-[1.02] shadow-sm'
+                                : 'bg-gradient-to-r from-amber-500 to-amber-400 text-slate-950 border-amber-500 ring-2 ring-amber-400/50 scale-[1.02] shadow-sm cursor-pointer'
+                              : 'bg-slate-50 border-slate-300 text-slate-700 hover:bg-slate-100 hover:border-slate-400'
                           }`}
                         >
                           <span>{dim.label}</span>
@@ -367,17 +364,29 @@ export const VisualAnalysisLab: React.FC<VisualAnalysisLabProps> = ({ onUnlockBa
 
                   <div className="grid grid-cols-2 gap-3.5">
                     {[
-                      { id: 'farklilik', label: 'FARKLILIK', activeClass: 'bg-gradient-to-r from-sky-500 to-sky-400 text-slate-950 border-sky-400 ring-2 ring-sky-400/50 scale-[1.02] shadow-sm' },
-                      { id: 'benzerlik', label: 'BENZERLİK', activeClass: 'bg-gradient-to-r from-amber-500 to-amber-400 text-slate-950 border-amber-400 ring-2 ring-amber-400/50 scale-[1.02] shadow-sm' }
+                      { id: 'farklilik', label: 'FARKLILIK' },
+                      { id: 'benzerlik', label: 'BENZERLİK' }
                     ].map(type => {
                       const isSelected = selectedTypes[task.id] === type.id;
+                      const isCorrect = matchedTasks[task.id] === true;
+                      const isError = feedbackStates[task.id] === 'error';
+
                       return (
                         <button
                           key={type.id}
-                          onClick={() => setSelectedTypes({ ...selectedTypes, [task.id]: type.id as any })}
-                          className={`p-3.5 rounded-xl border-2 text-xs font-bold transition-all cursor-pointer text-center shadow-xs ${
+                          disabled={isCorrect}
+                          onClick={() => {
+                            if (isCorrect) return;
+                            if (isError) setFeedbackStates({ ...feedbackStates, [task.id]: null });
+                            setSelectedTypes({ ...selectedTypes, [task.id]: type.id as any });
+                          }}
+                          className={`p-3.5 rounded-xl border-2 text-xs font-bold transition-all text-center shadow-xs ${
                             isSelected
-                              ? type.activeClass
+                              ? isCorrect
+                                ? 'bg-emerald-600 text-white border-emerald-600 ring-2 ring-emerald-400/60 scale-[1.02] shadow-md cursor-default'
+                                : isError
+                                ? 'bg-rose-600 text-white border-rose-600 ring-2 ring-rose-400/60 scale-[1.02] shadow-sm'
+                                : 'bg-gradient-to-r from-amber-500 to-amber-400 text-slate-950 border-amber-500 ring-2 ring-amber-400/50 scale-[1.02] shadow-sm cursor-pointer'
                               : 'bg-slate-50 border-slate-300 text-slate-700 hover:bg-slate-100 hover:border-slate-400'
                           }`}
                         >
@@ -392,9 +401,21 @@ export const VisualAnalysisLab: React.FC<VisualAnalysisLabProps> = ({ onUnlockBa
                 <div className="pt-3 flex justify-center border-t border-slate-300">
                   <button
                     onClick={() => handleCheckMatching(task.id)}
-                    className="w-full sm:w-auto bg-gradient-to-r from-amber-500 to-amber-400 hover:from-amber-400 hover:to-amber-300 text-slate-950 font-bold px-7 py-3 rounded-xl transition-all shadow-md border border-amber-500 font-cinzel text-xs flex items-center justify-center gap-2 cursor-pointer scale-[1.01] active:scale-[0.99]"
+                    disabled={matchedTasks[task.id] === true}
+                    className={`w-full sm:w-auto font-bold px-7 py-3 rounded-xl transition-all shadow-md font-cinzel text-xs flex items-center justify-center gap-2 ${
+                      matchedTasks[task.id] === true
+                        ? 'bg-emerald-600 text-white border-2 border-emerald-500 cursor-default shadow-emerald-600/20'
+                        : 'bg-gradient-to-r from-amber-500 to-amber-400 hover:from-amber-400 hover:to-amber-300 text-slate-950 border border-amber-500 cursor-pointer scale-[1.01] active:scale-[0.99]'
+                    }`}
                   >
-                    EŞLEŞTİRMEYİ KONTROL ET VE DÖNÜTÜ GÖR
+                    {matchedTasks[task.id] === true ? (
+                      <>
+                        <CheckCircle2 className="w-4 h-4 text-white" />
+                        <span>DOĞRU EŞLEŞTİRİLDİ</span>
+                      </>
+                    ) : (
+                      <span>EŞLEŞTİRMEYİ KONTROL ET VE DÖNÜTÜ GÖR</span>
+                    )}
                   </button>
                 </div>
               </div>
@@ -442,28 +463,16 @@ export const VisualAnalysisLab: React.FC<VisualAnalysisLabProps> = ({ onUnlockBa
                 </button>
 
                 <button
-                  onClick={() => {
-                    const isTaskDone = matchedTasks[task.id] === true;
-                    if (!isTaskDone) {
-                      alert('Sonraki vakaya geçebilmek için lütfen mevcut vakanın eşleştirmesini doğru yaparak gönderiniz!');
-                      return;
-                    }
-                    setCurrentTaskIndex(prev => Math.min(matchingTasks.length - 1, prev + 1));
-                  }}
-                  disabled={!matchedTasks[task.id] || currentTaskIndex === matchingTasks.length - 1}
+                  onClick={() => setCurrentTaskIndex(prev => Math.min(matchingTasks.length - 1, prev + 1))}
+                  disabled={currentTaskIndex === matchingTasks.length - 1}
                   className={`px-5 py-2.5 rounded-xl text-xs font-bold transition-all flex items-center gap-2 font-cinzel ${
-                    matchedTasks[task.id] && currentTaskIndex < matchingTasks.length - 1
+                    currentTaskIndex < matchingTasks.length - 1
                       ? 'bg-amber-500 hover:bg-amber-400 text-slate-950 cursor-pointer shadow-sm shadow-amber-500/20 active:scale-95 border border-amber-500'
                       : 'bg-slate-100 border border-slate-300 text-slate-400 opacity-60 cursor-not-allowed'
                   }`}
-                  title={!matchedTasks[task.id] ? 'Mevcut soruyu doğru yanıtladıktan sonra açılır' : ''}
                 >
                   <span>Sonraki</span>
-                  {matchedTasks[task.id] ? (
-                    <ChevronRight className="w-4 h-4 text-slate-950" />
-                  ) : (
-                    <Lock className="w-3.5 h-3.5 text-amber-600/70" />
-                  )}
+                  <ChevronRight className="w-4 h-4" />
                 </button>
               </div>
 

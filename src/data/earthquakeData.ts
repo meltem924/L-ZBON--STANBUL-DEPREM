@@ -10,17 +10,17 @@ export const STEP_INSTRUCTIONS: Record<string, StepInstruction> = {
   },
   visual: {
     stepId: 'visual',
-    title: 'Görsel Analiz',
+    title: 'Görsel Analiz ve Eşleştirme',
     curriculumGoal: '',
-    instructionText: 'Tarihi afet ve imar gravürlerini inceleyin; mimari, sosyal, idari ve ekonomik tarihsel durumları eşleştirerek analizlerinizi yapın.',
-    actionPrompt: 'Tarihi gravürleri kıyaslayın ve tematik durumları boyutlarına göre eşleştirin.'
+    instructionText: 'Afet ve imar gravürlerini inceleyiniz; mimari, sosyal, idari ve ekonomik durumları eşleştirerek analizlerinizi yapınız.',
+    actionPrompt: 'Gravürleri kıyaslayarak tematik durumları boyutlarına göre eşleştiriniz.'
   },
   matrix: {
     stepId: 'matrix',
     title: 'Karşılaştırma',
     curriculumGoal: '',
-    instructionText: 'Aktif etki kartını okuyarak ilgili sütun butonuna (Sadece Lizbon, Ortak Etkiler, Sadece İstanbul) tıklayıp sınıflandırınız.',
-    actionPrompt: '9 etki kartını ilgili sütun butonlarına tıklayarak yerleştirin ve en alttaki Kontrol Et butonuna basın.'
+    instructionText: 'Açıklamayı okuyarak durumun hangi başkente ait olduğunu (Lizbon, İstanbul veya Her İkisi) ilgili sütuna tıklayarak belirleyiniz.',
+    actionPrompt: 'Etki kartlarını ilgili sütun butonlarına tıklayarak yerleştirip Kontrol Et butonuna basınız.'
   }
 };
 
@@ -76,19 +76,19 @@ export const HOTSPOTS: Hotspot[] = [
   },
   {
     id: 'lisbon-baixa',
-    title: 'Baixa Pombalina ve Ahşap Kafes (Gaiola)',
+    title: 'Gaiola Pombalina [Pombalin Kafesi] Modeli',
     city: 'lisbon',
     x: 17,
     y: 29,
     category: 'architecture',
-    shortDesc: 'Gemi yapımından esinlenen Gaiola Pombalina kafes sistemi, 60 feet caddeler ve Ticaret Meydanı.',
-    fullDesc: 'Izgara Plan: Eugénio dos Santos ve Carlos Mardel; caddeleri 60 feet (15m karayolu, 3m kaldırım) genişliğinde dik açılı ızgara planla çizdi.\nGaiola Pombalina: Duvar örgüsüne gemi yapım tekniğinden esinlenen 3D esnek ahşap kafes ("Gaiola") koyulması zorunlu kılındı.\nMeydan ve Vergi: Eski Kraliyet Meydanı yerine su kıyısına Ticaret Meydanı yapıldı. İthalattan %4 bağış kesintisi alındı ve soylulara yeni vergi getirildi.',
+    shortDesc: 'Baixa Pombalina bölgesinde uygulanan, gemi yapımından esinlenen sismik önleyici ahşap kafes sistemi.',
+    fullDesc: 'Yapı Sistemi: Gaiola Pombalina [Gayola Pombalina (Pombalin Kafesi)], 1755 Depremi’nden sonra Lizbon’un Baixa Pombalina (Bayşa Pombalina) bölgesinde kullanılmış sismik önleyici bir yapı sistemidir.\nAhşap Kafes Modeli: Duvar örgüsüne üç boyutlu ahşap bir yapının yerleştirilmesiyle ortaya çıkan bu kafes, gemi yapım yöntemlerinden esinlenilerek tasarlanmıştır.\nEsneklik ve Güç: Duruma göre şekil değiştirebilen bir malzeme olan ahşabın sürekli hareket hâlindeki bir ortamda basınç ve yer çekimine karşı koyma kapasitesi yüksektir. Ahşap yapının taş duvarlara entegre edilmesi iki yapı türünün de avantajlarını birleştirmiştir.',
     primaryQuote: {
-      author: 'Portekiz Mühendislik ve İmar Heyeti',
-      text: 'Gaiola Pombalina, ahşabın esnekliği ile taş duvarları birleştirerek deprem basıcına karşı koyan ilk sismik korumalı yapı sistemidir.',
+      author: 'Portekiz İmar Heyeti Kayıtları (1755)',
+      text: 'Ahşap yapının taş duvarlara entegre edilmesi, duruma göre şekil değiştirebilen ahşabın esnekliği sayesinde sarsıntı anında binaların yıkılmasını önlemiştir.',
       source: 'Lizbon İmar Belgeleri'
     },
-    impactTags: ['Gaiola Pombalina', '60 Feet Caddeler', 'Ticaret Meydanı', '%4 İthalat Kesintisi']
+    impactTags: ['Gaiola Pombalina', 'Pombalin Kafesi', 'Baixa Pombalina', 'Ahşap ve Taş Entegrasyonu']
   },
 
   // ISTANBUL HOTSPOTS (Positioned accurately on right half of 1.OLAY_HARİTA.png)
@@ -257,10 +257,10 @@ export const COMPARISON_CARDS: ComparisonCard[] = [
 export const ARCHITECTURAL_FEATURES: ArchitecturalFeature[] = [
   {
     id: 'gaiola-1',
-    title: 'Gaiola Pombalina (Gemi Tekniğinden Esinlenen Kafes)',
+    title: 'Gaiola Pombalina [Pombalin Kafesi] Modeli',
     system: 'gaiola',
-    description: 'Baixa Pombalina bölgesinde kullanılan sarsıntı önleyici sistem. Duvar örgüsüne 3 boyutlu ahşap kafes yerleştirilir. Gemi yapım yöntemlerinden esinlenilerek tasarlanmıştır.',
-    advantage: 'Ahşabın esnekliği taş duvarların gücüyle birleşir; sürekli hareket halinde basınca ve yer çekimine karşı koyar.'
+    description: '1755 Depremi’nden sonra Lizbon’un Baixa Pombalina bölgesinde kullanılmış sismik önleyici yapı sistemidir. Duvar örgüsüne üç boyutlu ahşap kafes yerleştirilir. Gemi yapım yöntemlerinden esinlenilerek tasarlanmıştır.',
+    advantage: 'Duruma göre şekil değiştirebilen ahşap, hareket hâlindeki ortamda basınç ve yer çekimine karşı koyar. Ahşap yapının taş duvarlara entegre edilmesi iki yapının da avantajını birleştirmiştir.'
   },
   {
     id: 'gaiola-2',
@@ -295,8 +295,8 @@ export const BADGES: Badge[] = [
   },
   {
     id: 'badge-visual',
-    title: 'Görsel Analiz',
-    description: 'Tarihi gravürleri incelediniz ve eşleştirme analizlerini tamamladınız.',
+    title: 'Görsel Analiz ve Eşleştirme',
+    description: '4 adet vaka eşleştirmesini başarıyla tamamladınız.',
     iconName: 'Compass',
     unlocked: false
   },
